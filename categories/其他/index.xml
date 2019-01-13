@@ -6,10 +6,19 @@
     <description>Recent content in 其他 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Jan 2019 13:17:51 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jan 2019 20:08:05 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用hugo&#43;gitpages搭建静态网站</title>
+      <link>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;gitpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Sun, 13 Jan 2019 20:08:05 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;gitpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
+      <description>参考文档：hugo getting-started 第一步： 安装hugo，这里以mac为例 以homebrew安装: brew install hugo 查看版本： hugo version 第二步： 创建一个静态站点：hugo new site</description>
+    </item>
     
     <item>
       <title>First Post</title>
