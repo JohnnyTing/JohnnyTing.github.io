@@ -5,7 +5,7 @@
     <link>https://johnnyting.github.io/</link>
     <description>Recent content on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-CN</language>
     <lastBuildDate>Sun, 13 Jan 2019 13:17:51 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <pubDate>Sun, 13 Jan 2019 13:17:51 +0800</pubDate>
       
       <guid>https://johnnyting.github.io/posts/first-post/</guid>
-      <description> hello world </description>
+      <description>hello world</description>
     </item>
     
   </channel>
