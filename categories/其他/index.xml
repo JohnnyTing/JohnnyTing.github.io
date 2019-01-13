@@ -20,14 +20,5 @@
       <description>参考文档：hugo getting-started 第一步： 安装hugo，这里以mac为例 以homebrew安装: brew install hugo 查看版本： hugo version 第二步： 创建一个静态站点： hugo new site JohnnyTing.github.io 第三</description>
     </item>
     
-    <item>
-      <title>First Post</title>
-      <link>https://johnnyting.github.io/posts/first-post/</link>
-      <pubDate>Sun, 13 Jan 2019 13:17:51 +0800</pubDate>
-      
-      <guid>https://johnnyting.github.io/posts/first-post/</guid>
-      <description>hello world</description>
-    </item>
-    
   </channel>
 </rss>
