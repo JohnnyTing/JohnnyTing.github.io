@@ -42,7 +42,7 @@
 
 <meta itemprop="datePublished" content="2019-01-13T20:08:05&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-13T20:08:05&#43;08:00" />
-<meta itemprop="wordCount" content="1219">
+<meta itemprop="wordCount" content="1346">
 
 
 
@@ -199,13 +199,28 @@
 <pre><code>hugo new posts/my-first-post.md
 </code></pre>
 
-<p>​   生成的文件在content/posts/目录下，my-first-post.md文件去掉草稿，删除 draft：true 这行，因为创建内容默认是草稿模式，后面会介绍修改内容模板。</p>
+<p>​   生成的文件在content/posts/目录下，my-first-post.md文件去掉草稿，删除 draft：true 这行，因为创建内容默认是草稿模式，可以修改内容模板在archetypes/default.md中，设置draft: false。</p>
+
+<pre><code class="language-toml">---
+title: &quot;{{ replace .Name &quot;-&quot; &quot; &quot; | title }}&quot;
+date: {{ .Date }}
+draft: false
+tags: [&quot;网站&quot;]
+categories: [&quot;其他&quot;]
+mathjax: true
+comments: true
+share: true
+---
+</code></pre>
 
 <p><strong>第五步：</strong></p>
 
 <p>​   本地启动hugo服务，访问 <a href="http://localhost:1313/">http://localhost:1313/</a>  执行命令：</p>
 
-<pre><code>hugo server
+<pre><code class="language-shell">hugo server
+
+#如果第四步对于草稿没有任何设置，下面命令网站也可以加载草稿内容
+hugo server -D
 </code></pre>
 
 <p><strong>第六步：</strong></p>
