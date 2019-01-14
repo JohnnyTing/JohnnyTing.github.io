@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Johnny Ting  | 使用hugo&#43;github pages搭建静态网站</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.53" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://johnnyting.github.io/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+<link rel="shortcut icon" href="//images/bg.jpg" type="image/x-icon" />
+
+    
+
+    
+
+    <meta property="og:title" content="使用hugo&#43;github pages搭建静态网站" />
+<meta property="og:description" content="参考文档：hugo getting-started 下面将介绍非常简单的教程来搭建自己的博客网站，你既不需要买服务器，也不需要买域名，只需要个github账号，将静态网站托" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;githubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" /><meta property="article:published_time" content="2019-01-13T20:08:05&#43;08:00"/>
+<meta property="article:modified_time" content="2019-01-13T20:08:05&#43;08:00"/>
+
+<meta itemprop="name" content="使用hugo&#43;github pages搭建静态网站">
+<meta itemprop="description" content="参考文档：hugo getting-started 下面将介绍非常简单的教程来搭建自己的博客网站，你既不需要买服务器，也不需要买域名，只需要个github账号，将静态网站托">
+
+
+<meta itemprop="datePublished" content="2019-01-13T20:08:05&#43;08:00" />
+<meta itemprop="dateModified" content="2019-01-13T20:08:05&#43;08:00" />
+<meta itemprop="wordCount" content="1219">
+
+
+
+<meta itemprop="keywords" content="网站," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用hugo&#43;github pages搭建静态网站"/>
+<meta name="twitter:description" content="参考文档：hugo getting-started 下面将介绍非常简单的教程来搭建自己的博客网站，你既不需要买服务器，也不需要买域名，只需要个github账号，将静态网站托"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-gray">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Johnny Ting
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://github.com/JohnnyTing" title="GitHub page">
+              GitHub
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">使用hugo&#43;github pages搭建静态网站</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-01-13T20:08:05&#43;08:00">January 13, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>参考文档：<a href="https://gohugo.io/getting-started/quick-start/">hugo getting-started</a></p>
+
+<p>下面将介绍非常简单的教程来搭建自己的博客网站，你既不需要买服务器，也不需要买域名，只需要个github账号，将静态网站托管到github上：</p>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/20190114093000.png" alt="github pages" /></p>
+
+<p>那我们就开始吧。</p>
+
+<p><strong>第一步：</strong></p>
+
+<p>安装hugo，这里以mac为例</p>
+
+<ol>
+<li>以homebrew安装:</li>
+</ol>
+
+<pre><code class="language-shell">   brew install hugo
+</code></pre>
+
+<ol>
+<li>查看版本：<br /></li>
+</ol>
+
+<pre><code class="language-text">   hugo version
+</code></pre>
+
+<p><strong>第二步：</strong></p>
+
+<p>创建一个静态站点：</p>
+
+<pre><code class="language-text">hugo new site JohnnyTing.github.io
+</code></pre>
+
+<p><strong>第三步：</strong></p>
+
+<ol>
+<li>下载主题，首先进入站点根目录：</li>
+</ol>
+
+<pre><code>   cd  JohnnyTing.github.io
+</code></pre>
+
+<ol>
+<li>下载主题，这里以ananke为例：</li>
+</ol>
+
+<pre><code>   git init  
+   
+   git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+</code></pre>
+
+<ol>
+<li>添加主题到config.toml配置文件：</li>
+</ol>
+
+<pre><code>   echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml
+</code></pre>
+
+<p><strong>第四步：</strong></p>
+
+<p>添加内容（用markdown格式）：</p>
+
+<pre><code>hugo new posts/my-first-post.md
+</code></pre>
+
+<p>​   生成的文件在content/posts/目录下，my-first-post.md文件去掉草稿，删除 draft：true 这行，因为创建内容默认是草稿模式，后面会介绍修改内容模板。</p>
+
+<p><strong>第五步：</strong></p>
+
+<p>​   本地启动hugo服务，访问 <a href="http://localhost:1313/">http://localhost:1313/</a>  执行命令：</p>
+
+<pre><code>hugo server
+</code></pre>
+
+<p><strong>第六步：</strong></p>
+
+<p>​   生成静态网页到public文件夹，执行命令：</p>
+
+<pre><code>hugo
+</code></pre>
+
+<p><strong>第七步：</strong></p>
+
+<ol>
+<li>在GitHub创建自己的仓库，username.github.io，这里我创建JohnnyTing.github.io仓库为例，username为你github账号的名字。</li>
+</ol>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/github.png" alt="github账号" /></p>
+
+<ol>
+<li>然后将自己的public本地网页文件关联到github仓库:</li>
+</ol>
+
+<pre><code class="language-shell">   cd public
+   
+   git init
+   
+   git add .
+   
+   git commit -m &quot;first commit”
+   
+   git remote add origin https://github.com/JohnnyTing/JohnnyTing.github.io.git
+   
+   git push -u origin master
+</code></pre>
+
+<ol>
+<li>然后访问自己的静态网站：<a href="https://johnnyting.github.io/">https://johnnyting.github.io/</a></li>
+</ol>
+
+<p><strong>第八步：</strong></p>
+
+<ol>
+<li>这里每次创建markdown文件后，都需要一系列的git操作 ，这里可以创建一个脚本文件<a href="http://deploy.sh/">deploy.sh</a>来简化操作。</li>
+</ol>
+
+<pre><code class="language-shell">   touch deploy.sh
+   chmod +x deploy.sh
+</code></pre>
+
+<ol>
+<li>给deploy.sh文件添加内容：</li>
+</ol>
+
+<pre><code class="language-shell">   #!/bin/bash
+   
+   echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
+   
+   # Build the project.
+   hugo # if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`
+   
+   # Go To Public folder
+   cd public
+   # Add changes to git.
+   git add .
+   
+   # Commit changes.
+   msg=&quot;rebuilding site `date`&quot;
+   if [ $# -eq 1 ]
+     then msg=&quot;$1&quot;
+   fi
+   git commit -m &quot;$msg&quot;
+   
+   # Push source and build repos.
+   git push origin master
+   
+   # Come Back
+</code></pre>
+
+<ol>
+<li><p>新建文章：hugo new /posts/first-post.md</p></li>
+
+<li><p>执行脚本文件，然后推送到github仓库：  ./deploy.sh</p></li>
+</ol>
+
+<p><strong>第九步：</strong></p>
+
+<ol>
+<li><p>添加Discus评论系统</p>
+
+<ul>
+<li><p>注册Discus（需要科学上网）&gt; <a href="https://disqus.com/">disqus官网</a></p></li>
+
+<li><p>首页点击 GET START ， 选择第二个 I want to install Disqus on my site</p></li>
+
+<li><p>在Website Name中输入一个名称，点击创建</p></li>
+
+<li><p>Continue 正常配置</p></li>
+
+<li><p>配置页面有一个 Shortname Your website shortname is JohnnyTing.</p></li>
+
+<li><p>将你的shotname配置到config.toml</p></li>
+</ul>
+
+<pre><code class="language-toml"> DisqusShortname = “JohnnyTing”
+</code></pre>
+
+<ul>
+<li><p>部署到GitHub上即可加载评论系统了</p></li>
+
+<li><p>需要注意的是，访问你博客的人需要科学上网才能加载评论。</p></li>
+</ul></li>
+
+<li><p>在markdown文件中添加评论和分享功能</p></li>
+</ol>
+
+<pre><code class="language-yaml">   comments: true     
+   share: true        
+</code></pre>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/20190114093532.png" alt="示例" /></p>
+
+<ol>
+<li>这里以我的config.toml示例:</li>
+</ol>
+
+<pre><code class="language-toml">   baseURL = &quot;https://johnnyting.github.io/&quot;
+   # 语言编码(中文: zh-CN)
+   languageCode = &quot;zh-CN&quot;
+   # 默认的内容语言
+   defaultContentLanguage = &quot;zh-CN&quot;
+   # 自动检测是否包含中文/日文/韩文，该参数会影响摘要和字数统计功能，建议设置为true
+   hasCJKLanguage =  true
+   title = &quot;Johnny Ting&quot;
+   theme = &quot;ananke&quot;
+   canonifyurls = true
+   # 分页
+   paginate =  10
+   paginatePath =   &quot;page&quot;
+   # 启用 Emoji; see emoji-cheat-sheet.com
+   enableEmoji =  true
+   DisqusShortname = &quot;JohnnyTing&quot;
+   [[menu.main]]
+     name = &quot;Home&quot;
+     weight = 10
+     identifier = &quot;home&quot;
+     url = “/&quot;
+   [[menu.main]]
+       name = &quot;Articles&quot;
+       pre = &quot;&lt;i class='fa fa-list fa-fw'&gt;&lt;/i&gt;&quot;
+       weight = 20
+       identifier = &quot;articles&quot;
+       url = &quot;/posts/&quot;
+   [[menu.main]]
+     name = &quot;Tags&quot;
+     weight = 30
+     identifier = &quot;tags&quot;
+     url = &quot;/tags/&quot;
+   [[menu.main]]
+     name = &quot;Github&quot;
+     pre = &quot;&lt;h3&gt;Follow me&lt;/h3&gt;&quot;
+     url = &quot;https://github.com/JohnnyTing&quot;
+     weight = 40
+   [params]
+     githubName = &quot;JohnnyTing&quot;
+     cover = &quot;/images/bg.jpg&quot;
+     author = &quot;Johnny Ting&quot;
+     authorlocation = &quot;Beijing, China&quot;
+     authorwebsite = &quot;https://johnnyting.github.io&quot;
+     background_color_class = &quot;bg-gray&quot;
+     featured_image = &quot;/images/bg.jpg&quot;
+     favicon = &quot;/images/bg.jpg&quot;
+     description = &quot;程序员的日常。。&quot;
+   [permalinks]
+     post = &quot;/:year/:month/:title/&quot;
+</code></pre>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/%E7%BD%91%E7%AB%99" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">网站</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://johnnyting.github.io/" >
+    &copy; 2019 Johnny Ting
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://johnnyting.github.io/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
