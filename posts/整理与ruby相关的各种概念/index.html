@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-01-14T23:50:16&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-14T23:50:16&#43;08:00" />
-<meta itemprop="wordCount" content="935">
+<meta itemprop="wordCount" content="965">
 
 
 
@@ -193,22 +193,28 @@
 
 <p>&emsp;&emsp;在命令行使用gem命令，是指通过RubyGems来管理gem包，手动安装各个类库。</p>
 
-<p>&emsp;&emsp;例如使用gem安装rails、bundler：</p>
+<p>&emsp;&emsp;例如使用gem安装rails：</p>
 
 <pre><code>gem install rails
-gem install bundler	
 </code></pre>
 
 <p><strong>6. Gemfile</strong></p>
 
-<p>&emsp;&emsp;在rails中，此文件定义应用程序依赖的各种类库，使用下面命令安装依赖：</p>
-
-<pre><code>bundle install
-</code></pre>
+<p>&emsp;&emsp;在rails中，此文件定义应用程序依赖的各种类库。</p>
 
 <p><strong>7. Bundle</strong></p>
 
 <p>&emsp;&emsp;相当于多个RubyGems批处理运行。在配置文件Gemfile里说明你的应用依赖哪些第三方包，他自动帮你下载安装多个包，并且会下载这些包依赖的包。</p>
+
+<p>&emsp;&emsp;安装bundle：</p>
+
+<pre><code>gem install bundler	
+</code></pre>
+
+<p>&emsp;&emsp;下载Gemfile文件中的依赖：</p>
+
+<pre><code>bundle install
+</code></pre>
 
 <p><strong>8. Rake</strong></p>
 
@@ -216,7 +222,7 @@ gem install bundler
 
 <p><strong>9. Rakefile</strong></p>
 
-<p>&emsp;&emsp;In a gem’s context, the Rakefile is extremely useful. It can hold various tasks to help building, testing and debugging your gem, among all other things that you might find useful.*</p>
+<p>&emsp;&emsp;<em>In a gem’s context, the Rakefile is extremely useful. It can hold various tasks to help building, testing and debugging your gem, among all other things that you might find useful.</em></p>
 
 <p>&emsp;&emsp;Rakefile是由Ruby编写，Rake的命令执行就是由Rakefile文件定义。</p>
 <ul class="pa0">
