@@ -6,10 +6,19 @@
     <description>Recent content on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 14 Jan 2019 23:50:16 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 11:14:49 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>安装ruby及rails入门</title>
+      <link>https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Tue, 15 Jan 2019 11:14:49 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/</guid>
+      <description>参考文档：RVM官网，rails入门中文官网 一、安装ruby 这里我推荐用RVM（ruby版本管理）安装ruby，环境Linux、Mac。 安装</description>
+    </item>
     
     <item>
       <title>梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</title>
