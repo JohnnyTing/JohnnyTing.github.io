@@ -6,10 +6,19 @@
     <description>Recent content on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Jan 2019 20:08:05 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Jan 2019 23:50:16 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</title>
+      <link>https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 14 Jan 2019 23:50:16 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/</guid>
+      <description>&amp;emsp;&amp;emsp;因为公司项目用到ruby的mvc框架rails，开始看项目也是一头雾水，不知道项目中的各个文件是干嘛的，经过查阅资料</description>
+    </item>
     
     <item>
       <title>使用hugo&#43;github pages搭建静态网站</title>

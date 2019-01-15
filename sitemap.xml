@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2019-01-14T23:50:16+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;githubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</loc>
     <lastmod>2019-01-13T20:08:05+08:00</lastmod>
   </url>
@@ -14,24 +19,37 @@
   
   <url>
     <loc>https://johnnyting.github.io/</loc>
-    <lastmod>2019-01-13T20:08:05+08:00</lastmod>
+    <lastmod>2019-01-14T23:50:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/posts/</loc>
-    <lastmod>2019-01-13T20:08:05+08:00</lastmod>
+    <lastmod>2019-01-14T23:50:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://johnnyting.github.io/tags/ruby/</loc>
+    <lastmod>2019-01-14T23:50:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/tags/</loc>
+    <lastmod>2019-01-14T23:50:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2019-01-13T20:08:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2019-01-14T23:50:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
