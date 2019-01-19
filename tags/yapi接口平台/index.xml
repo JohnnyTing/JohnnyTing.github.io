@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yapi接口平台 on Johnny Ting</title>
+    <link>https://johnnyting.github.io/tags/yapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/</link>
+    <description>Recent content in Yapi接口平台 on Johnny Ting</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 19 Jan 2019 11:00:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://johnnyting.github.io/tags/yapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用docker搭建YApi接口平台</title>
+      <link>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/</link>
+      <pubDate>Sat, 19 Jan 2019 11:00:45 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/</guid>
+      <description>因为公司需要，让我考虑一下团队接口规范的问题，我也看了很多接口管理平台，比如rap、eoLinker、SosoApi、NEI、swagger</description>
+    </item>
+    
+  </channel>
+</rss>

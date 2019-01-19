@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/</loc>
+    <lastmod>2019-01-19T11:00:45+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2019-01-15T11:14:49+08:00</lastmod>
   </url>
@@ -24,13 +29,13 @@
   
   <url>
     <loc>https://johnnyting.github.io/</loc>
-    <lastmod>2019-01-15T11:14:49+08:00</lastmod>
+    <lastmod>2019-01-19T11:00:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/posts/</loc>
-    <lastmod>2019-01-15T11:14:49+08:00</lastmod>
+    <lastmod>2019-01-19T11:00:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -47,6 +52,12 @@
   </url>
   
   <url>
+    <loc>https://johnnyting.github.io/tags/yapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/</loc>
+    <lastmod>2019-01-19T11:00:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2019-01-13T20:08:05+08:00</lastmod>
     <priority>0</priority>
@@ -54,7 +65,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2019-01-15T11:14:49+08:00</lastmod>
+    <lastmod>2019-01-19T11:00:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
