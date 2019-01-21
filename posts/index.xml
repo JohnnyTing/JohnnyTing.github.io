@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 19 Jan 2019 11:00:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jan 2019 09:59:35 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>YApi接口管理平台的使用介绍</title>
+      <link>https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 21 Jan 2019 09:59:35 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&amp;emsp;&amp;emsp;上一篇介绍了YApi接口管理平台的搭建 传送门，因为技术领导觉得有必要写一份文档给团队，然后介绍YApi平台的使用，所</description>
+    </item>
     
     <item>
       <title>使用docker搭建YApi接口平台</title>
