@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | 第一章、ruby命令行交互irb的helloworld</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,33 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/tags/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Tags" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/tags/" />
-<meta property="og:updated_time" content="2019-02-02T21:43:44&#43;08:00"/>
+    <meta property="og:title" content="第一章、ruby命令行交互irb的helloworld" />
+<meta property="og:description" content="&emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" /><meta property="article:published_time" content="2019-02-02T21:43:44&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-02T21:43:44&#43;08:00"/>
 
-<meta itemprop="name" content="Tags">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="第一章、ruby命令行交互irb的helloworld">
+<meta itemprop="description" content="&emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i">
 
+
+<meta itemprop="datePublished" content="2019-02-02T21:43:44&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-02T21:43:44&#43;08:00" />
+<meta itemprop="wordCount" content="468">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="第一章、ruby命令行交互irb的helloworld"/>
+<meta name="twitter:description" content="&emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -144,140 +149,145 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Tags
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第一章、ruby命令行交互irb的helloworld</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-02T21:43:44&#43;08:00">February 2, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>&emsp;&emsp;在之前已经介绍过了ruby的安装 <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">传送门</a>，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器irb。<a href="http://zetcode.com/lang/rubytutorial/ruby/">zetcode参考文档</a></p>
+
+<p><strong>一、交互式的解释器irb：</strong></p>
+
+<p>首先确保ruby已经安装：</p>
+
+<pre><code class="language-shell">➜  ~ ruby -v 	#查看版本
+ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]
+</code></pre>
+
+<p>​   进入ruby命令行交互irb：</p>
+
+<pre><code class="language-shell">➜  ~ irb
+ :001 &gt;
+ :002 &gt;   puts 'hello world'
+hello world				
+ =&gt; nil
+ :003 &gt;
+</code></pre>
+
+<p>&emsp;&emsp;puts 作为命令行打印函数，将字符串 helloworld输出到控制台，返回值为nil（是NilClass类的实例，相当于null）</p>
+
+<pre><code class="language-shell"> :008 &gt; puts RUBY_VERSION
+2.3.0
+ =&gt; nil
+ :009 &gt;
+</code></pre>
+
+<p>&emsp;&emsp;上面在终端中打印了一个特别的常量RUBY_VERSION</p>
+
+<p>&emsp;&emsp;退出irb交互终端：ctrl+d</p>
+
+<p><strong>二、ruby脚本：</strong></p>
+
+<p>​   我们开始我们的第一个简单的Ruby脚本例子。</p>
+
+<pre><code class="language-shell">#创建一个脚本文件 first.rb
+touch first.rb
+
+#查看ruby解释器的路径
+➜  ~ which ruby
+/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+
+#在脚本文件中写入解释器路径和打印命令
+➜  ~ echo '#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby' &gt; first.rb
+➜  ~ echo &quot;puts 'This is Ruby'&quot; &gt;&gt; first.rb
+
+➜  ~ cat first.rb
+#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts 'This is Ruby'
+</code></pre>
+
+<p>​   执行ruby脚本：</p>
+
+<pre><code class="language-shell">#方式一：使用ruby命令运行脚本
+➜  ~ ruby first.rb
+This is Ruby
+
+#方式二：给脚本添加可执行权限，然后运行脚本
+➜  ~ chmod +x first.rb
+➜  ~ ./first.rb
+This is Ruby
+</code></pre>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
     
-  <article class="cf pa3 pa4-m pa4-l">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      
-    </div>
-  </article>
-  <div class="mw8 center">
-    <section class="ph4">
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/tags/ruby" class="link blue hover-black">
-            Tag: ruby
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" class="link black dim">
-        第一章、ruby命令行交互irb的helloworld
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/" class="link black dim">
-        安装ruby及rails入门
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考文档：RVM官网，rails入门中文官网 一、安装ruby 这里我推荐用RVM（ruby版本管理）安装ruby，环境Linux、Mac。 安装
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/" class="link black dim">
-        梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;因为公司项目用到ruby的mvc框架rails，开始看项目也是一头雾水，不知道项目中的各个文件是干嘛的，经过查阅资料
-    </div>
-  </div>
-</div>
-
-        
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/tags/yapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0" class="link blue hover-black">
-            Tag: yapi接口平台
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" class="link black dim">
-        YApi接口管理平台的使用介绍
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;上一篇介绍了YApi接口管理平台的搭建 传送门，因为技术领导觉得有必要写一份文档给团队，然后介绍YApi平台的使用，所
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" class="link black dim">
-        使用docker搭建YApi接口平台
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;因为公司需要，让我考虑一下团队接口规范的问题，我也看了很多接口管理平台，比如rap、eoLinker、SosoApi
-    </div>
-  </div>
-</div>
-
-        
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/tags/%E7%BD%91%E7%AB%99" class="link blue hover-black">
-            Tag: 网站
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;githubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="link black dim">
-        使用hugo&#43;github pages搭建静态网站
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考文档：hugo getting-started 下面将介绍非常简单的教程来搭建自己的博客网站，你既不需要买服务器，也不需要买域名，只需要个github账号，将静态网站托
-    </div>
-  </div>
-</div>
-
-        
-      
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </section>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">

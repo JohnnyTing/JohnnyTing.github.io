@@ -6,10 +6,19 @@
     <description>Recent content in 技术 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 21 Jan 2019 09:59:35 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Feb 2019 21:43:44 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第一章、ruby命令行交互irb的helloworld</title>
+      <link>https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/</link>
+      <pubDate>Sat, 02 Feb 2019 21:43:44 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/</guid>
+      <description>&amp;emsp;&amp;emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i</description>
+    </item>
     
     <item>
       <title>YApi接口管理平台的使用介绍</title>
