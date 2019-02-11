@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/</loc>
+    <lastmod>2019-02-11T11:52:08+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/</loc>
     <lastmod>2019-02-11T10:53:36+08:00</lastmod>
   </url>
@@ -49,25 +54,25 @@
   
   <url>
     <loc>https://johnnyting.github.io/</loc>
-    <lastmod>2019-02-11T10:53:36+08:00</lastmod>
+    <lastmod>2019-02-11T11:52:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/posts/</loc>
-    <lastmod>2019-02-11T10:53:36+08:00</lastmod>
+    <lastmod>2019-02-11T11:52:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/tags/ruby/</loc>
-    <lastmod>2019-02-11T10:53:36+08:00</lastmod>
+    <lastmod>2019-02-11T11:52:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/tags/</loc>
-    <lastmod>2019-02-11T10:53:36+08:00</lastmod>
+    <lastmod>2019-02-11T11:52:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -85,7 +90,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2019-02-11T10:53:36+08:00</lastmod>
+    <lastmod>2019-02-11T11:52:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
