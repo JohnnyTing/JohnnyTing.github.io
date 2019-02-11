@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | 第二章、ruby词法结构</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,33 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Johnny Ting" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/" />
-<meta property="og:updated_time" content="2019-02-11T09:33:48&#43;08:00"/>
+    <meta property="og:title" content="第二章、ruby词法结构" />
+<meta property="og:description" content="ruby词法结构 ​ 在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。 1.注释 在Ruby中有两种注" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/" /><meta property="article:published_time" content="2019-02-11T09:33:48&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-11T09:33:48&#43;08:00"/>
 
-<meta itemprop="name" content="Johnny Ting">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="第二章、ruby词法结构">
+<meta itemprop="description" content="ruby词法结构 ​ 在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。 1.注释 在Ruby中有两种注">
 
+
+<meta itemprop="datePublished" content="2019-02-11T09:33:48&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-11T09:33:48&#43;08:00" />
+<meta itemprop="wordCount" content="2475">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Johnny Ting"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="第二章、ruby词法结构"/>
+<meta name="twitter:description" content="ruby词法结构 ​ 在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。 1.注释 在Ruby中有两种注"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -144,157 +149,427 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Johnny Ting
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
-  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第二章、ruby词法结构</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-11T09:33:48&#43;08:00">February 11, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h3 id="ruby词法结构">ruby词法结构</h3>
+
+<p>​   在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。</p>
+
+<p><strong>1.注释</strong></p>
+
+<p>在Ruby中有两种注释的方法，单行注释和多行注释。单行注释以#字符开始；多行注释是放置在=bgin<em>和</em>=end 等号标志之间。</p>
+
+<pre><code class="language-shell">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+=begin
+    comments.rb
+    author Jan Bodnar
+    ZetCode 2011
+=end
+puts 'This is Ruby'
+</code></pre>
+
+<p>这是一个多行注释的例子，两个符号标志必须在行首。</p>
+
+<p>执行此脚本：</p>
+
+<pre><code class="language-shell">➜  ~ ./first.rb
+This is Ruby
+</code></pre>
+
+<p>注释的内容将会被Ruby解释器忽略掉。</p>
+
+<p><strong>2.空白符号</strong></p>
+
+<p>在源文件中Ruby的空白符号被用于分隔符号标志和结束语句。它也用于增强代码的可读性。</p>
+
+<pre><code class="language-ruby">if true then
+  puts &quot;A message&quot;
+end
+</code></pre>
+
+<p>空白字符在一些时候是必须的。例如在if关键字和true关键字之间；或者在puts方法和实际的字符串之间。而有时它又是被禁止的，如它不能包含在变量标识符或者语言关键字中。</p>
+
+<pre><code class="language-text">a=1
+b = 2
+c  =  3
+</code></pre>
+
+<p>这些在符号标志之间的空白字符对于Ruby解释器是无关紧要的。但是它于整个项目的风格统一非常重要。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+x = 5 + 3
+puts x
+
+x = 5
+    + 3
+puts x
+
+x = 5 +
+    3
+puts x
+</code></pre>
+
+<p>换行是一种用于结束语句的空白字符形式。</p>
+
+<pre><code class="language-ruby">x = 5 + 3
+</code></pre>
+
+<p>在第一种情况，我们有一条语句。它将相加求和的值赋给x变量。这个变量的值为8。</p>
+
+<pre><code class="language-ruby">x = 5
+     +3
+</code></pre>
+
+<p>现在第二种情况。第1条语句被换行符终止了，x变量的值是5。另一条语句+3，没有任何影响。</p>
+
+<pre><code class="language-ruby">x = 5 +
+     3
+</code></pre>
+
+<p>最后，第1条语句的换行符之前有一个+二元操作符，因此解释器期望另一个值，它将检查第二行。在这种情况它将这两种作为一条语句，因此x这是的值为8。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby whitespace.rb
+8
+5
+8
+</code></pre>
+
+<p>以上为输出结果。</p>
+
+<p><strong>3.变量</strong></p>
+
+<p>变量是一个保存了值的标识符。在编程时我们说我们给一个变量分配一个值。专业一点的说法是一个变量是对计算机中存储了值的内存的引用。在Ruby中一个变量可以保存字符串、数字或者多种对象。不同时间变量可以被分配不同的值。
+在Ruby中变量名由字母数字和下划线组成，但是不能以数字开头。Ruby解释器可以很容易地区分原始的数字跟变量。变量名不能以大写字母开头，在Ruby中以大写字母开头的标识符会被认为是一个常量。</p>
+
+<pre><code class="language-ruby">Value
+value2
+company_name
+</code></pre>
+
+<p>以上这些都是合法的变量名。</p>
+
+<pre><code class="language-ruby">12Val
+exx$
+first-name
+</code></pre>
+
+<p>以上这些都不是合法的变量名。</p>
+
+<p>变量名前可以加$和@这两个特殊的字符，它们用于创建特殊作用域的变量。</p>
+
+<p>变量名是大小写敏感的，这意味着price和pRice是两个不同的标识符。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+number = 10
+numBER = 11
+
+puts number, numBER
+</code></pre>
+
+<p>在这个脚本中我们给两个标识符分配了两个数字。number和numBER是两个不同的变量。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby case.rb
+10
+11
+</code></pre>
+
+<p>以上是这个脚本运行的输出结果。</p>
+
+<p><strong>4.常量</strong></p>
+
+<p>常量的值在程序运行过程中是不变的。在Ruby中一个标识符的首字母大写即为一个常量。编程时对于常量约定是所有字母全都大写。
+与其他语言不同，Ruby不会强制要求常量的值始终不变。当我们给一个常量分配新的值时解释器只会提示一个警告。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+Name = &quot;Robert&quot;
+AGE = 23
+Name = &quot;Juliet&quot;
+</code></pre>
+
+<p>在上面的例子中我们创建了两个常量，其中一个被重新定义了。</p>
+
+<pre><code class="language-ruby">Name = &quot;Robert&quot;
+AGE = 23
+</code></pre>
+
+<p>创建两个常量。在Ruby中标识符的首字母大写即定义为常量。作为约定常量通常是所有字母都大写的。</p>
+
+<pre><code class="language-ruby">Name = &quot;Juliet&quot;
+</code></pre>
+
+<p>我们重新定义了一个常量，这会引起一个警告。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby constants.rb
+constants.rb:4: warning: already initialized constant Name
+constants.rb:2: warning: previous definition of Name was here
+</code></pre>
+
+<p><strong>5.字面量</strong></p>
+
+<p>字面量（literal）是按原文本内容所表示的特殊类型的值。字面量类型包括布尔型、整型、浮点型、字符串、字符和日期。专业的说一个字面量在编译时会分配一个值，该值在运行时会分配给对应的变量。</p>
+
+<pre><code class="language-ruby">age = 29
+nationality = &quot;Hungarian&quot;
+</code></pre>
+
+<p>这里我们分配了两个字面量变量。数字29和字符串&rdquo;Hungarian&rdquo;都是字面量。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+require 'date'
+
+sng = true
+name = &quot;James&quot;
+job = nil
+weight = 68.5
+born = Date.parse(&quot;November 12, 1986&quot;)
+
+puts &quot;His name is #{name}&quot;
+
+if sng == true
+    puts &quot;He is single&quot;
+else
+    puts &quot;He is in a relationship&quot;
+end
+
+puts &quot;His job is #{job}&quot;
+puts &quot;He weighs #{weight} kilograms&quot;
+puts &quot;He was born in #{born}&quot;
+</code></pre>
+
+<p>在上面这个例子中，我们使用了多个字面量。布尔字面量的值可能为true或者false，James是一个字符串字面量，nil表示一个不存在的值，68.5是一个浮点数，最后November 12,1986是一个日期。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby literals.rb
+His name is James
+He is single
+His job is
+He weighs 68.5 kilograms
+He was born in 1986-11-12
+</code></pre>
+
+<p>以上为literals.rb脚本的输出结果。</p>
+
+<p><strong>6.代码块</strong></p>
+
+<p>Ruby语句通常是放在代码块中。一个代码块可以被{}符号或者do、end关键字分隔。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts [2, -1, -4, 0].delete_if { |x| x &lt; 0 }
+
+[1, 2, 3].each do |e|
+    puts e
+end
+</code></pre>
+
+<p>这个例子中我们展示了两个代码块。第一个是打印小于0的数，第二个是遍历数组并打印。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby block.rb
+2
+0
+1
+2
+3
+</code></pre>
+
+<p>Ruby代码的控制流通常是使用if关键字。这个关键字跟随着一个代码块，在这种情况下代码块被then、end关键字分隔，then关键字是可选的。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+if true then
+    puts &quot;Ruby language&quot;
+    puts &quot;Ruby script&quot;
+end
+</code></pre>
+
+<pre><code class="language-ruby">➜  ~ ruby block.rb
+Ruby language
+Ruby script
+</code></pre>
+
+<p>在上面这个例子中，我们展示了一个简单的代码块。它有两条语句。这个代码块被then、end关键字分隔。then关键字可以省略。</p>
+
+<p><strong>7.符号</strong></p>
+
+<p>符号$、@是特殊字符用于表示变量的作用域，$表示全局变量，@表示实例变量，@@表示类变量。</p>
+
+<pre><code class="language-ruby">$car_name = &quot;Peugeot&quot;
+@sea_name = &quot;Black sea&quot;
+@@species = &quot;Cat&quot;
+</code></pre>
+
+<p>这些符号总是位于变量标识符的开头。</p>
+
+<p><strong>8.操作符</strong></p>
+
+<p>操作符是一个用于对值执行一个动作的符号。</p>
+
+<pre><code class="language-ruby">!    +    -    ~    *    **    /    %
+&lt;&lt;    &gt;&gt;    &amp;    |    ^
+==    ===    !=    &lt;=&gt;    &gt;=    &gt;
+&lt;    &lt;=    =    %=    /=    -=
++=    *=    **=    ..    ...    not
+and    or    ?:    &amp;&amp;    ||   
+</code></pre>
+
+<p>以上是在Ruby中所有有效的操作符，我们将在之后的教程中介绍它们。</p>
+
+<p><strong>9.分隔符</strong></p>
+
+<pre><code class="language-ruby">(       )       [       ]       {       }      
+,       ;       '       &quot;       |       |
+</code></pre>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+name = &quot;Jane&quot;
+occupation = 'Student'
+numbers = [ 2, 3, 5, 3, 6, 2 ]
+
+puts name; puts occupation
+puts numbers[2]
+numbers.each { |i| puts i }
+puts ( 2 + 3 ) * 5
+</code></pre>
+
+<p>在上面这个例子中我们展示多种Ruby分隔符的用法。</p>
+
+<pre><code class="language-ruby">name = &quot;Jane&quot;
+occupation = 'Student'
+</code></pre>
+
+<p>在Ruby中单引号和双引号被用于分隔字符串。</p>
+
+<pre><code class="language-ruby">numbers = [ 2, 3, 5, 3, 6, 2 ]
+</code></pre>
+
+<p>中括号用于指定数组的范围。逗号用于分隔数组项。</p>
+
+<pre><code class="language-ruby">puts name; puts occupation
+</code></pre>
+
+<p>在Ruby中分号用于分隔两条语句。</p>
+
+<pre><code class="language-ruby">puts numbers[2]
+</code></pre>
+
+<p>分隔符可用于不同的环境中，这里中括号用于访问数组。</p>
+
+<pre><code class="language-ruby">numbers.each { |i| puts i }
+</code></pre>
+
+<p>大括号用于定义代码块。管道用于定义在每次循环中被当前数组项所填充的元素。</p>
+
+<pre><code class="language-ruby">puts ( 2 + 3 ) * 5
+</code></pre>
+
+<p>括号用于改变一个表达式的求值。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby separate.rb
+Jane
+Student
+5
+2
+3
+5
+3
+6
+2
+25
+</code></pre>
+
+<p><strong>10.关键字</strong></p>
+
+<p>关键字是在Ruby语言中被保留的字。关键字用于在计算机程序中展示特定的任务。例如：在终端中打印一个值，执行重复的任务或者展示逻辑操作。程序员不能使用关键字作为普通的变量。</p>
+
+<pre><code class="language-ruby">alias    and      BEGIN      begin    break    case  
+class    def      defined?   do       else     elsif  
+END      end      ensure     false    for      if  
+in       module   next       nil      not      or  
+redo     rescue   retry      return   self     super  
+then     true     undef      unless   until    when   
+while    yield   
+</code></pre>
+
+<p>这些是Ruby的关键列表。</p>
+
+<p>以上就是Ruby的词法结构了。<a href="http://zetcode.com/lang/rubytutorial/lexis/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
     
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
   </article>
-  
-  
-  
-  
-  
-  
-  
-    
-    
-
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-      
-       
-          <h1 class="flex-none">
-            Recent Posts
-          </h1>
-        
-
-      
-
-      <section class="w-100 mw8">
-        
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/" class="color-inherit dim link">
-            第二章、ruby词法结构
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          ruby词法结构 ​ 在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。 1.注释 在Ruby中有两种注
-        </div>
-          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" class="color-inherit dim link">
-            第一章、ruby命令行交互irb的helloworld
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          &emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i
-        </div>
-          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" class="color-inherit dim link">
-            YApi接口管理平台的使用介绍
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          &emsp;&emsp;上一篇介绍了YApi接口管理平台的搭建 传送门，因为技术领导觉得有必要写一份文档给团队，然后介绍YApi平台的使用，所
-        </div>
-          <a href="https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-      </section>
-
-      
-      <section class="w-100">
-        <h1 class="f3">More</h1>
-        
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" class="link black dim">
-              使用docker搭建YApi接口平台
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/" class="link black dim">
-              安装ruby及rails入门
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/" class="link black dim">
-              梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;githubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="link black dim">
-              使用hugo&#43;github pages搭建静态网站
-            </a>
-          </h2>
-        
-
-        
-        
-          <a href="https://johnnyting.github.io/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
-        
-        </section>
-      
-
-      </div>
-  
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
