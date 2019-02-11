@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | 第五章、ruby中的对象</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,33 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Johnny Ting" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/" />
-<meta property="og:updated_time" content="2019-02-11T16:08:05&#43;08:00"/>
+    <meta property="og:title" content="第五章、ruby中的对象" />
+<meta property="og:description" content="ruby中的对象 &emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于R" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" /><meta property="article:published_time" content="2019-02-11T16:08:05&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-11T16:08:05&#43;08:00"/>
 
-<meta itemprop="name" content="Johnny Ting">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="第五章、ruby中的对象">
+<meta itemprop="description" content="ruby中的对象 &emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于R">
 
+
+<meta itemprop="datePublished" content="2019-02-11T16:08:05&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-11T16:08:05&#43;08:00" />
+<meta itemprop="wordCount" content="4521">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Johnny Ting"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="第五章、ruby中的对象"/>
+<meta name="twitter:description" content="ruby中的对象 &emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于R"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -144,157 +149,593 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Johnny Ting
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
-  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第五章、ruby中的对象</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-11T16:08:05&#43;08:00">February 11, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="ruby中的对象">ruby中的对象</h2>
+
+<p>&emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于Ruby的许多特性可以会使新手们迷惑，尤其是已经学习过其他编程语言的，因此才编写了这个关于对象的预备章节。</p>
+
+<p>Ruby是一门面向对象的编程语言。这意味着我们可以在Ruby语言中使用对象。对于程序员来说Ruby程序就是一些字符流。这些符号就是Ruby的关键字、操作符、变量符号和字面量。从语言的角度来看Ruby程序是由对象组成的。这些对象在Ruby脚本程序执行进程来创建和修改。</p>
+
+<p>有两种类型的对象：内置对象和自定义对象。内置对象是所有程序员都可以使用的预定义对象。它们由Ruby语言的内核或者变量库提示。自定义对象是由应用程序开发者在他们的应用程序域中创建的。</p>
+
+<p>所有的对象都必须在使用之前创建。我们把创建对象叫做对象实例化。对象是由数据和方法组成，数据是对象静态的部分，方法是动态的形式。对象的修改以及与其他对象通信都是通过方法进行的。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;Ruby language&quot;
+</code></pre>
+
+<p>以上是一个简单的Ruby脚本。如果我们熟悉Pascal或者C之类的程序语言，我们可以看到一个名为puts的关键字或者是一个函数和一个字符串参数&rdquo;Ruby language&rdquo;。</p>
+
+<p>看起来有点不同，Ruby是一门纯面向对象语言。&rdquo;Ruby language&rdquo;确实是一个字符串，常见的一种数据类型。但是它也是一个对象。与所有的对象一样，我们可以调用它们的方法。这与其他的语言有点不同。puts是一个方法。方法是定义在一个对象中的函数。方法是不能独自存在的。实际上puts方法是Kernel模块的一部分。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+Kernel.puts &quot;Ruby language&quot;
+Kernel.puts &quot;Ruby language&quot;.size
+</code></pre>
+
+<p>在以上的脚本中我们写了两行代码。</p>
+
+<pre><code class="language-ruby">Kernel.puts &quot;Ruby language&quot;
+</code></pre>
+
+<p>Kernel是可以省略的，在第一个例子中我们调用puts方法就没有使用Kernel。这样可以少打些字节约时间。实际上它是对于Kernel.puts这个正式调用的简写。正如在C#中的Console.writeln和Java中的System.println。因此方法必须与一个对象相关联，或者如果是类方法就必须与类相关联。</p>
+
+<pre><code class="language-ruby">Kernel.puts &quot;Ruby language&quot;.size
+</code></pre>
+
+<p>在这行代码中我们在终端上打印了&rdquo;Ruby language&rdquo;这个字符串的长度。对于有其他编程语言经验的程序员来说可能会困惑。在其他语言中字符串是一个原始数据类型，不能修改，并且没有自己的方法。在Ruby中字符串是一个完整的对象，有自己的方法。size方法其中一个，用于返回这个字符串的长度。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby simple.rb
+Ruby language
+13
+</code></pre>
+
+<hr />
+
+<p>接下来的例子我们看看整数。与字符串相似一个数字也是一个对象。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts 6.object_id
+puts 6.even?
+puts 6.zero?
+puts 6.class
+</code></pre>
+
+<p>这个例子中我们定义了一个数字6。然后调用了一些这个数字的方法。</p>
+
+<pre><code class="language-ruby">puts 6.object_id
+</code></pre>
+
+<p>这里6是一个对象，object_id是一个方法。这个方法返回了与这个对象相关联的id号。每个对象都拥有一个id号。如果我们要在对象上调用一个方法，就必须在他们之间加点号。</p>
+
+<pre><code class="language-ruby">puts 6.even?
+puts 6.zero?
+</code></pre>
+
+<p>这里我们对6这个对象调用了两个方法。如果一个数是偶数，那么even?返回true；如果一个数等于0,那么zero?返回true。注意这两个方法都是以问号能结尾的。<strong>在Ruby中约定了如果一个方法返回值是布尔类型，那么方法名以问号结尾</strong>。</p>
+
+<pre><code class="language-ruby">puts 6.class
+</code></pre>
+
+<p>class方法告诉我们当前正在处理的这个对象是什么类型的。在这里6是一个Fixnum类型。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby objectnumber.rb
+13
+true
+false
+Fixnum
+</code></pre>
+
+<h2 id="创建对象">创建对象</h2>
+
+<p>&emsp;&emsp;我们之前提到了在Ruby是对象使用之前必须先创建。对象可以被隐式创建或者显式创建。使用字面量符号创建对象是隐式创建；使用new关键字创建对象是显式创建。自定义对象都是显式创建的。自定义对象必须是从某个特定的类创建的。类是对象的模板，一个类可以创建多个对象。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+class Being
+end
+
+puts 67
+puts &quot;ZetCode&quot;
+
+s = String.new &quot;ZetCode&quot;
+puts s
+
+# n1 = Fixnum.new 67
+# puts n1
+b = Being.new
+puts b
+</code></pre>
+
+<p>这个例子演示了Ruby中的对象创建。</p>
+
+<pre><code class="language-ruby">class Being
+end
+</code></pre>
+
+<p>这里是一个名为Being的对象模块。对象模块使用class关键字创建。自定义对象模块通常放在代码文件的顶部，或者分开放在另外的文件中。</p>
+
+<pre><code class="language-ruby">puts 67
+puts &quot;ZetCode&quot;
+</code></pre>
+
+<p>这两行代码我们用到了两个对象。Fixnum类型的67和String类型的&rdquo;ZetCode&rdquo;。67和&rdquo;ZetCode&rdquo;是使用字面符号创建了。字面符号是一个文本，表示了一个类型的特定值。这两个对象是Ruby解释器幕后创建的。在源代码中Ruby的一些对象是使用他们特定的字面符号创建的。</p>
+
+<pre><code class="language-ruby">s = String.new &quot;ZetCode&quot;
+puts s
+</code></pre>
+
+<p>这是正式的方法创建字符串对象。它与之前的隐式创建是等价的。</p>
+
+<pre><code class="language-ruby"># n1 = Fixnum.new 67
+# puts n1
+</code></pre>
+
+<p>不是所有的内置对象都可以使用new方法来创建。以上代码就不能编译通过。Fixnum对象只能通过字面符号来创建。</p>
+
+<pre><code class="language-ruby">b = Being.new
+puts b
+</code></pre>
+
+<p>这里我们创建了自定义对象的一个实例。puts方法输出了这个对象的简短描述。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby ocreation.rb
+67
+ZetCode
+ZetCode
+#&lt;Being:0x000000022274f8&gt;
+</code></pre>
+
+<hr />
+
+<p>继续介绍一些正式的对象创建。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+s1 = String.new &quot;Ruby&quot;
+puts s1.size
+puts s1.downcase
+
+a1 = Array.new
+a1.push 1, 2, 3
+puts a1.include? 3
+puts a1.empty?
+
+r1 = Range.new 1, 6
+puts r1.class
+puts r1.include? 4
+</code></pre>
+
+<p>在这个例子中，我们创建三个内建对象并且调用了几个它们的方法。</p>
+
+<pre><code class="language-ruby">s1 = String.new &quot;Ruby&quot;
+puts s1.size
+puts s1.downcase
+</code></pre>
+
+<p>创建一个字符串对象，并且调用了它的两个方法。size方法返回这个字符串的长度。downcase方法将这个字符串转为小写。</p>
+
+<pre><code class="language-ruby">a1 = Array.new 
+a1.push 1, 2, 3
+puts a1.include? 3
+puts a1.empty?
+</code></pre>
+
+<p>这里创建了一个数组，并往其中添加了三个数字。然后调用了两个数组的方法。include?方法用于检查一个特定的值（在这个例子中是3）是否在数组内。empty?方法返回一个布尔类型的值表明这个数组是否为空。</p>
+
+<pre><code class="language-ruby">r1 = Range.new 1, 6
+puts r1.class
+puts r1.include? 4
+</code></pre>
+
+<p>创建了一个Range类型的实例对象。它包含了1到6的数字。class方法返回这个对象的类型名称。在这个例子中include?方法检查数字4是否在这个范围内。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby formal.rb
+4
+ruby
+true
+false
+Range
+true
+</code></pre>
+
+<h2 id="对象字面符">对象字面符</h2>
+
+<p>前面提到了一些内建对象可以使用对象字面符创建。接下来的例子展示了一些对象字面符。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+4.times { puts &quot;Ruby&quot; }
+
+puts &quot;Ruby&quot;.size
+puts &quot;Ruby&quot;.downcase
+
+puts [1, 2, 3].include? 3
+puts [1, 2, 3].empty?
+
+puts :name.class
+puts :name.frozen?
+
+puts (1..6).class
+puts (1..6).include? 4
+</code></pre>
+
+<p>在这个例子中我们使用字面符创建了Fixnum、Strings、Arrays、 Symbols和Ranges对象。</p>
+
+<pre><code class="language-ruby">4.times { puts &quot;Ruby&quot; }
+</code></pre>
+
+<p>我们可以直接对一个整数字面符号调用方法。这行代码将在终端上打印4次&rdquo;Ruby&rdquo;字符串。</p>
+
+<pre><code class="language-ruby">puts &quot;Ruby&quot;.size
+puts &quot;Ruby&quot;.downcase
+</code></pre>
+
+<p>我们对使用字面符号创建的字符串调用了两个方法。</p>
+
+<pre><code class="language-ruby">puts [1, 2, 3].include? 3
+puts [1, 2, 3].empty?
+</code></pre>
+
+<p>这里我们使用字面符号创建了两个数组。然后使用include?方法检查一个特定的数字是否是这个数组里；使用empty?方法检查这个数组是否为空。</p>
+
+<pre><code class="language-ruby">puts :name.class
+puts :name.frozen?
+</code></pre>
+
+<p>使用以冒号开头的字面符号创建了符号对象，并且调用的它的两个方法。</p>
+
+<pre><code class="language-ruby">puts (1..6).class
+puts (1..6).include? 4
+</code></pre>
+
+<p>使用字面符号创建了两个范围对象，并且调用了他们的两个方法。class方法返回这个类的名称，include?方法检查给定的数字是否是这个范围内。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby literals.rb
+Ruby
+Ruby
+Ruby
+Ruby
+4
+ruby
+true
+false
+Symbol
+true
+Range
+true
+</code></pre>
+
+<h2 id="对象层级">对象层级</h2>
+
+<p>在许多面向对象语言中对象是层级形式的。Ruby中也有对象层级。与树形层级相似，我们也有父对象和子对象。对象从它的父对象中继承数据和行为。层级的顶级是根对象，称为Object。在Ruby中每个对象都至少有一个父对象。也就是就每个对象都继承至Object对象的基类。</p>
+
+<p>根据Ruby的官方文档，Object是Ruby的类层级的根。它的所有方法在所有的类中都是一样的，除非显式地覆盖了。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts 4.is_a? Object
+puts &quot;Ruby&quot;.is_a? Object
+puts [2, 3].is_a? Object
+puts :name.is_a? Object
+puts (1..2).is_a? Object
+</code></pre>
+
+<p>以上例子的代码展示了所有对象都是继承至根对象Object。</p>
+
+<p>使用is_a?方法检查一个数字是否为特定的类型，也就是说它是否继承至给定的对象类型。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby mother.rb
+true
+true
+true
+true
+true
+</code></pre>
+
+<p>所有方法都返回true，意味着所有的对象都继承至母类。</p>
+
+<hr />
+
+<p>即使是基本的Ruby对象，它们的继承层级也可能是很复杂的。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts 6.class
+
+puts 6.is_a? BasicObject
+puts 6.is_a? Object
+puts 6.is_a? Numeric
+puts 6.is_a? Integer
+puts 6.is_a? Fixnum
+
+puts 6.is_a? Bignum
+puts 6.is_a? String
+</code></pre>
+
+<p>这个例子展示了小数字的继承层级。</p>
+
+<pre><code class="language-ruby">puts 6.class
+</code></pre>
+
+<p>我们发现数字6的类型是Fixnum。</p>
+
+<pre><code class="language-ruby">puts 6.is_a? BasicObject
+puts 6.is_a? Object
+puts 6.is_a? Numeric
+puts 6.is_a? Integer
+puts 6.is_a? Fixnum
+</code></pre>
+
+<p>以上这些代码全都返回true。数字6是Fixnum类型。从Ruby文档中我们发现另外四个对象是Fixnum对象的父类。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby inheritance.rb
+Fixnum
+true
+true
+true
+true
+true
+false
+false
+</code></pre>
+
+<hr />
+
+<p>这节的最后再举个例子展示下自定义对象的继承。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+class Being
+
+    def to_s
+        &quot;This is Being&quot;
+    end
+
+    def get_id
+        9
+    end
+end
+
+class Living &lt; Being
+
+    def to_s
+        &quot;This is Living&quot;
+    end
+end
+
+l = Living.new
+
+puts l
+puts l.get_id
+puts l.is_a? Being
+puts l.is_a? Object
+puts l.is_a? BasicObject
+</code></pre>
+
+<p>在这个例子中我们创建了两个对象。Being和Living。Living对象继承至Being。第一个是父对象，第二个是子对象。</p>
+
+<pre><code class="language-ruby">class Living &lt; Being
     
+    def to_s
+        &quot;This is Living&quot;
+    end
+end
+</code></pre>
+
+<p>定义了一个Living对象，这个对象继承至Being对象。&lt;操作符用于创建继承关系。to_s方法被覆盖了。</p>
+
+<pre><code class="language-ruby">puts l
+</code></pre>
+
+<p>puts方法调用Living对象的to_s方法。只有当Living类没有定义to_s方法时，Being类的to_s方法才会被调用。</p>
+
+<pre><code class="language-ruby">puts l.get_id
+</code></pre>
+
+<p>Living对象没有定义get_id方法。在这种情况下就检查它的父类是否有此方法。在这里Being有这个方法，并且被调用。</p>
+
+<pre><code class="language-ruby">puts l.is_a? Being
+</code></pre>
+
+<p>这行将返回true。Living对象是Being类型的，因为它继承至Being类。</p>
+
+<pre><code class="language-RUBY">puts l.is_a? Object
+puts l.is_a? BasicObject
+</code></pre>
+
+<p>我们的Living自定义对象中，没有特别显示的指定与Object或者BasicObject的关系。然而这两行也返回true。这是因为在Ruby中所有对象都是自动设置为这两个对象的后代。这是Ruby解释器在幕后完成的。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby custominher.rb
+This is Living
+9
+true
+true
+true
+</code></pre>
+
+<h2 id="ruby的顶级环境">ruby的顶级环境</h2>
+
+<p>Ruby中有一个特殊的对象引用到Ruby的顶级环境，这是定义在其他上下文之外的默认执行环境。顶级环境名字是main。它是一个Object类型的实例对象。以下main分配了一个局部空间，所有的局部变量都属于它。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+n1 = 3
+n2 = 5
+
+puts local_variables
+
+Kernel.puts self
+puts self.class
+</code></pre>
+
+<p>这是描述Ruby顶级环境的第一个例子。</p>
+
+<pre><code>n1 = 3
+n2 = 5
+</code></pre>
+
+<p>我们定义了两个数字类型的变量，这些变量是顶级环境的局部变量。</p>
+
+<pre><code class="language-ruby">puts local_variables
+</code></pre>
+
+<p>这里我们输出所有的局部变量。local_variables是Kernel模块的一个方法，它包含了每个顶级环境的对象。</p>
+
+<pre><code class="language-ruby">Kernel.puts self
+</code></pre>
+
+<p>self是Ruby的伪变量。它返回当前对象的接收者。这行将在终端打印&rdquo;main&rdquo;。这是顶级环境的名字。Kernel.puts代码部分的Kernel可以省略。完整的名字表示的puts方法属于Kernel模块。</p>
+
+<pre><code class="language-ruby">puts self.class
+</code></pre>
+
+<p>这行打印了顶级环境的类型。我们得到顶级环境的对象类型。它是Object类型，Ruby类层级的根。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby toplevel.rb
+n1
+n2
+main
+Object
+</code></pre>
+
+<hr />
+
+<p>我们再展示另一个关于Ruby顶级环境的例子。</p>
+
+<pre><code class="language-ruby">#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+@name = &quot;Jane&quot;
+@age = 17
+
+def info
+   &quot;#{@name} is #{@age} years old&quot;
+end
+
+puts self.instance_variables
+puts self.private_methods.include? :info
+
+puts info
+</code></pre>
+
+<p>我们展示的属于顶级环境的实例变量和方法。</p>
+
+<pre><code>@name = &quot;Jane&quot;
+@age = 17
+</code></pre>
+
+<p>我们定义了两个实例变量。在Ruby中实例变量以@符号开头。实例变量属于指定的对象实例。在这里是属于Ruby的顶级环境。</p>
+
+<pre><code>def info
+   &quot;#{@name} is #{@age} years old&quot; 
+end
+</code></pre>
+
+<p>这里定义了一个方法。每个方法都必须属于一个对象。这个方法是属于顶级环境的。<strong>所有顶级环境的方法都是私有的</strong>。私有方法的访问是受制的。</p>
+
+<pre><code>puts self.instance_variables
+</code></pre>
+
+<p>instance_variables方法打印self的所有实例变量。</p>
+
+<pre><code>puts self.private_methods.include? :info
+</code></pre>
+
+<p>所有的顶级环境的方法都自动设为私有。private_methods返回该对象所有的私有方法。由于内容太多，我们就调用include?方法来检查info方法是否是其中一个。注意我们是通过符号名来引用info的。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby toplevel2.rb
+@name
+@age
+true
+Jane is 17 years old
+</code></pre>
+
+<p>这章包含了Ruby对象的基本内容。<a href="http://zetcode.com/lang/rubytutorial/objects/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
   </article>
-  
-  
-  
-  
-  
-  
-  
-    
-    
-
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-      
-       
-          <h1 class="flex-none">
-            Recent Posts
-          </h1>
-        
-
-      
-
-      <section class="w-100 mw8">
-        
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" class="color-inherit dim link">
-            第五章、ruby中的对象
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          ruby中的对象 &emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于R
-        </div>
-          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/" class="color-inherit dim link">
-            第四章、ruby变量
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          变量 &emsp;&emsp;变量是保存数据的地址。每个变量都有唯一的一个名字，变量命名存在着一些约定。变量保存着数据对象，更确切的说变量是对
-        </div>
-          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/" class="color-inherit dim link">
-            第三章、ruby基础及变量插值
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          基础内容 &emsp;&emsp;在这一章我们将覆盖Ruby语言的基本程序概念。我们展示一些非常基础的程序，使用到了变量、常量和基本的数据类型
-        </div>
-          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-      </section>
-
-      
-      <section class="w-100">
-        <h1 class="f3">More</h1>
-        
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/" class="link black dim">
-              第二章、ruby词法结构
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" class="link black dim">
-              第一章、ruby命令行交互irb的helloworld
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" class="link black dim">
-              YApi接口管理平台的使用介绍
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" class="link black dim">
-              使用docker搭建YApi接口平台
-            </a>
-          </h2>
-        
-
-        
-        
-          <a href="https://johnnyting.github.io/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
-        
-        </section>
-      
-
-      </div>
-  
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
