@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | 第九章、ruby中的流程控制</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,32 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/categories/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/categories/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Categories" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/categories/" />
+    <meta property="og:title" content="第九章、ruby中的流程控制" />
+<meta property="og:description" content="流程控制 这章的教程我们将讨论流程控制。 条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" /><meta property="article:published_time" content="2019-02-12T17:00:37&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T17:00:37&#43;08:00"/>
 
-<meta itemprop="name" content="Categories">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="第九章、ruby中的流程控制">
+<meta itemprop="description" content="流程控制 这章的教程我们将讨论流程控制。 条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开">
 
+
+<meta itemprop="datePublished" content="2019-02-12T17:00:37&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T17:00:37&#43;08:00" />
+<meta itemprop="wordCount" content="3235">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="第九章、ruby中的流程控制"/>
+<meta name="twitter:description" content="流程控制 这章的教程我们将讨论流程控制。 条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -143,253 +149,669 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Categories
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第九章、ruby中的流程控制</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-12T17:00:37&#43;08:00">February 12, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="流程控制">流程控制</h2>
+
+<p>这章的教程我们将讨论流程控制。</p>
+
+<p>条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开始后，语句从源文件顶部到底部一行一行的执行。</p>
+
+<h2 id="if语句">if语句</h2>
+
+<p>if关键字用于检查一个表达式是否为真。如果为真则执行语句。这个语句可以是单一的语句，也可以是复合语句。复合语句是由多条语句构成的闭合代码块。代码块用end关键字闭合，then关键字是可选的。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+num = gets.to_i
+
+if num &gt; 0 then
+
+    puts &quot;num variable is positive&quot;
+    puts &quot;num variable equals to #{num}&quot;
+end
+</code></pre>
+
+<p>输入一个数字，如果这个数字大于0则打印两条消息，否则什么也不做。</p>
+
+<pre><code>$ ./simpleif.rb
+4
+num variable is positive
+num variable equals to 4
+</code></pre>
+
+<p>条件为真并且消息在终端上打印了。</p>
+
+<hr />
+
+<p>我们可以使用else关键字不创建一个简单的分支。如果if关键字后的表达式求值为假，那么else后面的语句将自动执行。这些代码使用end关键字闭合起来。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+age = 17
+
+if age &gt; 18
+
+    puts &quot;Driving licence issued&quot;
+else
+
+    puts &quot;Driving licence not permitted&quot;
+end
+</code></pre>
+
+<p>这里创建了一个age变量，布尔表达式求值为假，因此在终端上打印&rdquo;Driving licence not permitted&rdquo;。</p>
+
+<pre><code>$ ./licence.rb
+Driving licence not permitted
+</code></pre>
+
+<p>我们可以使用elsif关键字创建多个分支。仅当前一个条件不为真时elsif关键字才会测试另一个条件。注意我们可以使用多个elsif关键字。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+print &quot;Enter a number: &quot;
+
+num = gets.to_i
+
+if num &lt; 0
+
+    puts &quot;#{num} is negative&quot;
+elsif num == 0
+
+   puts &quot;#{num} is zero&quot;
+elsif num &gt; 0
+
+   puts &quot;#{num} is positive&quot;
+end
+</code></pre>
+
+<p>创建一个数字变量判断它是正数、负数还是0。根据输入值的不同将打印不同的消息。</p>
+
+<h2 id="case语句">case语句</h2>
+
+<p>case语句是一个程序控制流语句。它允许一个变量或者表达式的值控制程序的执行流程。相比if、elsif它创建多分支更简单。</p>
+
+<p>我们创建一个变量或者表达式。case关键字用于针对一个列表的值测试这个变量或者表达式的值。这个列表的值是使用when关键字呈现出来。如果值匹配，那么when关键字后面的语句将执行。有一个可选的else语句，如果没有匹配的它将执行。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+print &quot;Enter top level domain: &quot;
+
+domain = gets.chomp
+
+case domain
+    when &quot;us&quot;
+        puts &quot;United States&quot;
+    when &quot;de&quot; 
+        puts &quot;Germany&quot;
+    when &quot;sk&quot; 
+        puts &quot;Slovakia&quot;
+    when &quot;hu&quot; 
+        puts &quot;Hungary&quot;
+    else
+        puts &quot;Unknown&quot;
+end
+</code></pre>
+
+<p>这个程序中我们创建了一个domain变量，它的值从命令行读取。使用when语句测试这个变量的值。这有些选项。如果值等于&rdquo;us&rdquo;则打印&rdquo;United States&rdquo;字符串。</p>
+
+<pre><code>domain = gets.chomp
+</code></pre>
+
+<p>我们使用gets方法获取一个输入值。使用chomp方法去掉换行符。</p>
+
+<pre><code>$ ./domains.rb
+Enter top level domain: hu
+Hungary
+</code></pre>
+
+<p>我们输入&rdquo;hu&rdquo;，程序返回&rdquo;Hungary&rdquo;。</p>
+
+<h2 id="while-until语句">while、until语句</h2>
+
+<p>while语句是一个控制流语句允许代码多次执行。当的条件为真时代码将执行。</p>
+
+<p>while关键字执行使用end闭合的代码块语句。每次表达式为真时这些语句将执行。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+i = 0
+sum = 0
+
+while i &lt; 10  do
+   i = i + 1
+   sum = sum + i
+end
+
+puts &quot;The sum of 0..9 values is #{sum}&quot;
+</code></pre>
+
+<p>这个例子计算了一个范围数的和。</p>
+
+<p>while循环有三部分：初始化、测试和更新。每次执行语句称为周期。</p>
+
+<pre><code>i = 0
+sum = 0
+</code></pre>
+
+<p>初始化变量i和sum。i用于计数。</p>
+
+<pre><code>while i &lt; 10  do
+   ...
+end
+</code></pre>
+
+<p>while和do之间的表达式是第二阶段，测试。注意*do*关键字是可选的。，内部的语句将会执行直到表达式的值为假。</p>
+
+<pre><code>i = i + 1
+</code></pre>
+
+<p>这是循环的第三阶段——更新。我们增加计数值。注意不当的处理会导致死循环。</p>
+
+<pre><code>$ ./while.rb
+The sum of 0..9 values is 55
+
+This is the output of the example.
+</code></pre>
+
+<hr />
+
+<p>当条件为假时until控制流语句将执行。当条件为真时循环停止。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+hours_left = 12
+
+until hours_left == 0
     
-  <article class="cf pa3 pa4-m pa4-l">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      
-    </div>
-  </article>
-  <div class="mw8 center">
-    <section class="ph4">
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/categories/%E5%85%B6%E4%BB%96" class="link blue hover-black">
-            Category: 其他
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;githubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="link black dim">
-        使用hugo&#43;github pages搭建静态网站
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考文档：hugo getting-started 下面将介绍非常简单的教程来搭建自己的博客网站，你既不需要买服务器，也不需要买域名，只需要个github账号，将静态网站托
-    </div>
-  </div>
-</div>
+    if hours_left == 1
+        puts &quot;There is #{hours_left} hour left&quot;
+    else
+        puts &quot;There are #{hours_left} hours left&quot;
+    end
 
-        
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF" class="link blue hover-black">
-            Category: 技术
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="link black dim">
-        第九章、ruby中的流程控制
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      流程控制 这章的教程我们将讨论流程控制。 条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开
-    </div>
-  </div>
-</div>
+    hours_left -= 1
+end
+</code></pre>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="link black dim">
-        第八章、ruby中的表达式
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      表达式 在这章的教程将介绍Ruby的表达式。 表达式是由操作数和操作符构成的。表达式的操作符表明了对操作数应用什么操作。表达式中操作符的求值顺序
-    </div>
-  </div>
-</div>
+<p>这个例子中创建了一个变量hours_left。我们开始计数，每次循环打印还有几个小时。当变量值等于0时循环停止。</p>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="link black dim">
-        第七章、ruby中的字符串
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      字符串 在这部分的教程将详细的介绍字符串。 字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。 字符串是序列化
-    </div>
-  </div>
-</div>
+<pre><code>$ ./until.rb
+There are 12 hours left
+There are 11 hours left
+There are 10 hours left
+There are 9 hours left
+There are 8 hours left
+There are 7 hours left
+There are 6 hours left
+There are 5 hours left
+There are 4 hours left
+There are 3 hours left
+There are 2 hours left
+There is 1 hour left
+</code></pre>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="link black dim">
-        第六章、ruby的数据类型
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      数据类型 在这一章的教程中我们开始讨论数据类型。 所有类别的计算机程序，包括电子表格、文本编辑器、计算器和聊天软件都使用数据。现代计算机语言中各
-    </div>
-  </div>
-</div>
+<p>程序运行的结果。</p>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" class="link black dim">
-        第五章、ruby中的对象
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      ruby中的对象 &emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于R
-    </div>
-  </div>
-</div>
+<h2 id="for语句">for语句</h2>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/" class="link black dim">
-        第四章、ruby变量
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      变量 &emsp;&emsp;变量是保存数据的地址。每个变量都有唯一的一个名字，变量命名存在着一些约定。变量保存着数据对象，更确切的说变量是对
-    </div>
-  </div>
-</div>
+<p>当循环次数是已知时，我们可以使用for语句。for循环使用in接着一个范围。对这个范围的每个元素都执行代码块的语句。这些语句使用end关键字闭合。do关键字是可选的。</p>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/" class="link black dim">
-        第三章、ruby基础及变量插值
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      基础内容 &emsp;&emsp;在这一章我们将覆盖Ruby语言的基本程序概念。我们展示一些非常基础的程序，使用到了变量、常量和基本的数据类型
-    </div>
-  </div>
-</div>
+<pre><code>#!/usr/bin/ruby
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/" class="link black dim">
-        第二章、ruby词法结构
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      ruby词法结构 ​ 在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。 1.注释 在Ruby中有两种注
-    </div>
-  </div>
-</div>
+for i in 0..9 do
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" class="link black dim">
-        第一章、ruby命令行交互irb的helloworld
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i
-    </div>
-  </div>
-</div>
+    puts &quot;#{i}&quot;
+end
+</code></pre>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" class="link black dim">
-        YApi接口管理平台的使用介绍
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;上一篇介绍了YApi接口管理平台的搭建 传送门，因为技术领导觉得有必要写一份文档给团队，然后介绍YApi平台的使用，所
-    </div>
-  </div>
-</div>
+<p>这个例子中我们打印了0到9的数。每次循环*i*变量保存了这个范围的一个数，这个数将在终端上打印。</p>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" class="link black dim">
-        使用docker搭建YApi接口平台
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;因为公司需要，让我考虑一下团队接口规范的问题，我也看了很多接口管理平台，比如rap、eoLinker、SosoApi
-    </div>
-  </div>
-</div>
+<pre><code>$ ./forloop.rb
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/" class="link black dim">
-        安装ruby及rails入门
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考文档：RVM官网，rails入门中文官网 一、安装ruby 这里我推荐用RVM（ruby版本管理）安装ruby，环境Linux、Mac。 安装
-    </div>
-  </div>
-</div>
+<p>例子运行结果。</p>
 
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/" class="link black dim">
-        梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;因为公司项目用到ruby的mvc框架rails，开始看项目也是一头雾水，不知道项目中的各个文件是干嘛的，经过查阅资料
-    </div>
-  </div>
-</div>
+<hr />
 
-        
-      
+<p>要遍历一个数组的元素可以使用数组的length方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+planets = [&quot;Mercury&quot;, &quot;Venus&quot;, &quot;Earth&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;,
+    &quot;Saturn&quot;, &quot;Uranus&quot;, &quot;Neptune&quot;]
+
+for i in 0...planets.length
+
+    puts planets[i]
+end
+</code></pre>
+
+<p>这个例子中我们创建了一个数组planets，我们遍历这个数组打印这个数组的每个元素。</p>
+
+<pre><code>planets = [&quot;Mercury&quot;, &quot;Venus&quot;, &quot;Earth&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;,
+    &quot;Saturn&quot;, &quot;Uranus&quot;, &quot;Neptune&quot;]
+</code></pre>
+
+<p>planets数组。</p>
+
+<pre><code>for i in 0...planets.length
+</code></pre>
+
+<p>length方法返回数组的长度。数组从0开始，最后一个索引是n-1。</p>
+
+<pre><code>puts planets[i]
+</code></pre>
+
+<p>打印数组指定的一个元素。</p>
+
+<pre><code>$ ./planets2.rb
+Mercury
+Venus
+Earth
+Mars
+Jupiter
+Saturn
+Uranus
+Neptune
+</code></pre>
+
+<p>程序的运行结果。</p>
+
+<h2 id="each方法">each方法</h2>
+
+<p>在Ruby中我们可以使用each方法遍历数组的每个元素。它接受两个参数。一个元素和一个代码块。元素放在管道之间，它保存了当前循环的数据项。代码块是每次要执行的内容。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+planets = [&quot;Mercury&quot;, &quot;Venus&quot;, &quot;Earth&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;,
+    &quot;Saturn&quot;, &quot;Uranus&quot;, &quot;Neptune&quot;]
+
+planets.each do |planet| 
+
+    puts planet
+end
+</code></pre>
+
+<p>这个例子我们使用each迭代器遍历planets数组。</p>
+
+<pre><code>planets.each do |planet| 
+
+    puts planet
+end
+</code></pre>
+
+<p>each迭代器是planets数组的一个方法。planet保存了此次迭代的数据项。我们可以使用任何我们想使用的字符。<strong>我们可以使用{}代替*do*和end关键字</strong>。</p>
+
+<h2 id="break-next语句">break、next语句</h2>
+
+<p>break语句用于终止while、for或者case的代码块语句。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+while true
+
+    r = 1 + rand(30)
+    print &quot;#{r} &quot;
+
+    if r == 22
+        break
+    end
+end
+
+puts
+</code></pre>
+
+<p>我们定义了一个无限循环，使用break语句退出这个循环。我们选择1到30的数，打印它。如果等于22则结束*while*循环。</p>
+
+<pre><code>while true
+   ...
+end
+</code></pre>
+
+<p>这是一个无限循环，while的条件总是为真。退出无限循环的唯一方法是使用break。</p>
+
+<pre><code>r = 1 + rand(30)
+print &quot;#{r} &quot;
+</code></pre>
+
+<p>计算从1到30的随机数，并将其打印。</p>
+
+<pre><code>if r == 22
+    break
+end
+</code></pre>
+
+<p>如果数等于22,结束循环。</p>
+
+<pre><code>$ ./break.rb
+20 14 6 26 30 12 2 10 18 29 28 11 30 26 20 22
+</code></pre>
+
+<p>可能的输出结果。</p>
+
+<hr />
+
+<p>next语句用于跳过此次循环，继续下次循环。它可与for和while联合使用。</p>
+
+<p>接下来的例子我们打印不能被2整除的数一列表。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+num = 0
+
+while num &lt; 100
+
+    num += 1
+
+    if (num % 2 == 0)
+        next
+    end
+
+    print &quot;#{num} &quot; 
+end    
+
+puts
+</code></pre>
+
+<p>我们使用while循环迭代1到99的数。</p>
+
+<pre><code>if (num % 2 == 0)
+    next
+end
+</code></pre>
+
+<p>如果这个数可以被2整除，next语句将执行，循环的其余将跳过。</p>
+
+<pre><code>$ ./next.rb
+1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39
+41 43 45 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77
+79 81 83 85 87 89 91 93 95 97 99
+</code></pre>
+
+<p>程序的输出结果。</p>
+
+<h2 id="redo语句">redo语句</h2>
+
+<p>redo语句重新开始循环而不检查循环的条件式。下面的例子有点复杂，它展示了redo语句和其它的一些特性。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+options = [&quot;rock&quot;, &quot;scissors&quot;, &quot;paper&quot;]
+
+while true
+
+    print &lt;&lt;TEXT
+1 - rock
+2 - scissors
+3 - paper
+9 - end game
+TEXT
+
+    val = gets.to_i
+
+    r = rand(3) + 1
+
+    if val == 9 
+        puts &quot;End&quot;
+        exit
+    end
+
+    if ![1, 2, 3, 9].include?(val)
+        puts &quot;Invalid option&quot;
+        redo
+    end
+
+    computer = options[r-1]
+    human = options[val-1]
+
+    puts &quot;I have #{computer}, you have #{human}&quot;
+
+    if val == r
+        puts &quot;Tie, next throw&quot;
+        redo
+    end
+
+
+    if val == 1 and r == 2
+        puts &quot;Rock blunts scissors, you win&quot;
+
+    elsif val == 2 and r == 1
+        puts &quot;Rock blunts scissors, you loose&quot;
+
+    elsif val == 2 and r == 3
+        puts &quot;Scissors cut paper, you win&quot;
+
+    elsif val == 3 and r == 2
+        puts &quot;Scissors cut paper, you loose&quot;
+
+    elsif val == 3 and r == 1
+        puts &quot;Paper covers rock, you win&quot;
+
+    elsif val == 1 and r == 3
+        puts &quot;Paper covers rock, you loose&quot;
+
+    end    
+end
+</code></pre>
+
+<p>这是一个简单的Rock-paper-scissors游戏。这个例子中我们用到了redo语句、条件式、随机数、数组和输入。</p>
+
+<pre><code>options = [&quot;rock&quot;, &quot;scissors&quot;, &quot;paper&quot;]
+</code></pre>
+
+<p>定义了游戏可能用到的选项数组。这三个词在打印消息时会用到。</p>
+
+<pre><code>    print &lt;&lt;TEXT
+1 - rock
+2 - scissors
+3 - paper
+9 - end game
+TEXT
+</code></pre>
+
+<p>使用定界符在终端上打印一个菜单。菜单在每次游戏循环时都打印。</p>
+
+<pre><code>val = gets.to_i
+
+r = rand(3) + 1
+</code></pre>
+
+<p>这几行代码从终端输入一个值，然后选择一个1、2、3的随机数。</p>
+
+<pre><code>if val == 9 
+    puts &quot;End&quot;
+    exit
+end
+</code></pre>
+
+<p>如果输入为9，打印&rsquo;End&rsquo;并退出程序。</p>
+
+<pre><code>if ![1, 2, 3, 9].include?(val)
+    puts &quot;Invalid option&quot;
+    redo
+end
+</code></pre>
+
+<p>如果用户选择了一个不是菜单的值，我们提示无效选项并重新循环。</p>
+
+<pre><code>computer = options[r-1]
+human = options[val-1]
+
+puts &quot;I have #{computer}, you have #{human}&quot;
+</code></pre>
+
+<p>将数字转化为字符串，并同时打印用户的选择和计算机的选择。</p>
+
+<pre><code>if val == r
+    puts &quot;Tie, next throw&quot;
+    redo
+end
+</code></pre>
+
+<p>如果选择相同则是平局，开始新的游戏循环。</p>
+
+<pre><code>if val == 1 and r == 2
+    puts &quot;Rock blunts scissors, you win&quot;
+
+elsif val == 2 and r == 1
+    puts &quot;Rock blunts scissors, you loose&quot;
+...
+</code></pre>
+
+<p>使用多个if、elsif分支，比较用户和计算机的选择以决定谁是赢家。</p>
+
+<pre><code>$ ./redo.rb
+1 - rock
+2 - scissors
+3 - paper
+9 - end game
+3
+I have paper, you have paper
+Tie, next throw
+1 - rock
+2 - scissors
+3 - paper
+9 - end game
+2
+I have rock, you have scissors
+Rock blunts scissors, you loose
+1 - rock
+2 - scissors
+3 - paper
+9 - end game
+1
+I have scissors, you have rock
+Rock blunts scissors, you win
+1 - rock
+2 - scissors
+3 - paper
+9 - end game
+9
+End
+</code></pre>
+
+<p>程序输出结果。</p>
+
+<p>这部分的Ruby教程我们谈论了结构流程控制。<a href="http://zetcode.com/lang/rubytutorial/flowcontrol/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </section>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第八章、ruby中的表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">第七章、ruby中的字符串</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">第六章、ruby的数据类型</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">第五章、ruby中的对象</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
