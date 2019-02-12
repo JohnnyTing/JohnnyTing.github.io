@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Johnny Ting  | 第七章、ruby中的字符串</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.53" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://johnnyting.github.io/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+<link rel="shortcut icon" href="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/509a4c2df41d1c43e56234.jpg" type="image/x-icon" />
+
+
+    
+
+    
+
+    <meta property="og:title" content="第七章、ruby中的字符串" />
+<meta property="og:description" content="字符串 在这部分的教程将详细的介绍字符串。 字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。 字符串是序列化" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" /><meta property="article:published_time" content="2019-02-12T14:12:32&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:12:32&#43;08:00"/>
+
+<meta itemprop="name" content="第七章、ruby中的字符串">
+<meta itemprop="description" content="字符串 在这部分的教程将详细的介绍字符串。 字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。 字符串是序列化">
+
+
+<meta itemprop="datePublished" content="2019-02-12T14:12:32&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:12:32&#43;08:00" />
+<meta itemprop="wordCount" content="5596">
+
+
+
+<meta itemprop="keywords" content="ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="第七章、ruby中的字符串"/>
+<meta name="twitter:description" content="字符串 在这部分的教程将详细的介绍字符串。 字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。 字符串是序列化"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-gray">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Johnny Ting
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第七章、ruby中的字符串</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-12T14:12:32&#43;08:00">February 12, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="字符串">字符串</h2>
+
+<p>在这部分的教程将详细的介绍字符串。</p>
+
+<p>字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。</p>
+
+<p>字符串是序列化的unicode字符。它是一种数据类型存储了序列化的值，它的元素通常代表的是根据字符编码的字符。当一个字符串在代码中以字面量出现，它也称为字符串文本。</p>
+
+<h2 id="第一个例子">第一个例子</h2>
+
+<p>在Ruby中字符串文本是以单引号或者双引号引起来的。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+# first.rb
+
+puts 'Python language'
+puts &quot;Ruby language&quot;
+</code></pre>
+
+<p>这个例子有两个字符串，第一个是用单引号，另一个是用双引号。</p>
+
+<pre><code class="language-ruby">➜  ~ ruby first.rb
+Python language
+Ruby language
+</code></pre>
+
+<h2 id="使用引号">使用引号</h2>
+
+<p>如果我们想要显示引号该怎么做，直接引用？这有两种方法实现。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;There are many stars&quot;
+puts &quot;He said, \&quot;Which one is your favourite?\&quot;&quot;
+
+puts 'There are many stars'
+puts 'He said, &quot;Which one is your favourite?&quot;'
+</code></pre>
+
+<p>我们使用<code>\</code>字符将引号转义。通常双引号是用于划定字符串的范围，然后被转义之后它原始的意义就没有了。它在字符串中被作为一个正常的字符。第二种方法是混合使用单引号和双引号。</p>
+
+<pre><code>➜  ~ ruby quotes.rb
+There are many stars
+He said, &quot;Which one is your favourite?&quot;
+There are many stars
+He said, &quot;Which one is your favourite?&quot;
+</code></pre>
+
+<h2 id="转义序列">转义序列</h2>
+
+<p>转义符是特殊的字符，在字符串中有特殊的含义。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;one two three four&quot;
+puts &quot;one\ntwo\nthree\nfour&quot;
+</code></pre>
+
+<p>最常用一个的转义符是换行符\n。它在许多编程语言中都有效。换行符之后的字符将出现在新的一行。</p>
+
+<pre><code>➜  ~ ruby newline.rb
+one two three four
+one
+two
+three
+four
+</code></pre>
+
+<p>以上脚本的输出结果中换行符之后的字符在新的一行。</p>
+
+<hr />
+
+<p>r、b和t是正常的字符，当前面加上\字符后就具有特殊意义了。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;   bbb\raaa&quot;
+puts &quot;Joan\b\b\bane&quot;
+puts &quot;Towering\tinferno&quot;
+</code></pre>
+
+<p>这个例子中我们用到了三个不同的转义字符。</p>
+
+<pre><code>puts &quot;   bbb\raaa&quot;
+</code></pre>
+
+<p>回车符\r控制之后的字符回到行首。之前打印到终端上的字符串会被处理。这个转义字符会将aaa字符位于bbb之前，输出为aaabbb。</p>
+
+<pre><code>puts &quot;Joan\b\b\bane&quot; 
+</code></pre>
+
+<p>\b是退格控制符，它会删掉前一个字符。这个字符串将在终端上打印&rsquo;Jane&rsquo;而不是&rsquo;Joan&rsquo;。</p>
+
+<pre><code>puts &quot;Towering\tinferno&quot; 
+</code></pre>
+
+<p>最后\t转义符是用于两个词之间制表空格的。</p>
+
+<pre><code>➜  ~ ruby escapes.rb
+aaabbb
+Jane
+Towering	inferno
+</code></pre>
+
+<hr />
+
+<p>反斜杠\是用于创建转义符的特殊字符。当需要打印反斜杠时，则在它前面加上另一个反斜杠。这意味着转义过了可以打印。在Ruby中单引号和双引号用于划定字符串范围的，想要打印它们同样也需要在前面加上\。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;The special character \\&quot;
+puts &quot;The special character \'&quot;
+puts &quot;The special character \&quot;&quot;
+</code></pre>
+
+<p>这个例子中我们在终端上打印了这三个字符。</p>
+
+<pre><code>➜  ~ ruby specials.rb
+The special character \
+The special character '
+The special character &quot;
+</code></pre>
+
+<h2 id="访问字符串的元素">访问字符串的元素</h2>
+
+<p>在Ruby中我们可以使用方括号[]来访问字符串的元素。在括号内可以使用字符串、范围索引。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+msg = &quot;Ruby language&quot;
+
+puts msg[&quot;Ruby&quot;]
+puts msg[&quot;Python&quot;]
+
+puts msg[0]
+puts msg[-1]
+
+puts msg[0, 3]
+puts msg[0..9]
+puts msg[0, msg.length]
+</code></pre>
+
+<p>这个例子的代码展示了我们可以访问字符串的一部分。</p>
+
+<pre><code>msg = &quot;Ruby language&quot;
+</code></pre>
+
+<p>这里是我们将要访问的字符串。</p>
+
+<pre><code>puts msg[&quot;Ruby&quot;]
+</code></pre>
+
+<p>这行代码我们测试字符串&rsquo;Ruby&rsquo;是否是msg的子串。如果是将返回该字符串。</p>
+
+<pre><code>puts msg[0]
+</code></pre>
+
+<p>可以通过索引来访问这个字符串的字符。编号是从0开始的，也就是说0号索引是第1个字符。msg[0]返回字符串的第一个字符R。</p>
+
+<pre><code>puts msg[-1]
+</code></pre>
+
+<p>这里我们访问最后一个字符。-1代表了最后一个索引。</p>
+
+<pre><code>puts msg[0, 3]
+</code></pre>
+
+<p>两个用逗号分隔的索引返回了从第1个索引开始到第2个索引的字符，不包括第2个索引。</p>
+
+<pre><code>puts msg[0..9]
+</code></pre>
+
+<p>范围操作符也可以完成同样操作。这里我们打印前10个字符。</p>
+
+<pre><code>puts msg[0, msg.length]
+</code></pre>
+
+<p>这行返回全部的字符。msg.length返回字符串的长度。</p>
+
+<pre><code>➜  ~ ruby access.rb
+Ruby
+
+R
+e
+Rub
+Ruby langu
+Ruby language
+</code></pre>
+
+<h2 id="多行字符串">多行字符串</h2>
+
+<p>许多编程语言要创建多行字符串需要额外的努力，在Visual Basic中尤其如此。但是在Ruby中却是很容易。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;I hear Mariachi static on my radio
+And the tubes they glow in the dark
+And I'm there with her in Ensenada
+And I'm here in Echo Park
+&quot;
+
+puts %/
+Carmelita hold me tighter
+I think I'm sinking down
+And I'm all strung out on heroin
+On the outskirts of town/
+
+puts &lt;&lt;STRING
+
+Well, I'm sittin' here playing solitaire
+With my pearl-handled deck
+The county won't give me no more methadone
+And they cut off your welfare check
+STRING
+</code></pre>
+
+<p>这个例子中我们使用了Carmelita歌曲的歌词。我们展示了使用三种方法打印多行字符串。可以使用双引号；可以使用%字符创建多行字符串，用%后面的字符将字符串包围住；最后我们使用定界符，这和语法是使用&lt;&lt;接着一些字符串，用这个字符串包围住多行字符。它必须左对齐。</p>
+
+<h2 id="变量替换">变量替换</h2>
+
+<p>变量替换是将字符串的变量替换成它们的值。为了将变量替换成值，这个变量在字符串需要放在#{和}之间。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+name = &quot;Jane&quot;
+age = 17
+
+puts &quot;#{name} is #{age} years old&quot;
+</code></pre>
+
+<p>这个例子中我们替换了字符串中的两个变量：name和age。</p>
+
+<pre><code>➜  ~ ruby interpolation.rb
+Jane is 17 years old
+</code></pre>
+
+<hr />
+
+<p>也可以替换表达式。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+x = 5
+y = 6
+
+puts &quot;The product of #{x} and #{y} is #{x*y}&quot;
+</code></pre>
+
+<p>这是一个表达式替换的例子。</p>
+
+<pre><code>➜  ~ ruby interpolation2.rb
+The product of 5 and 6 is 30
+</code></pre>
+
+<hr />
+
+<p>这是另一种替换变量的方法。类似于Python 2.x所支持的替换。</p>
+
+<pre><code>name = &quot;Jane&quot;
+age = 17
+
+message = &quot;%s is %d years old&quot; % [name, age]
+puts message
+</code></pre>
+
+<p>以上是一个例子。</p>
+
+<pre><code>message = &quot;%s is %d years old&quot; % [name, age]
+</code></pre>
+
+<p>使用之前先创建一个字符串。%s和%d是格式化字符，分别表示字符串和数字。值由%字符后面的方括号提供。</p>
+
+<h2 id="字符串连接">字符串连接</h2>
+
+<p>字符串连接是从多个字符串创建一个字符串。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+lang = &quot;Ruby&quot; + &quot; programming&quot; + &quot; languge&quot;
+puts lang
+
+lang = &quot;Python&quot; &quot; programming&quot; &quot; language&quot;
+puts lang
+
+lang = &quot;Perl&quot; &lt;&lt; &quot; programming&quot; &lt;&lt; &quot; language&quot;
+puts lang
+
+lang = &quot;Java&quot;.concat(&quot; programming&quot;).concat(&quot; language&quot;)
+puts lang
+</code></pre>
+
+<p>Ruby提供多种方法连接字符串。</p>
+
+<pre><code>lang = &quot;Ruby&quot; + &quot; programming&quot; + &quot; languge&quot;
+</code></pre>
+
+<p>在计算机语言中加法操作符是最常用的一种。Perl和PHP是用的点操作符(.)。</p>
+
+<pre><code>lang = &quot;Python&quot; &quot; programming&quot; &quot; language&quot;
+</code></pre>
+
+<p>Ruby自动连接多个后续的字符串。</p>
+
+<pre><code>lang = &quot;Perl&quot; &lt;&lt; &quot; programming&quot; &lt;&lt; &quot; language&quot;
+</code></pre>
+
+<p>另一种方法是使用&lt;&lt;操作符。</p>
+
+<pre><code>lang = &quot;Java&quot;.concat(&quot; programming&quot;).concat(&quot; language&quot;)
+</code></pre>
+
+<p>每个字符串字面符实际上都是一个对象。我们可以对Ruby对象调用很多方法。对于字符串对象可以调用concat方法连接两个字符串。它返回最后的结果对象，再对其调用另一个方法。这样我们就将这些方法链接起来了。</p>
+
+<pre><code>➜  ~ ruby concatenate.rb
+Ruby programming languge
+Python programming language
+Perl programming language
+Java programming language
+</code></pre>
+
+<h2 id="冻结字符串">冻结字符串</h2>
+
+<p>在Java或者C#中字符串是不可变的，这意味着不能修改已存在的字符串。只能通过已存在的字符串创建一个新的。在Ruby中字符串同样也是不可修改的。</p>
+
+<p>Ruby中字符串对象有一个freeze方法，可以使它们不可变。</p>
+
+<pre><code>msg = &quot;Jane&quot;
+msg &lt;&lt; &quot; is &quot; 
+msg &lt;&lt; &quot;17 years old&quot;
+
+puts msg
+
+msg.freeze
+
+#msg &lt;&lt; &quot;and she is pretty&quot;
+</code></pre>
+
+<p>这个例子我们演示了字符串是可变的。然后在调用freeze方法之后我们就不能再作修改了。如果我们取消掉注释将会得到&rsquo;can&rsquo;t modify frozen string&rsquo;错误信息。</p>
+
+<h2 id="字符串比较">字符串比较</h2>
+
+<p>在编程中字符串比较是件平常的事情。我们可以使用==操作符或者eql?方法来比较两个字符串，如果相等返回true，否则false。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;12&quot; == &quot;12&quot;
+puts &quot;17&quot; == &quot;9&quot;
+puts &quot;aa&quot; == &quot;ab&quot;
+
+puts &quot;Jane&quot;.eql? &quot;Jan&quot;
+puts &quot;Jane&quot;.eql? &quot;Jane&quot;
+</code></pre>
+
+<p>这个例子的代码我们比较了一些字符串。</p>
+
+<pre><code>puts &quot;12&quot; == &quot;12&quot;
+</code></pre>
+
+<p>这两个是相等的，这行返回true。</p>
+
+<pre><code>puts &quot;aa&quot; == &quot;ab&quot;
+</code></pre>
+
+<p>第一个字符是相等，然后比较下一个字符。它们不同，因此返回false。</p>
+
+<pre><code>puts &quot;Jane&quot;.eql? &quot;Jan&quot;
+</code></pre>
+
+<p>eql?方法用于比较两个字符串。所有对象都内建了eql?方法。这个方法将另一个要比较的字符串作为参数传入。</p>
+
+<pre><code>➜  ~ ruby comparing.rb
+true
+false
+false
+false
+true
+</code></pre>
+
+<hr />
+
+<p>Ruby中有一个“飞船(spaceship)”操作符&lt;=&gt;。这个操作符来自Perl，与以上两个比较方法不同，它不是返回true和false，而是返回1、0或者-1。取决于左参数和右参数的关系。如果左参数大于右参数则返回1；如果左参数小于右参数则返回-1；如果相等返回0。什么才是一个字符大于另一个字符呢？字符在表中是有序的，在表中每个字符有一位位置。当比较字符时实际比较它们在表中的位置。例如ASCII表，字符a在b的前面，因此a&lt;=&gt;b返回-1，因为左参数的位置小于右参数b。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;a&quot; &lt;=&gt; &quot;b&quot;
+puts &quot;b&quot; &lt;=&gt; &quot;a&quot;
+puts &quot;a&quot; &lt;=&gt; &quot;a&quot;
+</code></pre>
+
+<p>使用“飞船”操作符比较字符串。</p>
+
+<pre><code>➜  ~ ruby spaceship.rb
+-1
+1
+0
+</code></pre>
+
+<hr />
+
+<p>有可能比较字符串不管大小写。在Ruby中有casecmp方法。这个方法与飞船操作符相同。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;Jane&quot;.casecmp &quot;Jane&quot;
+puts &quot;Jane&quot;.casecmp &quot;jane&quot;
+puts &quot;Jane&quot;.casecmp &quot;Jan&quot;
+</code></pre>
+
+<p>以上是一个例子。</p>
+
+<pre><code>puts &quot;Jane&quot;.casecmp &quot;Jane&quot;
+puts &quot;Jane&quot;.casecmp &quot;jane&quot;
+</code></pre>
+
+<p>这两行返回结果都是0.因为我们不考虑字符的大小写。</p>
+
+<pre><code>➜  ~ ruby case.rb
+0
+0
+1
+</code></pre>
+
+<h2 id="字符串对象">字符串对象</h2>
+
+<p>Ruby是面向对象语言。对象是面向对象程序的基本代码块。字符串也是对象。对象由数据和方法组成。在面向对象程序中，创建对象并且相互通信。</p>
+
+<pre><code>website = &quot;google.com&quot;
+puts website
+
+website = String.new &quot;zetcode.com&quot;
+puts website
+</code></pre>
+
+<p>以上例子我们展示了两个创建字符串的基本方法。</p>
+
+<pre><code>website = &quot;google.com&quot;
+</code></pre>
+
+<p>这里是使用字符串字面量创建了一个website字符串变量。</p>
+
+<pre><code>website = String.new &quot;zetcode.com&quot;
+</code></pre>
+
+<p>这是标准创建字符串对象的方法。然而第一种更常用，因为它更简洁，并且在计算机语言中更普遍。</p>
+
+<hr />
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;zetcode&quot;.upcase
+puts &quot;zetcode&quot;.size
+puts &quot;zetcode&quot;.reverse
+</code></pre>
+
+<p>这个例子中我们对字符串字面量调用了三个方法。如果是熟悉Java或者C的人可能会困惑。在Ruby中调用方法时字符串字面量会转化为一个字符串对象。</p>
+
+<pre><code>➜  ~ ruby stringobject2.rb
+ZETCODE
+7
+edoctez
+</code></pre>
+
+<h2 id="字符串方法">字符串方法</h2>
+
+<p>Ruby字符串对象有一些有用的方法。如我们见到过的concat或者eql?。</p>
+
+<pre><code>word = &quot;Determination&quot;
+
+puts &quot;The word #{word} has #{word.size} characters&quot;
+
+puts word.include? &quot;tion&quot;
+puts word.include? &quot;tic&quot;
+
+puts
+
+puts word.empty?
+word.clear
+puts word.empty?
+</code></pre>
+
+<p>创建一个字符串变量，展示了四个字符串的方法。</p>
+
+<pre><code>puts word.include? &quot;tion&quot;
+</code></pre>
+
+<p>include?方法判断一个字符串是否为子串。这里返回的是true。</p>
+
+<pre><code>puts word.empty?
+word.clear
+</code></pre>
+
+<p>empty?方法检查字符串是否为空。返回一个布尔值。clear方法清空字符串。</p>
+
+<hr />
+
+<p>接下来的例子介绍字符串大小写的方法。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+ruby = &quot;Ruby programming language&quot;
+puts ruby.upcase
+puts ruby.downcase
+puts ruby.capitalize
+puts ruby.swapcase
+</code></pre>
+
+<p>Ruby中有四个与大小写相关的方法。upcase方法将字符串全转为大写并返回一个新对象；downcase方法是将字符串全转为小写并返回一个新对象；capitalize方法是将字符串的首字母大写并返回一个新的对象。最后swapcase方法是将大小写反转并返回一个新对象。</p>
+
+<pre><code>➜  ~ ruby rubylang.rb
+RUBY PROGRAMMING LANGUAGE
+ruby programming language
+Ruby programming language
+rUBY PROGRAMMING LANGUAGE
+</code></pre>
+
+<hr />
+
+<p>接下来展示两个Ruby字符串的方法：start_with? 和end_with?。这两个方法都是返回布尔值。它们判断一个字符串是否分别以另一个字符串开头或结尾。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+ws1 = &quot;zetcode.com&quot;
+ws2 = &quot;www.gnome.org&quot;
+
+puts ws1.start_with? &quot;www.&quot;
+puts ws2.start_with? &quot;www.&quot;
+
+puts
+
+puts ws1.end_with? &quot;.com&quot;
+puts ws2.end_with? &quot;.com&quot;
+</code></pre>
+
+<p>这是一个上述方法的例子。</p>
+
+<pre><code>puts ws1.start_with? &quot;www.&quot;
+</code></pre>
+
+<p>这里检查一个字符串是否以&rdquo;www.&ldquo;开头。如果不是则在终端打印false</p>
+
+<pre><code>puts ws1.end_with? &quot;.com&quot;
+</code></pre>
+
+<p>检查字符串ws1是否以&rdquo;.com&rdquo;结尾。如果是则在终端打印true。</p>
+
+<pre><code>➜  ~ ruby startend.rb
+false
+true
+
+true
+false
+</code></pre>
+
+<hr />
+
+<p>接下来我们介绍inspect方法。这个方法返回被引号包围原始的字符串，对于特殊字符不处理。对于想要检查字符串由哪些字符组成的比较有用。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+msg = &quot;Jane\t17\nThomas\t23&quot;
+
+puts msg
+puts msg.inspect
+</code></pre>
+
+<p>inspect方法的一个例子。</p>
+
+<pre><code>msg = &quot;Jane\t17\nThomas\t23&quot;
+</code></pre>
+
+<p>这个字符串有一些特殊的字符。</p>
+
+<pre><code>puts msg
+puts msg.inspect
+</code></pre>
+
+<p>第一种情况，字符串中的制表符和换行符被解释了。第二种情况我们得到了一个原始格式的字符串。</p>
+
+<pre><code>➜  ~ ruby inspectmethod.rb
+Jane	17
+Thomas	23
+&quot;Jane\t17\nThomas\t23&quot;
+</code></pre>
+
+<hr />
+
+<p>chomp方法是将字符串尾部的分隔符去掉并返回一个新对象。默认的分隔符是换行符(\n)。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+print &quot;Are you sure to download? (Yes/No) &quot;
+
+response = gets
+
+if (response.downcase == &quot;yes&quot;)
+    puts &quot;Downloaded&quot;
+else
+    puts &quot;Download cancelled&quot;
+end
+
+puts response.inspect
+</code></pre>
+
+<p>上面的脚本我们从用户输入一些内容，然后再返回给用户。</p>
+
+<pre><code>➜  ~ ruby chomp.rb
+Are you sure to download? (Yes/No) yes
+Download cancelled
+&quot;yes\n&quot;
+</code></pre>
+
+<p>这个脚本没有正确的工作。原因很清晰，由inspect返回了。用户输入的内容以回车键结尾，因此换行符也被包含其中了。&rdquo;Yes&rdquo;与&rdquo;Yes\n&rdquo;不相等。要使用脚本正确运行，我们使用chomp方法移除掉换行符。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+print &quot;Are you sure to download? (Yes/No) &quot;
+
+response = gets
+
+if (response.downcase.chomp == &quot;yes&quot;)
+    puts &quot;Downloaded&quot;
+else
+    puts &quot;Download cancelled&quot;
+end
+
+puts response.inspect
+</code></pre>
+
+<p>这个是正确的脚本。</p>
+
+<pre><code>if (response.downcase.chomp == &quot;yes&quot;)
+</code></pre>
+
+<p>这里我们在比&rdquo;Yes&rdquo;比较之前对输入内容进行了处理。</p>
+
+<pre><code>➜  ~ ruby chomp.rb
+Are you sure to download? (Yes/No) yes
+Downloaded
+&quot;yes\n&quot;
+</code></pre>
+
+<h2 id="格式化字符串">格式化字符串</h2>
+
+<p>Ruby中有格式化说明符。格式化说明符决定了如何显示一个字符串。它以%字符开始。格式化说明符放在单引号或者双引号内。</p>
+
+<p>格式化说明符有以下字段。</p>
+
+<p>%[flags][field width][precision]conversion specifier</p>
+
+<p>方括号内的字段是可选的。</p>
+
+<p>转换说明符表明数据将如何进行转换。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;There are %d oranges in the basket.&quot; % 12
+puts &quot;There are %d oranges and %d apples in the basket.&quot; % [12, 10]
+</code></pre>
+
+<p>这是一个格式化说明符的例子。</p>
+
+<pre><code>puts &quot;There are %d oranges in the basket&quot; % 12
+</code></pre>
+
+<p>当我们在字符串中使用%d，我们在这个位置将期望一个数字。d是十进制数的转换说明符。这个数据在%字符后面给出。</p>
+
+<pre><code>puts &quot;There are %d oranges and %d apples in the basket&quot; % [12, 10]
+</code></pre>
+
+<p>当我们在一个字符串中使用多个格式化说明符时，每个都以%开始。多个值放在[]之间并以逗号分隔。</p>
+
+<pre><code>➜  ~ ruby formatspecifiers.rb
+There are 12 oranges in the basket.
+There are 12 oranges and 10 apples in the basket.
+</code></pre>
+
+<hr />
+
+<p>接下来是一个实践的例子。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+website = &quot;zetcode.com&quot;
+
+website.each_char do |c|
+    print &quot;#{c} has ASCII code %d\n&quot; % c.ord
+end
+</code></pre>
+
+<p>这个例子我们记遍历字符串的所有字符并在终端上打印它的ASCII值。</p>
+
+<pre><code>website.each_char do |c|
+    print &quot;#{c} has ASCII code %d\n&quot; % c.ord    
+end
+</code></pre>
+
+<p>each_char方法将website字符串中的每个字符传给代码块，一个字符是一次循环。当前的字符保存在这是c中。我们使用ord方法获取字符的ASCII值。</p>
+
+<pre><code>➜  ~ ruby character.rb
+z has ASCII code 122
+e has ASCII code 101
+t has ASCII code 116
+c has ASCII code 99
+o has ASCII code 111
+d has ASCII code 100
+e has ASCII code 101
+. has ASCII code 46
+c has ASCII code 99
+o has ASCII code 111
+m has ASCII code 109
+</code></pre>
+
+<hr />
+
+<p>数字有多种显示形式。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+#  decimal
+ puts &quot;%d&quot; % 300
+#  hexadecimal
+ puts &quot;%x&quot; % 300
+
+#  octal
+ puts &quot;%o&quot; % 300
+
+#  binary
+ puts &quot;%b&quot; % 300
+
+#  scientific
+ puts &quot;%e&quot; % (5/3.0)
+</code></pre>
+
+<p>上面的例子中我们打印数字的十进制、十六进制、八进制、二进制和科学记数的形式。</p>
+
+<pre><code># hexadecimal
+puts &quot;%x&quot; % 300
+</code></pre>
+
+<p>x转换符用于将数字转为十六进制格式。</p>
+
+<pre><code># binary
+puts &quot;%b&quot; % 300
+</code></pre>
+
+<p>b转换符用于将数字转为二进制格式。</p>
+
+<pre><code>➜  ~ ruby various.rb
+300
+12c
+454
+100101100
+1.666667e+00
+</code></pre>
+
+<hr />
+
+<p>精度是格式化说明符的一个字段。它指明了后面小数点的位数。它对于整数、小数和字符串有不同的意义。当用于整数时表明了最少打印多少个数字。如果数字个数少于精度则前面用0补全。对于整数精度默认为1,表示前面没有0.当用于浮点数时表示小数点后显示多少个数字。最后，用于字符串时精度表示多少个字符会打印。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts 'Height: %f %s' % [172.3, 'cm']
+puts 'Height: %.1f %s' % [172.3, 'cm']
+
+puts &quot;%d&quot; % 16
+puts &quot;%.5d&quot; % 16
+
+puts &quot;%s&quot; % &quot;zetcode&quot;
+puts &quot;%.5s&quot; % &quot;zetcode&quot;
+</code></pre>
+
+<p>这个例子中我们使用了精度字段。</p>
+
+<pre><code>puts 'Height: %f %s' % [172.3, 'cm']
+puts 'Height: %.1f %s' % [172.3, 'cm']
+</code></pre>
+
+<p>172.3是一个浮点数。如果没有指定精度则会显示6个小数。这里将会显示5个0.第二行的.1是精度，它将小数个数减为1。</p>
+
+<pre><code>puts &quot;%d&quot; % 16
+puts &quot;%.5d&quot; % 16
+</code></pre>
+
+<p>对于整数默认精度为1。第二行中我们指明了精度为.5，这将会在16前面加上3个0。</p>
+
+<pre><code>puts &quot;%s&quot; % &quot;zetcode&quot;
+puts &quot;%.5s&quot; % &quot;zetcode&quot;
+</code></pre>
+
+<p>第一行会打印所有的字符串。第二行仅打印5个，有两个字符将抛弃。</p>
+
+<pre><code>➜  ~ ruby precision.rb
+Height: 172.300000 cm
+Height: 172.3 cm
+16
+00016
+zetcode
+zetco
+</code></pre>
+
+<hr />
+
+<p>宽度字段表示数据最小要显示的宽度。它是一个数字，并且在小数点之前。如果输出比较短，则会被用空格填充，且右对齐。如果宽度前面有减号则会左对齐。如果输出比宽度长则会完整输出。</p>
+
+<pre><code>#!/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby
+puts &quot;%d&quot; % 1
+puts &quot;%d&quot; % 16
+puts &quot;%d&quot; % 165
+puts &quot;%d&quot; % 1656
+puts &quot;%d&quot; % 16567
+
+puts &quot;%10d&quot; % 1
+puts &quot;%10d&quot; % 16
+puts &quot;%10d&quot; % 165
+puts &quot;%10d&quot; % 1656
+puts &quot;%10d&quot; % 16567
+</code></pre>
+
+<p>第一种情况打印5个数字没有指明宽度。输出的宽度即为数字的位数。第二种情况指明宽度为10。则每个都最少输出10字符的长度，数字右对齐。</p>
+
+<pre><code>puts &quot;%d&quot; % 1
+puts &quot;%d&quot; % 16
+</code></pre>
+
+<p>打印两个数字，输出的宽度分别为1、2个字符。</p>
+
+<pre><code>puts &quot;%10d&quot; % 1
+puts &quot;%10d&quot; % 16
+</code></pre>
+
+<p>这里宽度都为10个字符。这两个数被填充了8、9个空格。</p>
+
+<pre><code>➜  ~ ruby fieldwidth.rb
+1
+16
+165
+1656
+16567
+         1
+        16
+       165
+      1656
+     16567
+</code></pre>
+
+<p>我们发现第二种情况数字是右对齐的。</p>
+
+<p>这章的教程介绍的Ruby的字符串。<a href="http://zetcode.com/lang/rubytutorial/strings/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">第六章、ruby的数据类型</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">第五章、ruby中的对象</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://johnnyting.github.io/" >
+    &copy; 2019 Johnny Ting
+  </a>
+    <div>
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://johnnyting.github.io/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
