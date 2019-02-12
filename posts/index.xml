@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 12 Feb 2019 14:12:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Feb 2019 16:04:18 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第八章、ruby中的表达式</title>
+      <link>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Tue, 12 Feb 2019 16:04:18 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>表达式 在这章的教程将介绍Ruby的表达式。 表达式是由操作数和操作符构成的。表达式的操作符表明了对操作数应用什么操作。表达式中操作符的求值顺序</description>
+    </item>
     
     <item>
       <title>第七章、ruby中的字符串</title>
