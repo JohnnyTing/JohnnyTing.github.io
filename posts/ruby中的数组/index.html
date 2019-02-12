@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Johnny Ting  | 第十章、ruby中的数组</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.53" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://johnnyting.github.io/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+<link rel="shortcut icon" href="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/509a4c2df41d1c43e56234.jpg" type="image/x-icon" />
+
+
+    
+
+    
+
+    <meta property="og:title" content="第十章、ruby中的数组" />
+<meta property="og:description" content="数组 这一部分的教程将介绍数组。数组是有序对象的集合。 一个这是在某个时刻只能保存一项数值。不过数组可以保存多项。这些数据项被称为数组的元素。数" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/" /><meta property="article:published_time" content="2019-02-12T17:29:08&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T17:29:08&#43;08:00"/>
+
+<meta itemprop="name" content="第十章、ruby中的数组">
+<meta itemprop="description" content="数组 这一部分的教程将介绍数组。数组是有序对象的集合。 一个这是在某个时刻只能保存一项数值。不过数组可以保存多项。这些数据项被称为数组的元素。数">
+
+
+<meta itemprop="datePublished" content="2019-02-12T17:29:08&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T17:29:08&#43;08:00" />
+<meta itemprop="wordCount" content="6300">
+
+
+
+<meta itemprop="keywords" content="ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="第十章、ruby中的数组"/>
+<meta name="twitter:description" content="数组 这一部分的教程将介绍数组。数组是有序对象的集合。 一个这是在某个时刻只能保存一项数值。不过数组可以保存多项。这些数据项被称为数组的元素。数"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-gray">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Johnny Ting
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第十章、ruby中的数组</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-12T17:29:08&#43;08:00">February 12, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="数组">数组</h2>
+
+<p>这一部分的教程将介绍数组。数组是有序对象的集合。</p>
+
+<p>一个这是在某个时刻只能保存一项数值。不过数组可以保存多项。这些数据项被称为数组的元素。数组可以保存任何类型的数据。每个元素可以使用索引来引用。第一个元素的索引值为0。</p>
+
+<p>注意Ruby的数组与C、C++或者Java中的数组有很大的不同。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+nums = [1, 2, 3, 4, 5]
+
+nums.each do |num|
+    puts num
+end
+</code></pre>
+
+<p>我们的第一个例子创建了一个包含5个整数的数组，然后在终端上打印这些元素。</p>
+
+<pre><code>nums = [1, 2, 3, 4, 5]
+</code></pre>
+
+<p>这行创建了一个包含5个整数的数组，每个元素使用逗号分隔开来。</p>
+
+<pre><code>nums.each do |num|
+    puts num
+end
+</code></pre>
+
+<p>我们使用each方法遍历数组并在终端上打印每个元素。</p>
+
+<pre><code>$ ./array.rb
+1
+2
+3
+4
+5
+</code></pre>
+
+<p>程序的输出结果。</p>
+
+<h2 id="创建数组">创建数组</h2>
+
+<p>Ruby中数组是一个对象，可以使用new方法进行实例化。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+nums = Array.new
+
+nums.push 1
+nums.push 2
+nums.push 3
+nums.push 4
+nums.push 5
+
+puts nums
+</code></pre>
+
+<p>这个脚本中我们创建了一个数组nums，然后往里面添加了5个整数。</p>
+
+<pre><code>nums = Array.new
+</code></pre>
+
+<p>创建数组对象。</p>
+
+<pre><code>nums.push 1
+</code></pre>
+
+<p>push方法是往数组尾部添加一项数据。</p>
+
+<hr />
+
+<p>我们继续使用new方法创建数组。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+a1 = Array.new 
+a2 = Array.new 3
+a3 = Array.new 6, &quot;coin&quot;
+a4 = Array.new [11]
+a5 = Array.new (15) {|e| e*e}
+
+puts [a1, a2, a3, a4, a5].inspect
+</code></pre>
+
+<p>Array类的new方法有一些选项。</p>
+
+<pre><code>a1 = Array.new 
+</code></pre>
+
+<p>创建一个空的数组，支持稍后再往其中填充数据。</p>
+
+<pre><code>a2 = Array.new 3
+</code></pre>
+
+<p>创建一个数组包含3个nil对象。</p>
+
+<pre><code>a3 = Array.new 6, &quot;coin&quot;
+</code></pre>
+
+<p>创建一个数组包含6个&rdquo;coin&rdquo;字符串。第一个选项是数组的大小；第二个选项是填充的对象。</p>
+
+<pre><code>a4 = Array.new [11]
+</code></pre>
+
+<p>第四个数组只有一项数据。</p>
+
+<pre><code>a5 = Array.new (15) {|e| e*e}
+</code></pre>
+
+<p>创建一个有15个元素的数组，每个元素都是在代码块中创建。这里计算了序号数的平方。</p>
+
+<pre><code>puts [a1, a2, a3, a4, a5].inspect
+</code></pre>
+
+<p>将所有的数组放在一个数组中。数组是可以放入另一个数组里的。然后调用数组的inspect方法，它将对其所有的元素都调用该方法。inspect方法将返回代表这个数组的字符串。当我们需要快速检查数组内容时它非常有用。</p>
+
+<pre><code>$ ./arraynew.rb
+[[], [nil, nil, nil], [&quot;coin&quot;, &quot;coin&quot;, &quot;coin&quot;, &quot;coin&quot;, &quot;coin&quot;, &quot;coin&quot;],
+[11], [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196]]
+</code></pre>
+
+<p>我们可以所有创建的数组。</p>
+
+<hr />
+
+<p>接下来的脚本展示了多种创建数组的方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+integers = [1, 2, 3, 4, 5]
+animals = %w( donkey dog cat dolphin eagle )
+weights = Array.new
+weights &lt;&lt; 4.55 &lt;&lt; 3.22 &lt;&lt; 3.55 &lt;&lt; 8.55 &lt;&lt; 3.23
+
+puts integers.inspect
+puts animals.inspect
+puts weights.inspect
+</code></pre>
+
+<p>我们创建了三个数组分别包含了整数、字符串和小数。</p>
+
+<pre><code>integers = [1, 2, 3, 4, 5]
+</code></pre>
+
+<p>这行创建了一个包含5个整数的数组。这是最经典的方法。数组的每个元素放在中括号中用逗号隔开。</p>
+
+<pre><code>animals = %w( donkey dog cat dolphin eagle )
+</code></pre>
+
+<p>这行代码创建了一个有5个元素的字符串数组。这种方式我们不需要逗号和双引号，减少了按键次数。</p>
+
+<pre><code>weights = Array.new
+weights &lt;&lt; 4.55 &lt;&lt; 3.22 &lt;&lt; 3.55 &lt;&lt; 8.55 &lt;&lt; 3.23
+</code></pre>
+
+<p>第三种方法有两步。首先创建一个数组对象，然后用数据将其初始化。这是正式的数组创建方法。上面方法实际上是这个的简写。</p>
+
+<pre><code>puts integers.inspect
+</code></pre>
+
+<pre><code>$ ./creation.rb
+[1, 2, 3, 4, 5]
+[&quot;donkey&quot;, &quot;dog&quot;, &quot;cat&quot;, &quot;dolphin&quot;, &quot;eagle&quot;]
+[4.55, 3.22, 3.55, 8.55, 3.23]
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<hr />
+
+<p>数组的数据项没限制必须是数字和字符串。数组可以包含Ruby中的所有类型的数据。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Empty
+  
+end
+
+nums = [1, 2, 3, 4, 5]
+
+various = [1, -1, &quot;big&quot;, 3.4, Empty.new, nums, :two]
+
+puts various.inspect
+</code></pre>
+
+<p>我们在数组中放了多种Ruby对象。</p>
+
+<pre><code>various = [1, -1, &quot;big&quot;, 3.4, Empty.new, nums, :two]
+</code></pre>
+
+<p>这个数组包含了数字、字符串、自定义对象、另一个数组和一个符号。</p>
+
+<pre><code>$ ./arrayobjects.rb                                                                                   
+[1, -1, &quot;big&quot;, 3.4, #&lt;Empty:0x987f704&gt;, [1, 2, 3, 4, 5], :two]   
+</code></pre>
+
+<p>arrayobjects.rb脚本的运行结果。</p>
+
+<hr />
+
+<p>下一个例子展示嵌套数组；即一个数组包含另一个数组。Ruby中可以在数组中嵌套数组。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+numbers = [1, 2, 3, [2, 4, 6, [11, 12]]]
+
+puts numbers.length
+puts numbers[0], numbers[1]
+
+puts numbers[3][0]
+puts numbers[3][1]
+
+puts numbers[3][3][0]
+puts numbers[3][3][1]
+
+puts numbers.flatten!.inspect
+</code></pre>
+
+<p>数组[11, 12]被嵌套在[2, 4, 6, &hellip;]里，这个数组又被嵌套在[1, 2, 3, &hellip;]数组里。</p>
+
+<pre><code>puts numbers.length
+</code></pre>
+
+<p>length方法返回4。内嵌数组只算一个元素。</p>
+
+<pre><code>puts numbers[0], numbers[1]
+</code></pre>
+
+<p>这里[]字符用于访问数组的元素。上面这行代码返回第一个和第二个元素。</p>
+
+<pre><code>puts numbers[3][0]
+puts numbers[3][1]
+</code></pre>
+
+<p>这里我们访问内嵌数组的元素。[3][0]返回内嵌数组的第一个元素，在这里是2。同样的[3][1]返回内嵌数组的第二个元素，这里是4。</p>
+
+<pre><code>puts numbers[3][3][0]
+puts numbers[3][3][1]
+</code></pre>
+
+<p>现在我们进入更深一层。我们访问更深一层数组的元素。[3][3]返回[11, 12]数组。然后从这个数组获取第一个和第二个元素。</p>
+
+<pre><code>puts numbers.flatten!.inspect
+</code></pre>
+
+<p><strong>flatten!方法将数组变为平坦，它将所有的内嵌数组元素创建成一个新的数组</strong>。</p>
+
+<pre><code>$ ./arrayofarrays.rb
+4
+1
+2
+2
+4
+11
+12
+[1, 2, 3, 2, 4, 6, 11, 12]
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="打印数组内容">打印数组内容</h2>
+
+<p>要在终端上打印数组的元素有多种方法可以完成。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+integers = [1, 2, 3, 4, 5]
+
+puts integers
+puts integers.inspect
+
+integers.each do |e|
+    puts e
+end
+</code></pre>
+
+<p>这个脚本我们将数组的元素打印了三次。</p>
+
+<pre><code>puts integers
+</code></pre>
+
+<p>数组作为puts/print方法的参数是最简单的方式。每行将打印一个元素。</p>
+
+<pre><code>puts integers.inspect
+</code></pre>
+
+<p>使用inspect方法输出结果的可读性更好。</p>
+
+<pre><code>integers.each do |e|
+    puts e
+end
+</code></pre>
+
+<p>each方法为每个元素都调用一次一个代码块，元素作为参数传递。我们简单的参元素使用puts方法。</p>
+
+<pre><code>$ ./printarray1.rb
+1
+2
+3
+4
+5
+[1, 2, 3, 4, 5]
+1
+2
+3
+4
+5
+</code></pre>
+
+<p>数组在终端上打印了三次。</p>
+
+<hr />
+
+<p>第二个例子我们提供了两个额外的方法打印数组。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+integers = [1, 2, 3, 4, 5]
+
+integers.length.times do |idx|
+    puts integers[idx]
+end
+
+integers.each_with_index do |num, idx|
+    puts &quot;value #{num} has index #{idx}&quot;
+end
+</code></pre>
+
+<p>第一种情况我们组合使用了length和times方法。第二种情况我们使用了each_with_index方法。</p>
+
+<pre><code>integers.length.times do |idx|
+    puts integers[idx]
+end
+</code></pre>
+
+<p>length方法返回数组的长度。times方法将接下来的代码块迭代length次，传递的值从0到length-1。这些数字作为数组的索引使用。</p>
+
+<pre><code>integers.each_with_index do |num, idx|
+    puts &quot;value #{num} has index #{idx}&quot;
+end
+</code></pre>
+
+<p>each_with_index方法迭代数组并将元素及其索引传递给代码块。用这种方法我们可以简单的打印元素和它的索引。</p>
+
+<pre><code>$ ./printarray2.rb
+1
+2
+3
+4
+5
+value 1 has index 0
+value 2 has index 1
+value 3 has index 2
+value 4 has index 3
+value 5 has index 4
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="读取数组元素">读取数组元素</h2>
+
+<p>这节我们将从数组读取数据。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g h}
+
+puts lts.first
+puts lts.last
+puts lts.at(3)
+</code></pre>
+
+<p>第一个例子我们展示了三个简单的方法进行数据检索。</p>
+
+<pre><code>puts lts.first
+puts lts.last
+</code></pre>
+
+<p>first方法读取数组的第一个元素；last方法读取数组的最后一个元素。</p>
+
+<pre><code>puts lts.at(3)
+</code></pre>
+
+<p>at方法返回指定索引的元素。</p>
+
+<pre><code>$ ./retrieval.rb
+a
+h
+d
+</code></pre>
+
+<p>retrieval.rb程序的输出结果。</p>
+
+<hr />
+
+<p>[]符号可以用于访问数据。这是传统访问数据的方法，许多语言都使用这种方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g h }
+
+puts lts[0]
+puts lts[-1]
+puts lts[0, 3].inspect
+puts lts[2..6].inspect
+puts lts[2...6].inspect
+</code></pre>
+
+<p>我们展示了5个使用[]符号的例子。</p>
+
+<pre><code>puts lts[0]
+puts lts[-1]
+</code></pre>
+
+<p>我们获取数组的第一个和最后一个元素。第一项的索引为0,最后一项的索引为-1。</p>
+
+<pre><code>puts lts[0, 3].inspect
+</code></pre>
+
+<p>当中括号里有两个数时，第一个是开始的索引，第二个是长度。这行代码返回从0开始的3个元素。注意inspect方法仅是为了让输出可读而已。</p>
+
+<pre><code>puts lts[2..6].inspect
+puts lts[2...6].inspect
+</code></pre>
+
+<p>我们可以在中括号使用范围操作符。第一行读取第2个到第6个元素，第二行读取第2个到第5个元素。</p>
+
+<hr />
+
+<p>接下来展示values_at方法。这个方法的优势是可以选择多个位置的元素。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g h}
+
+puts lts.values_at(1..5).inspect
+puts lts.values_at(1, 3, 5).inspect
+puts lts.values_at(1, 3, 5, 6, 8).inspect
+puts lts.values_at(-1, -3).inspect
+</code></pre>
+
+<p>values_at方法返回一个数组包含选中的元素。inspect方法仅是为了让输出可读而已。</p>
+
+<pre><code>puts lts.values_at(1..5).inspect
+</code></pre>
+
+<p>这行代码返回索引为1到5的元素。</p>
+
+<pre><code>puts lts.values_at(1, 3, 5).inspect
+</code></pre>
+
+<p>这里我们读取索引为1、3、5的元素。</p>
+
+<pre><code>puts lts.values_at(1, 3, 5, 6, 8).inspect
+</code></pre>
+
+<p>我们可以指定多个索引，如果指定的索引没有元素则返回nil。</p>
+
+<pre><code>puts lts.values_at(-1, -3).inspect
+</code></pre>
+
+<p>负数的索引表示从数组尾部开始。</p>
+
+<pre><code>$ ./retrieval3.rb
+[&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+[&quot;b&quot;, &quot;d&quot;, &quot;f&quot;]
+[&quot;b&quot;, &quot;d&quot;, &quot;f&quot;, &quot;g&quot;, nil]
+[&quot;h&quot;, &quot;f&quot;]
+</code></pre>
+
+<p>脚本的输出结果。</p>
+
+<hr />
+
+<p>我们使用fetch方法从数组读取数据。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = [0, 1, 2, 3, 4, 5, 6]
+
+puts lts.fetch(0)
+puts lts.fetch(-2)
+puts lts.fetch(8, 'undefined')
+puts lts.fetch(8) { |e| -2*e }
+</code></pre>
+
+<p>我们展示了fetch方法的一些形式的用法。</p>
+
+<pre><code>puts lts.fetch(0)
+puts lts.fetch(-2)
+</code></pre>
+
+<p>第一行打印了数组的第一个元素。第二行打印了倒数第二个元素。</p>
+
+<pre><code>puts lts.fetch(8, 'undefined')
+</code></pre>
+
+<p>第三种形式是返回指定索引的元素，如果索引超出范围则返回默认值，这里是&rsquo;undefined&rsquo;。没有第二个参数则会抛出IndexError错误。</p>
+
+<pre><code>puts lts.fetch(8) { |e| -2*e}
+</code></pre>
+
+<p>最后一种形式我们定义了一个代码块，传递了索引对应的值，这个方法返回了代码块调用的结果。</p>
+
+<pre><code>$ ./retrieval4.rb
+0
+5
+undefined
+-16
+</code></pre>
+
+<p>脚本的输出结果。</p>
+
+<hr />
+
+<p>我们将展示take和take_while方法的用法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g h}
+
+
+puts lts.take(4).inspect
+
+lts2 = lts.take_while { |e| e &lt; 'f' }
+puts lts2.inspect
+</code></pre>
+
+<p>take n方法返回开头的n个元素。take_while方法将元素传递给一个代码块，直到代码块返回nil或者false才停止迭代，并返回之前的元素。</p>
+
+<pre><code>puts lts.take(4).inspect
+</code></pre>
+
+<p>这里我们返回开头的4个元素。</p>
+
+<pre><code>lts2 = lts.take_while { |e| e &lt; 'f' }
+puts lts2.inspect
+</code></pre>
+
+<p>这里我们从原数组创建了一个新的数组，这个新数组包含了所有小于&rsquo;f&rsquo;的字符。</p>
+
+<pre><code>$ ./retrieval5.rb
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]
+</code></pre>
+
+<p>retrieval5.rb程序的输出结果。</p>
+
+<hr />
+
+<p>slice方法与[]符号相同。返回一个或者多个元素。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g h}
+
+puts lts.slice(0)
+puts lts.slice(-1)
+puts lts.slice(0, 3).inspect
+puts lts.slice(2..6).inspect
+puts lts.slice(2...6).inspect
+</code></pre>
+
+<p>展示了5个slice 方法的例子。</p>
+
+<pre><code>puts lts.slice(0)
+puts lts.slice(-1)
+</code></pre>
+
+<p>这些形式的slice方法返回一个数组元素。第一行代码返回第一个元素，第二行代码返回最后一个元素。</p>
+
+<pre><code>puts lts.slice(0, 3).inspect
+</code></pre>
+
+<p>第一个参数是起始索引，第二个参数是长度。这一行代码返回从0开始的3个元素。</p>
+
+<pre><code>puts lts.slice(2..6).inspect
+puts lts.slice(2...6).inspect
+</code></pre>
+
+<p>我们可以在slice方法中使用范围操作符。第一行读取第2到6的元素，第二行读取第2到5的元素。</p>
+
+<pre><code>$ ./retrieval6.rb
+a
+h
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+[&quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;]
+[&quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+</code></pre>
+
+<p>slice方法返回数组的一部分，一个或者多个元素。</p>
+
+<hr />
+
+<p>可以随机选择数组的一个元素。Ruby中的sample方法可以实现。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g h}
+
+puts lts.sample
+puts lts.sample(3).inspect
+</code></pre>
+
+<p>sample方法有两种形式。第一种我们选择一个随机元素。第二种我们选择n个随机元素。</p>
+
+<pre><code>$ ./random.rb
+b
+[&quot;c&quot;, &quot;f&quot;, &quot;d&quot;]
+$ ./random.rb
+d
+[&quot;c&quot;, &quot;d&quot;, &quot;e&quot;]
+</code></pre>
+
+<p>执行两次结果不同。</p>
+
+<h2 id="使用数组">使用数组</h2>
+
+<p>接下来的例子介绍一些Ruby数组的方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+num1 = [1, 2, 3, 4, 5]
+num2 = [6, 7, 8, 9, 10]
+
+puts num1 + num2 
+puts num1.concat num2
+</code></pre>
+
+<p>我们定义了两个数组，将它们相加。</p>
+
+<pre><code>puts num1 + num2 
+puts num1.concat num2
+</code></pre>
+
+<p>有两个数组相加的方法。使用+操作符或者concat方法。</p>
+
+<hr />
+
+<p>Ruby中数组有丰富的方法。例如length方法返回数组的元素个数。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f}
+
+puts lts.inspect
+puts &quot;Array has #{lts.length} elements&quot;
+puts &quot;The first element is #{lts.first}&quot;
+puts &quot;The last element is #{lts.last}&quot;
+
+puts lts.eql? lts.dup
+puts lts.eql? lts.dup.delete_at(0)
+
+lts.clear
+puts lts.inspect
+puts lts.empty?
+</code></pre>
+
+<p>上面的脚本我们介绍了7个新方法。</p>
+
+<pre><code>puts &quot;Array has #{lts.length} elements&quot;
+</code></pre>
+
+<p>length方法决定数组的大小。</p>
+
+<pre><code>puts &quot;The first element is #{lts.first}&quot;
+puts &quot;The last element is #{lts.last}&quot;
+</code></pre>
+
+<p>这里我们获取第一个和最后一个元素。</p>
+
+<pre><code>puts lts.eql? lts.dup
+</code></pre>
+
+<p>eql?方法指出两个数组是否相等。这里是返回true。dup方法创建一个浅复制对象。</p>
+
+<pre><code>puts lts.eql? lts.dup.delete_at(0)
+</code></pre>
+
+<p>delete_at方法从数组的开头删除元素。现在两个数组不相同了。</p>
+
+<pre><code>lts.clear
+</code></pre>
+
+<p>clear方法删除数组的所有元素。</p>
+
+<pre><code>puts lts.empty?
+</code></pre>
+
+<p>empty?方法检查数组是否为空。这里返回true，因为我们已经将所有元素都删除了。</p>
+
+<pre><code>$ ./basics.rb
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+Array has 6 elements
+The first element is a
+The last element is f
+true
+false
+[]
+true
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>一些Ruby的数组方法以感叹号结尾。这是Ruby的习惯。感叹号告诉程序员这个方法会修改数据。感叹号本身没有什么作用，它只是名字的约定。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+chars = %w{a b c d e}
+
+reversed_chars = chars.reverse
+puts reversed_chars.inspect
+puts chars.inspect
+
+reversed_chars = chars.reverse!
+puts reversed_chars.inspect
+puts chars.inspect
+</code></pre>
+
+<p>Ruby中有一些比较相似的方法。reverse和reverse!方法都是改为数组元素的顺序，将它们反转。不同在于reverse方法返回反转后的数组，原数组不变。reverse!方法会同时修改原数组。</p>
+
+<pre><code>$ ./twotypes.rb
+[&quot;e&quot;, &quot;d&quot;, &quot;c&quot;, &quot;b&quot;, &quot;a&quot;]
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]
+[&quot;e&quot;, &quot;d&quot;, &quot;c&quot;, &quot;b&quot;, &quot;a&quot;]
+[&quot;e&quot;, &quot;d&quot;, &quot;c&quot;, &quot;b&quot;, &quot;a&quot;]
+</code></pre>
+
+<p>我们清晰的看到前两个数组不同，第三和第四个数组是相同的。</p>
+
+<hr />
+
+<p>一些其他的方法展示。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+numbers = [1, 2, 2, 2, 3, 4, 5, 8, 11]
+
+puts numbers.index 2
+puts numbers.index 11
+puts numbers.rindex 2
+
+puts numbers.include? 3
+puts numbers.include? 10
+
+puts numbers.join '-'
+puts numbers.uniq!.inspect
+</code></pre>
+
+<p>介绍5个额外的方法。</p>
+
+<pre><code>puts numbers.index 2
+puts numbers.index 11
+</code></pre>
+
+<p>index方法返回数组中元素对应的索引。索引是从左算起。第一行返回1,它是第一个2的索引。数组中仅有一个11,它的索引是8。</p>
+
+<pre><code>puts numbers.rindex 2
+</code></pre>
+
+<p>rindex方法返回从右边开始的索引。这里2的最右索引为3。</p>
+
+<pre><code>puts numbers.include? 3
+puts numbers.include? 10
+</code></pre>
+
+<p>include?方法检查一个元素是否在数组中。第一行返回true，3在数组中。第二行返回false，数组中没有10。作为约定Ruby中以问号结尾的方法返回一个布尔值，并且对数组没有影响。</p>
+
+<pre><code>puts numbers.join '-'
+</code></pre>
+
+<p>join方法返回一个字符串，它是将数组的元素用指定的符号分隔开来。</p>
+
+<pre><code>puts numbers.uniq!.inspect
+</code></pre>
+
+<p>uniq!方法移除重复的元素。在数组中有3个2,调用方法之后就只剩一个2了。</p>
+
+<pre><code>$ ./methods2.rb
+1
+8
+3
+true
+false
+1-2-2-2-3-4-5-8-11
+[1, 2, 3, 4, 5, 8, 11]
+</code></pre>
+
+<p>注意join方法产生的是一个字符串，它是数组的数字用*-*符号分隔。</p>
+
+<h2 id="修改数组">修改数组</h2>
+
+<p>这一节我们介绍与数组修改相关的方法。基本的我们做一些插入和删除操作。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = []
+
+lts.insert 0, 'E', 'F', 'G'
+lts.push 'H'
+lts.push 'I', 'J', 'K'
+lts &lt;&lt; 'L' &lt;&lt; 'M' 
+lts.unshift 'A', 'B', 'C'
+lts.insert(3, 'D')
+    
+puts lts.inspect
+</code></pre>
+
+<p>从一个空数组开始，我们使用不同的插入方法。</p>
+
+<pre><code>lts.insert 0, 'E', 'F', 'G'
+</code></pre>
+
+<p>insert方法往lts数组插入了3个元素。</p>
+
+<pre><code>lts.push 'H'
+lts.push 'I', 'J', 'K'
+</code></pre>
+
+<p>push方法往数组添加元素，我们可以添加一个或多个元素。</p>
+
+<pre><code>lts &lt;&lt; 'L' &lt;&lt; 'M' 
+</code></pre>
+
+<p>&lt;&lt;与push方法相同。这个操作可以链式调用。</p>
+
+<pre><code>lts.unshift 'A', 'B', 'C'
+</code></pre>
+
+<p>unshift方法将元素插入在数组前端。</p>
+
+<pre><code>lts.insert(3, 'D')
+</code></pre>
+
+<p>这里insert方法在指定的位置插入&rsquo;D&rsquo;字符。</p>
+
+<pre><code>$ ./insertion.rb
+[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;J&quot;, &quot;K&quot;, &quot;L&quot;, &quot;M&quot;]
+</code></pre>
+
+<p>使用上面的方法，我们创建了一个包含大写字母的数组。</p>
+
+<hr />
+
+<p>一些删除数组元素的方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g h}
+
+lts.pop
+lts.pop
+
+puts lts.inspect
+
+lts.shift
+lts.shift
+
+puts lts.inspect
+
+lts.delete_at(0)
+lts.delete('d')
+
+puts lts.inspect
+
+puts lts.clear
+puts lts.inspect
+</code></pre>
+
+<p>这个脚本展示了5个用于删除数组元素的方法。</p>
+
+<pre><code>lts = %w{ a b c d e f g h}
+</code></pre>
+
+<p>创建一个有8个元素的数组。</p>
+
+<pre><code>lts.pop
+</code></pre>
+
+<p>pop方法移除最后一个元素。</p>
+
+<pre><code>lts.shift
+</code></pre>
+
+<p>shift方法移除数组的第一个元素。</p>
+
+<pre><code>lts.delete_at(0)
+</code></pre>
+
+<p>delete_at方法删除指定位置的元素。我们删除剩余元素的第一个元素。</p>
+
+<pre><code>puts lts.clear
+</code></pre>
+
+<p>clear方法清除所有元素。</p>
+
+<pre><code>lts.delete('d')
+</code></pre>
+
+<p>delete方法删除指定的一项数据。</p>
+
+<pre><code>$ ./deletion.rb
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+[&quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+[&quot;e&quot;, &quot;f&quot;]
+[]
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>目前为止我们使用的方法同时只修改一个数组项。Ruby中有一些方法可以一次修改多个数组项的。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+nms = [2, -1, -4, 0, 4, 3, -2, 3, 5]
+
+nms.delete_if { |x| x &lt; 0 }
+
+puts nms.inspect
+</code></pre>
+
+<p>例子介绍了delete_if方法用于删除所有符合条件式的数据项。</p>
+
+<pre><code>nms.delete_if { |x| x &lt; 0 }
+</code></pre>
+
+<p>这行删除所有的负数。</p>
+
+<pre><code>$ ./delete_if.rb
+[2, 0, 4, 3, 3, 5]
+</code></pre>
+
+<p>我们从nms数组中删除了所有的负数。</p>
+
+<hr />
+
+<p>我们展示两个其他的方法处理多数据项。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+lts = %w{ a b c d e f g}
+
+puts lts.inspect
+
+lts.reject! do |e|
+    e =~ /[c-y]/
+end
+
+puts lts.inspect
+
+lts.replace([&quot;x&quot;, &quot;y&quot;, &quot;z&quot;])
+puts lts.inspect
+</code></pre>
+
+<p>我们使用了两个方法，reject!和replace。</p>
+
+<pre><code>lts.reject! do |e|
+    e =~ /[c-y]/
+end
+</code></pre>
+
+<p>reject!方法移除了所有项满足条件式的数据。这里我们删除所有符合正则式的字母。</p>
+
+<pre><code>lts.replace([&quot;x&quot;, &quot;y&quot;, &quot;z&quot;])
+</code></pre>
+
+<p>replace方法将使用给定的数据替换数组项。如果可能它会截断或者扩展数组。</p>
+
+<pre><code>$ ./modify.rb
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;]
+[&quot;a&quot;, &quot;b&quot;]
+[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;]
+</code></pre>
+
+<p>modify.rb例子的输出结果。</p>
+
+<h2 id="集合操作">集合操作</h2>
+
+<p>这一节中我们展示Ruby数组的集合操作。数学中集合是独立对象的收集。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+A = [1, 2, 3, 4, 5]
+B = [4, 5, 6, 7, 8]
+
+union = A | B
+isect = A &amp; B
+diff1  = A - B
+diff2  = B - A
+sdiff = (A - B) | (B - A)
+
+puts &quot;Union of arrays: #{union}&quot;
+puts &quot;Intersection of arrays: #{isect}&quot;
+puts &quot;Difference of arrays A - B: #{diff1}&quot;
+puts &quot;Difference of arrays B - A: #{diff2}&quot;    
+puts &quot;Symmetric difference of arrays: #{sdiff}&quot; 
+</code></pre>
+
+<p>上面的脚本我们展示了一些集合操作，并集、交集、差集和对称差集。</p>
+
+<pre><code>nums1 = [1, 2, 3, 4, 5]
+nums2 = [4, 5, 6, 7, 8]
+</code></pre>
+
+<p>字义了两个整数数组。都是集合，因此每个元素都只出现了一次。两个数组有两个相同的数，4和5。</p>
+
+<pre><code>union = nums1 | nums2
+</code></pre>
+
+<p>数组的并集。两个数组相加，每个元素最终也只出现一次。</p>
+
+<pre><code>isect = A &amp; B
+</code></pre>
+
+<p>数组交集。输出两个数组都存在的元素。这里是4和5。</p>
+
+<pre><code>diff1  = A - B
+diff2  = B - A
+</code></pre>
+
+<p>两个差集，也称补集。第一行我们得到了所有在A中出现B中没有出现的元素。第二行我们得到B中出现A中没有出现的元素。</p>
+
+<pre><code>sdiff = (A - B) | (B - A)
+</code></pre>
+
+<p>对称差集。A或B中存在，但不同时存在于A和B。</p>
+
+<pre><code>$ ./setoperations.rb
+Union of arrays: [1, 2, 3, 4, 5, 6, 7, 8]
+Intersection of arrays: [4, 5]
+Difference of arrays A - B: [1, 2, 3]
+Difference of arrays B - A: [6, 7, 8]
+Symmetric difference of arrays: [1, 2, 3, 6, 7, 8]
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="select-collect-map方法">select、collect、map方法</h2>
+
+<p>下面的例子我们展示三个方法：select、collect和map。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+nums = [1, 3, 2, 6, 7, 12, 8, 15]
+
+selected = nums.select do |e|
+    e &gt; 10
+end
+
+puts selected.inspect
+
+collected = nums.collect do |e|
+    e &lt; 10
+end
+
+puts collected.inspect
+
+mapped = nums.map do |e|
+    e*2
+end
+
+puts mapped.inspect
+</code></pre>
+
+<p>所有这些方法都对数组的元素执行许多操作。</p>
+
+<pre><code>selected = nums.select do |e|
+    e &gt; 10
+end
+</code></pre>
+
+<p>上面的代码使用select方法创建了一个新数组。我们只选择了满足条件式的元素。这里我们选择了所有大于10的元素。</p>
+
+<pre><code>collected = nums.collect do |e|
+    e &lt; 10
+end
+</code></pre>
+
+<p>collect方法稍微不同。它只收集代码块的返回值。新的数组只包含true和false。</p>
+
+<pre><code>mapped = nums.map do |e|
+    e*2
+end
+</code></pre>
+
+<p>map方法与collect方法相同。上面的代码根据已存在的数组创建了一个新的数组。每个元素都乘以2.</p>
+
+<pre><code>$ ./mass.rb
+[12, 15]
+[true, true, true, true, true, false, true, false]
+[2, 6, 4, 12, 14, 24, 16, 30]
+</code></pre>
+
+<p>创建了新数组。</p>
+
+<h2 id="元素排序">元素排序</h2>
+
+<p>最后我们对数组元素进行排序。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+planets = %w{ Mercury Venus Earth Mars Jupiter
+                Saturn Uranus Neptune Pluto }
+               
+puts &quot;#{planets.sort}&quot;                
+puts &quot;#{planets.reverse}&quot;
+puts &quot;#{planets.shuffle}&quot;
+</code></pre>
+
+<p>例子中使用了三个Ruby数组的方法对数组元素进行重组。</p>
+
+<pre><code>puts &quot;#{planets.sort}&quot;  
+</code></pre>
+
+<p>sort方法按字母顺序进行排序。</p>
+
+<pre><code>puts &quot;#{planets.reverse}&quot;
+</code></pre>
+
+<p>reverse方法反转元素并返回新的数组。</p>
+
+<pre><code>puts &quot;#{planets.shuffle}&quot;
+</code></pre>
+
+<p>shuffle方法将数组元素随机重组。</p>
+
+<pre><code>$ ./ordering.rb
+[&quot;Earth&quot;, &quot;Jupiter&quot;, &quot;Mars&quot;, &quot;Mercury&quot;, &quot;Neptune&quot;, &quot;Pluto&quot;, &quot;Saturn&quot;, ...]
+[&quot;Pluto&quot;, &quot;Neptune&quot;, &quot;Uranus&quot;, &quot;Saturn&quot;, &quot;Jupiter&quot;, &quot;Mars&quot;, &quot;Earth&quot;, ...]
+[&quot;Earth&quot;, &quot;Jupiter&quot;, &quot;Mercury&quot;, &quot;Saturn&quot;, &quot;Mars&quot;, &quot;Venus&quot;, &quot;Uranus&quot;, ...]
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<p>在这章我们学习了Ruby的数组。<a href="http://zetcode.com/lang/rubytutorial/arrays/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">第九章、ruby中的流程控制</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第八章、ruby中的表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">第七章、ruby中的字符串</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">第六章、ruby的数据类型</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">第五章、ruby中的对象</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://johnnyting.github.io/" >
+    &copy; 2019 Johnny Ting
+  </a>
+    <div>
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://johnnyting.github.io/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
