@@ -6,10 +6,19 @@
     <description>Recent content in 技术 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 13 Feb 2019 09:27:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 Feb 2019 11:48:42 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第十二章、ruby中的面相对象编程</title>
+      <link>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Wed, 13 Feb 2019 11:48:42 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</guid>
+      <description>Ruby的面向对象编程 在这部分的Ruby教程我们将讨论面向对象编程。 编程语言有过程式编程、函数式编程和面向对象编程范式。Ruby中面向对象语</description>
+    </item>
     
     <item>
       <title>第十一章、ruby中的哈希</title>
