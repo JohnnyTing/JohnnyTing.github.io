@@ -6,10 +6,19 @@
     <description>Recent content on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 12 Feb 2019 17:29:08 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 Feb 2019 09:27:39 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第十一章、ruby中的哈希</title>
+      <link>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/</link>
+      <pubDate>Wed, 13 Feb 2019 09:27:39 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/</guid>
+      <description>哈希表 这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时</description>
+    </item>
     
     <item>
       <title>第十章、ruby中的数组</title>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | 第十一章、ruby中的哈希</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,33 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/tags/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Tags" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/tags/" />
-<meta property="og:updated_time" content="2019-02-13T09:27:39&#43;08:00"/>
+    <meta property="og:title" content="第十一章、ruby中的哈希" />
+<meta property="og:description" content="哈希表 这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/" /><meta property="article:published_time" content="2019-02-13T09:27:39&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-13T09:27:39&#43;08:00"/>
 
-<meta itemprop="name" content="Tags">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="第十一章、ruby中的哈希">
+<meta itemprop="description" content="哈希表 这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时">
 
+
+<meta itemprop="datePublished" content="2019-02-13T09:27:39&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-13T09:27:39&#43;08:00" />
+<meta itemprop="wordCount" content="2567">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="第十一章、ruby中的哈希"/>
+<meta name="twitter:description" content="哈希表 这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -144,290 +149,625 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Tags
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第十一章、ruby中的哈希</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-13T09:27:39&#43;08:00">February 13, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="哈希表">哈希表</h1>
+
+<p>这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时称为相关联的数组。</p>
+
+<p>哈希表是非常有用的集合。它有许多方法供程序员使用。</p>
+
+<h2 id="创建哈希表">创建哈希表</h2>
+
+<p>有两种创建哈希表的方式：使用new关键字或者哈希表的字面量。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names = Hash.new
+names[1] = &quot;Jane&quot;
+names[2] = &quot;Thomas&quot;
+
+puts names
+</code></pre>
+
+<p>第一个脚本创建了一个哈希表并添加了两个键-值对。</p>
+
+<pre><code>names = Hash.new
+</code></pre>
+
+<p>创建一个哈希对象。</p>
+
+<pre><code>names[1] = &quot;Jane&quot;
+names[2] = &quot;Thomas&quot;
+</code></pre>
+
+<p>添加两对值。数字1、2是哈希表的键。键放在中括号里。names是属于键的值。</p>
+
+<pre><code>puts names
+</code></pre>
+
+<p>打印哈希表。</p>
+
+<pre><code>$ ./create.rb  
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;}  
+</code></pre>
+
+<p>从输出结果我们看到一个哈希表是用花括号括起来的。键和值是使用=&gt;符号成对搭配。</p>
+
+<hr />
+
+<p>store方法可以用于给哈希表设置一些初始值。它可以代替花括号。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names = Hash.new
+names.store(1, &quot;Jane&quot;)
+names.store(2, &quot;Thomas&quot;)
+names.store(3, &quot;Rebecca&quot;)
+
+puts names
+</code></pre>
+
+<p>创建了一个相似的脚本，这次我们使用store方法。</p>
+
+<pre><code>names.store(1, &quot;Jane&quot;)
+</code></pre>
+
+<p>store方法的第一个参数是键，第二个参数是值。</p>
+
+<hr />
+
+<p>第三个脚本我们使用字面符来创建哈希表。它的值是用花括号括起来的。并且键和值是用=&gt;符号成对分配。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+domains = { &quot;de&quot; =&gt; &quot;Germany&quot;,
+            &quot;sk&quot; =&gt; &quot;Slovakia&quot;,
+            &quot;hu&quot; =&gt; &quot;Hungary&quot;,
+            &quot;us&quot; =&gt; &quot;United States&quot;,
+            &quot;no&quot; =&gt; &quot;Norway&quot;                       
+          }
+
+puts domains[&quot;de&quot;]
+puts domains[&quot;sk&quot;]
+</code></pre>
+
+<p>创建哈希表domains包含5对内容。这里键和值都是字符串。</p>
+
+<pre><code>$ ./create3.rb
+Germany
+Slovakia
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="基本用法">基本用法</h2>
+
+<p>这一节我们展示Ruby哈希表的一些很基础的方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names = Hash.new
+
+names[1] = &quot;Jane&quot;
+names[2] = &quot;Thomas&quot;
+names[3] = &quot;Robert&quot;
+names[4] = &quot;Julia&quot;
+names[5] = &quot;Rebecca&quot;
+
+puts &quot;The size of the hash is #{names.size}&quot;
+
+puts names.keys.inspect
+puts names.values.inspect
+</code></pre>
+
+<p>上面的脚本中创建了一个有5个值的哈希表，介绍了哈希表的三个方法。</p>
+
+<pre><code>puts &quot;The size of the hash is #{names.size}&quot;
+</code></pre>
+
+<p>size方法返回哈希表的大小。与length方法相同。</p>
+
+<pre><code>puts names.keys.inspect
+puts names.values.inspect
+</code></pre>
+
+<p>keys方法返回哈希表的所有键。以此类推，values方法返回哈希表的所有值。返回的数据是一个数组形式的。为了使输出更加可读我们使用了inspect方法。</p>
+
+<pre><code>$ ./basic.rb
+The size of the hash is 5
+[1, 2, 3, 4, 5]
+[&quot;Jane&quot;, &quot;Thomas&quot;, &quot;Robert&quot;, &quot;Julia&quot;, &quot;Rebecca&quot;]
+</code></pre>
+
+<p>例子的输出结果。注意最后两个方法是两个数组。</p>
+
+<hr />
+
+<p>这节的第二个例子展示了哈希表实例的三个方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names1 = Hash.new
+
+names1[1] = &quot;Jane&quot;
+names1[2] = &quot;Thomas&quot;
+names1[3] = &quot;Robert&quot;
+names1[4] = &quot;Julia&quot;
+names1[5] = &quot;Rebecca&quot;
+
+names2 = names1.dup
+
+puts names1.eql? names2
+
+puts names1.empty?
+names1.clear
+puts names1.empty?
+</code></pre>
+
+<p>创建了一个names哈希表，对该对象调用了三个方法。</p>
+
+<pre><code>names2 = names1.dup
+</code></pre>
+
+<p>通过dup方法创建了一个副本。</p>
+
+<pre><code>puts names1.eql? names2
+</code></pre>
+
+<p>eql?方法比较两个哈希表对象是否相等。这里是相同的，打印true。</p>
+
+<pre><code>puts names1.empty?
+</code></pre>
+
+<p>empty?方法检查哈希表是否为空。这行打印false，因为names1有5项数据。</p>
+
+<pre><code>names1.clear
+puts names1.empty?
+</code></pre>
+
+<p>clear方法删除哈希表的所有内容。接着调用empty?方法返回true。</p>
+
+<pre><code>$ ./basic2.rb
+true
+false
+true
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>有一个方法可以判断一个键或者值是否在这个哈希表中。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+domains = { :de =&gt; &quot;Germany&quot;, :sk =&gt; &quot;Slovakia&quot;,
+            :no =&gt; &quot;Norway&quot;, :us =&gt; &quot;United States&quot;
+          }
+
+puts domains.has_key? :de
+puts domains.include? :no
+puts domains.key? :me
+puts domains.member? :sk
+
+puts domains.has_value? &quot;Slovakia&quot;
+puts domains.value? &quot;Germany&quot;
+</code></pre>
+
+<p>创建了一个有4对数据的哈希表domains。键是用的符号，因为它更有效。</p>
+
+<pre><code>puts domains.has_key? :de
+puts domains.include? :no
+puts domains.key? :me
+puts domains.member? :sk
+</code></pre>
+
+<p>这里我们用了四个方法来判断哈希表是否包含该键。它们的功能都是相同的。</p>
+
+<pre><code>puts domains.has_value? &quot;Slovakia&quot;
+puts domains.value? &quot;Germany&quot;
+</code></pre>
+
+<p>这里用了两个方法检查这两个字符串是否在哈希表中。</p>
+
+<pre><code>$ ./has.rb
+true
+true
+false
+true
+true
+true
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>这节的最后一个例子，我们将从哈希表中读取内容。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+stones = { 1 =&gt; &quot;garnet&quot;, 2 =&gt; &quot;topaz&quot;, 
+           3 =&gt; &quot;opal&quot;, 4 =&gt; &quot;amethyst&quot;
+         }
+
+puts stones.fetch 1
+puts stones[2]
+puts stones.values_at 1, 2, 3
+</code></pre>
+
+<p>这个脚本展示了三个读取值的方法。</p>
+
+<pre><code>puts stones.fetch 1
+</code></pre>
+
+<p>fetch方法通过给定的键读取值。</p>
+
+<pre><code>puts stones[2]
+</code></pre>
+
+<p>也可以使用中括号来获取一个值，这行会打印&rdquo;topaz&rdquo;。</p>
+
+<pre><code>puts stones.values_at 1, 2, 3
+</code></pre>
+
+<p>values_at方法可以一次获取多个值。这个方法通过给定的键返回一个数组包含了对应的值。</p>
+
+<pre><code>$ ./read.rb
+garnet
+topaz
+garnet
+topaz
+opal
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="循环遍历哈希表">循环遍历哈希表</h2>
+
+<p>有一些方法可以用于循环遍历哈希表。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+stones = { 1 =&gt; &quot;garnet&quot;, 2 =&gt; &quot;topaz&quot;, 
+           3 =&gt; &quot;opal&quot;, 4 =&gt; &quot;amethyst&quot;
+         }
+
+stones.each { |k, v| puts &quot;Key: #{k}, Value: #{v}&quot; }
+stones.each_key { |key| puts &quot;#{key}&quot; }
+stones.each_value { |val| puts &quot;#{val}&quot; }
+stones.each_pair { |k, v| puts &quot;Key: #{k}, Value: #{v}&quot; }
+</code></pre>
+
+<p>上面的例子我们展示的四个方法。用这些方法显示了所有的键、值。</p>
+
+<pre><code>stones.each { |k, v| puts &quot;Key: #{k}, Value: #{v}&quot; }
+</code></pre>
+
+<p>each方法对每个键都调用了给定的代码块，键-值对作为参数传递。</p>
+
+<pre><code>stones.each_key { |key| puts &quot;#{key}&quot; }
+</code></pre>
+
+<p>我们使用each_key方法循环遍历了哈希表所有的键。将它们打印在终端上。</p>
+
+<pre><code>stones.each_value { |val| puts &quot;#{val}&quot; }
+</code></pre>
+
+<p>each_value用于循环遍历哈希表所有的值。</p>
+
+<pre><code>stones.each_pair { |k, v| puts &quot;Key: #{k}, Value: #{v}&quot; }
+</code></pre>
+
+<p>each_pair方法与each方法相同。</p>
+
+<pre><code>$ ./loop.rb
+Key: 1, Value: garnet
+Key: 2, Value: topaz
+Key: 3, Value: opal
+Key: 4, Value: amethyst
+1
+2
+3
+4
+garnet
+topaz
+opal
+amethyst
+Key: 1, Value: garnet
+Key: 2, Value: topaz
+Key: 3, Value: opal
+Key: 4, Value: amethyst
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="删除键值对">删除键值对</h2>
+
+<p>接下来的例子关注哈希表的删除。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names = Hash.new
+
+names[1] = &quot;Jane&quot;
+names[2] = &quot;Thomas&quot;
+names[3] = &quot;Robert&quot;
+names[4] = &quot;Julia&quot;
+names[5] = &quot;Rebecca&quot;
+
+names.delete 4
+names.shift
+
+puts names
+</code></pre>
+
+<p>这个脚本我们使用了两个方法：delete和shift。delete方法是删除指定的键的值，并将其返回。shift方法删除哈希表的第一对键值，并将其作为数组返回。</p>
+
+<pre><code>names.delete 4
+</code></pre>
+
+<p>删除4 =&gt; &ldquo;Julia&rdquo;这对值。</p>
+
+<pre><code>names.shift
+</code></pre>
+
+<p>这行代码删除1 =&gt; &ldquo;Jane&rdquo;这对值。</p>
+
+<pre><code>$ ./deleteitem.rb  
+{2=&gt;&quot;Thomas&quot;, 3=&gt;&quot;Robert&quot;, 5=&gt;&quot;Rebecca&quot;}  
+</code></pre>
+
+<p>输出结果显示还剩的内容。</p>
+
+<hr />
+
+<p>reject和delete_if方法可以从哈希表中移除多项内容。如果这些方法所给定的代码块中的条件式返回true，则删除对应的键值对。这两个方法有个重要区别。reject方法作用于复本，delete_if作用于原对象。</p>
+
+<pre><code>#!/usr/local/bin/ruby
+
+names1 = Hash.new
+
+names1[1] = &quot;Jane&quot;
+names1[2] = &quot;Thomas&quot;
+names1[3] = &quot;Robert&quot;
+names1[4] = &quot;Julia&quot;
+names1[5] = &quot;Rebecca&quot;
+
+puts names1.reject { |k, v| v =~ /R.*/ }
+puts names1
+puts names1.delete_if { |k, v| k&lt;=3 }
+puts names1
+</code></pre>
+
+<p>这个例子使用上面的方法删除多项键值对。</p>
+
+<pre><code>puts names1.reject { |k, v| v =~ /R.*/ }
+</code></pre>
+
+<p>reject方法移除所有满足代码块中正则式的值，并返回修改后的哈希表，原哈希表不变。</p>
+
+<pre><code>puts names1
+</code></pre>
+
+<p>这行的输出证实了原哈希表没有改变。</p>
+
+<pre><code>puts names1.delete_if { |k, v| k&lt;=3 }
+</code></pre>
+
+<p>这里我们删除键小于等于3的键值对。这个方法修改了原对象。</p>
+
+<pre><code>$ ./massdelete.rb   
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;, 4=&gt;&quot;Julia&quot;}  
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;, 3=&gt;&quot;Robert&quot;, 4=&gt;&quot;Julia&quot;, 5=&gt;&quot;Rebecca&quot;}  
+{4=&gt;&quot;Julia&quot;, 5=&gt;&quot;Rebecca&quot;}  
+{4=&gt;&quot;Julia&quot;, 5=&gt;&quot;Rebecca&quot;}  
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="添加内容">添加内容</h2>
+
+<p>merge和update方法可以给哈希表添加键值对。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names1 = Hash.new
+
+names1[1] = &quot;Jane&quot;
+names1[2] = &quot;Thomas&quot;
+
+names2 = Hash.new
+
+names2[3] = &quot;Robert&quot;
+names2[4] = &quot;Julia&quot;
+
+names = names1.merge names2
+puts names
+
+names = names1.update names2
+puts names
+</code></pre>
+
+<p>这个脚本中我们创建了两个哈希表，然后对它们调用了merge和update方法。</p>
+
+<pre><code>names = names1.merge names2
+puts names
+</code></pre>
+
+<p>合并names1和names2，结果分配给names。</p>
+
+<pre><code>$ ./merge.rb  
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;, 3=&gt;&quot;Robert&quot;, 4=&gt;&quot;Julia&quot;}  
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;, 3=&gt;&quot;Robert&quot;, 4=&gt;&quot;Julia&quot;}  
+</code></pre>
+
+<p>最后的哈希表包含了names1和names2的内容。</p>
+
+<h2 id="merge与merge">merge与merge!</h2>
+
+<p>最后一节，我们重述一下Ruby的习俗。一些Ruby的方法以感叹号结尾。这个标志在语法上没有意义，它只是表明调用这个方法会修改对象的内容。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names1 = Hash.new
+
+names1[1] = &quot;Jane&quot;
+names1[2] = &quot;Thomas&quot;
+
+names2 = Hash.new
+
+names2[3] = &quot;Robert&quot;
+names2[4] = &quot;Julia&quot;
+
+names = names1.merge names2
+puts names
+puts names1
+
+names = names1.merge! names2
+puts names
+puts names1
+</code></pre>
+
+<p>我们展示了merge和merge!方法的不同。</p>
+
+<pre><code>names = names1.merge names2
+</code></pre>
+
+<p>merge不会修改names1，它作用于一个新的复本。</p>
+
+<pre><code>names = names1.merge! names2
+</code></pre>
+
+<p>merge!方法作用于原对象。names1被修改了。</p>
+
+<pre><code>$ ./merge2.rb
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;, 3=&gt;&quot;Robert&quot;, 4=&gt;&quot;Julia&quot;}
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;}
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;, 3=&gt;&quot;Robert&quot;, 4=&gt;&quot;Julia&quot;}
+{1=&gt;&quot;Jane&quot;, 2=&gt;&quot;Thomas&quot;, 3=&gt;&quot;Robert&quot;, 4=&gt;&quot;Julia&quot;}
+</code></pre>
+
+<p>merge2.rb程序的输出。</p>
+
+<p>在这章我们学习了Ruby的哈希表。<a href="http://zetcode.com/lang/rubytutorial/hashes/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
     
-  <article class="cf pa3 pa4-m pa4-l">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      
-    </div>
-  </article>
-  <div class="mw8 center">
-    <section class="ph4">
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/tags/ruby" class="link blue hover-black">
-            Tag: ruby
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/" class="link black dim">
-        第十一章、ruby中的哈希
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      哈希表 这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/" class="link black dim">
-        第十章、ruby中的数组
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      数组 这一部分的教程将介绍数组。数组是有序对象的集合。 一个这是在某个时刻只能保存一项数值。不过数组可以保存多项。这些数据项被称为数组的元素。数
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="link black dim">
-        第九章、ruby中的流程控制
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      流程控制 这章的教程我们将讨论流程控制。 条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="link black dim">
-        第八章、ruby中的表达式
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      表达式 在这章的教程将介绍Ruby的表达式。 表达式是由操作数和操作符构成的。表达式的操作符表明了对操作数应用什么操作。表达式中操作符的求值顺序
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="link black dim">
-        第七章、ruby中的字符串
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      字符串 在这部分的教程将详细的介绍字符串。 字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。 字符串是序列化
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="link black dim">
-        第六章、ruby的数据类型
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      数据类型 在这一章的教程中我们开始讨论数据类型。 所有类别的计算机程序，包括电子表格、文本编辑器、计算器和聊天软件都使用数据。现代计算机语言中各
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" class="link black dim">
-        第五章、ruby中的对象
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      ruby中的对象 &emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于R
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/" class="link black dim">
-        第四章、ruby变量
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      变量 &emsp;&emsp;变量是保存数据的地址。每个变量都有唯一的一个名字，变量命名存在着一些约定。变量保存着数据对象，更确切的说变量是对
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/" class="link black dim">
-        第三章、ruby基础及变量插值
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      基础内容 &emsp;&emsp;在这一章我们将覆盖Ruby语言的基本程序概念。我们展示一些非常基础的程序，使用到了变量、常量和基本的数据类型
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/" class="link black dim">
-        第二章、ruby词法结构
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      ruby词法结构 ​ 在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。 1.注释 在Ruby中有两种注
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" class="link black dim">
-        第一章、ruby命令行交互irb的helloworld
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/" class="link black dim">
-        安装ruby及rails入门
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考文档：RVM官网，rails入门中文官网 一、安装ruby 这里我推荐用RVM（ruby版本管理）安装ruby，环境Linux、Mac。 安装
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/" class="link black dim">
-        梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;因为公司项目用到ruby的mvc框架rails，开始看项目也是一头雾水，不知道项目中的各个文件是干嘛的，经过查阅资料
-    </div>
-  </div>
-</div>
-
-        
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/tags/yapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0" class="link blue hover-black">
-            Tag: yapi接口平台
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/yapi%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" class="link black dim">
-        YApi接口管理平台的使用介绍
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;上一篇介绍了YApi接口管理平台的搭建 传送门，因为技术领导觉得有必要写一份文档给团队，然后介绍YApi平台的使用，所
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAyapi%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" class="link black dim">
-        使用docker搭建YApi接口平台
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;因为公司需要，让我考虑一下团队接口规范的问题，我也看了很多接口管理平台，比如rap、eoLinker、SosoApi
-    </div>
-  </div>
-</div>
-
-        
-      
-        <h2 class="f1">
-          <a href="https://johnnyting.github.io/tags/%E7%BD%91%E7%AB%99" class="link blue hover-black">
-            Tag: 网站
-          </a>
-        </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8hugo&#43;githubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" class="link black dim">
-        使用hugo&#43;github pages搭建静态网站
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考文档：hugo getting-started 下面将介绍非常简单的教程来搭建自己的博客网站，你既不需要买服务器，也不需要买域名，只需要个github账号，将静态网站托
-    </div>
-  </div>
-</div>
-
-        
-      
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </section>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/">第十章、ruby中的数组</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">第九章、ruby中的流程控制</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第八章、ruby中的表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">第七章、ruby中的字符串</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">第六章、ruby的数据类型</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">第五章、ruby中的对象</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
