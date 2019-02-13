@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting  | Ruby中的面向对象编程2</title>
+    <title>Johnny Ting  | 第十三章、ruby中的面向对象编程2</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -31,26 +31,26 @@
 
     
 
-    <meta property="og:title" content="Ruby中的面向对象编程2" />
-<meta property="og:description" content="" />
+    <meta property="og:title" content="第十三章、ruby中的面向对象编程2" />
+<meta property="og:description" content="Ruby的面向对象编程2 在这章的教程我们继续讨论Ruby的面向对象编程。 我们以属性修饰符开始。将会包涵类常量、类方法和操作符重载。我们将定义" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/" /><meta property="article:published_time" content="2019-02-13T14:46:25&#43;08:00"/>
 <meta property="article:modified_time" content="2019-02-13T14:46:25&#43;08:00"/>
 
-<meta itemprop="name" content="Ruby中的面向对象编程2">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="第十三章、ruby中的面向对象编程2">
+<meta itemprop="description" content="Ruby的面向对象编程2 在这章的教程我们继续讨论Ruby的面向对象编程。 我们以属性修饰符开始。将会包涵类常量、类方法和操作符重载。我们将定义">
 
 
 <meta itemprop="datePublished" content="2019-02-13T14:46:25&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-13T14:46:25&#43;08:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="5253">
 
 
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ruby中的面向对象编程2"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="第十三章、ruby中的面向对象编程2"/>
+<meta name="twitter:description" content="Ruby的面向对象编程2 在这章的教程我们继续讨论Ruby的面向对象编程。 我们以属性修饰符开始。将会包涵类常量、类方法和操作符重载。我们将定义"/>
 
   </head>
 
@@ -164,14 +164,897 @@
           
         POSTS
       </p>
-      <h1 class="f1 athelas mb1">Ruby中的面向对象编程2</h1>
+      <h1 class="f1 athelas mb1">第十三章、ruby中的面向对象编程2</h1>
       
       <time class="f6 mv4 dib tracked" datetime="2019-02-13T14:46:25&#43;08:00">February 13, 2019</time>      
       
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><ul class="pa0">
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="ruby的面向对象编程2">Ruby的面向对象编程2</h1>
+
+<p>在这章的教程我们继续讨论Ruby的面向对象编程。</p>
+
+<p>我们以属性修饰符开始。将会包涵类常量、类方法和操作符重载。我们将定义多态，并展示在Ruby中如何使用它。我们也会提及模块和异常。</p>
+
+<h2 id="属性修饰符">属性修饰符</h2>
+
+<p><strong>Ruby的所有变量都是私有的。它只能通过方法来访问</strong>。这些方法通常称为设值函数(setters)和获得者(getters)。创建一个setter和getter方法是很平常的事情。加些Ruby有便利的方法来创建这两种方法。它们是attr_reader、attr_writer和attr_accessor。</p>
+
+<p>attr_reader用于创建getter方法。attr_writer用于setter方法。attr_accessor用于创建两种方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Car
+    
+    attr_reader :name, :price
+    attr_writer :name, :price  
+    
+    def to_s
+        &quot;#{@name}: #{@price}&quot;
+    end
+
+end
+
+
+c1 = Car.new
+c2 = Car.new
+
+c1.name = &quot;Porsche&quot;
+c1.price = 23500
+
+c2.name = &quot;Volkswagen&quot;
+c2.price = 9500
+
+puts &quot;The #{c1.name} costs #{c1.price}&quot;
+
+p c1
+p c2
+</code></pre>
+
+<p>定义了一个Car类，在类内部我们使用了attr_reader和attr_writer创建了两个getter和setter方法。</p>
+
+<pre><code>attr_reader :name, :price
+</code></pre>
+
+<p>这里我们创建了两个实例方法名为：name和price。注意attr_reader将方法名符号作为参数。</p>
+
+<pre><code>attr_writer :name, :price  
+</code></pre>
+
+<p>attr_writer创建了两个setter方法name、price和两个实例变量@name、 @price。</p>
+
+<pre><code>c1.name = &quot;Porsche&quot;
+c1.price = 23500
+</code></pre>
+
+<p>这里的上下文中调用了两个setter方法，为实例变量填充数据。</p>
+
+<pre><code>puts &quot;The #{c1.name} costs #{c1.price}&quot;
+</code></pre>
+
+<p>这里调用了两个getter方法获取数据。</p>
+
+<pre><code>$ ./arw.rb
+The Porsche costs 23500
+Porsche: 23500
+Volkswagen: 9500
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<hr />
+
+<p>正如上面阐述的，attr_accessor方法会创建getter、setter方法和它们的实例变量。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Book
+   attr_accessor :title, :pages    
+end
+
+b1 = Book.new
+b1.title = &quot;Hidden motives&quot;
+b1.pages = 255
+
+p &quot;The book #{b1.title} has #{b1.pages} pages&quot;
+</code></pre>
+
+<p>定义了一个Book类，它使用attr_accessor创建了两对方法和两个实例变量。</p>
+
+<pre><code>class Book
+   attr_accessor :title, :pages    
+end
+</code></pre>
+
+<p>attr_accessor方法设置了title、pages 方法以及@title、@pages实例变量。</p>
+
+<pre><code>b1 = Book.new
+b1.title = &quot;Hidden motives&quot;
+b1.pages = 255
+</code></pre>
+
+<p>创建了一个Book对象。调用两个setter方法为对象的实例变量填充数据。</p>
+
+<pre><code>p &quot;The book #{b1.title} has #{b1.pages} pages&quot;
+</code></pre>
+
+<p>这行的代码我们调用getter方法读取实例变量的值。</p>
+
+<pre><code>$ ./accessor.rb
+&quot;The book Hidden motives has 255 pages&quot;
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="类的常量">类的常量</h2>
+
+<p>Ruby允许创建类常量。这些常量不属于特定的对象，它们是属于类的。作为约定，常量以大写字母开头。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class MMath
+
+    PI = 3.141592
+end
+
+
+puts MMath::PI
+</code></pre>
+
+<p>创建一个MMath类，包含了一个PI常量。</p>
+
+<pre><code>PI = 3.141592
+</code></pre>
+
+<p>我们创建了一个PI常量。记住在Ruby中常量不是强制的。</p>
+
+<pre><code>puts MMath::PI
+</code></pre>
+
+<p>使用::操作符访问PI常量。</p>
+
+<pre><code>$ ./classconstant.rb
+3.141592
+</code></pre>
+
+<p>例子输出结果。</p>
+
+<h2 id="to-s方法">to_s方法</h2>
+
+<p>每个对象都有一个to_s方法，它返回该对象的一个字符串描述。注意puts方法将一个对象作为参数时，该对象的to_s方法将被调用。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Being
+
+    def to_s
+        &quot;This is Being class&quot;
+    end
+end
+
+b = Being.new
+puts b.to_s
+puts b
+</code></pre>
+
+<p>定义一个Being类并重载了to_s方法。</p>
+
+<pre><code>def to_s
+    &quot;This is Being class&quot;
+end
+</code></pre>
+
+<p>每个创建的类都继承自基类Object。to_s方法属于这个类。我们重载了to_s方法，使得描述信息更加可读。</p>
+
+<pre><code>b = Being.new
+puts b.to_s
+puts b
+</code></pre>
+
+<p>创建一个Being的对象，调用两次to_s方法。第一次是显式调用，第二次是隐式调用。</p>
+
+<pre><code>$ ./tostring.rb
+This is Being class
+This is Being class
+</code></pre>
+
+<p>例子的运行结果。</p>
+
+<h2 id="操作符重载">操作符重载</h2>
+
+<p>操作符重载是基本参数的不同进行的操作也不同。</p>
+
+<p>Ruby中操作符和方法仅有一点区别。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Circle
+   
+    attr_accessor :radius
+    
+    def initialize r
+        @radius = r
+    end
+
+    def +(other)
+        Circle.new @radius + other.radius
+    end
+    
+    def to_s
+        &quot;Circle with radius: #{@radius}&quot;
+    end
+end
+
+
+c1 = Circle.new 5
+c2 = Circle.new 6
+c3 = c1 + c2
+
+p c3
+</code></pre>
+
+<p>这个例子中，我们创建了一个Circle类，并重载了+操作符，用于将两个circle对象相加。</p>
+
+<pre><code>def +(other)
+    Circle.new @radius + other.radius
+end
+</code></pre>
+
+<p>我们定义了一个名为+的方法，这个方法将两个circle对象的半径相加。</p>
+
+<pre><code>c1 = Circle.new 5
+c2 = Circle.new 6
+c3 = c1 + c2
+</code></pre>
+
+<p>创建两个circle对象。在第三行我们将这两个对象相加生成一个新的对象。</p>
+
+<pre><code>$ ./operatoroverloading.rb
+Circle with radius: 11
+</code></pre>
+
+<p>这两个对象相加生成的第三个对象半径为11。</p>
+
+<h2 id="类方法">类方法</h2>
+
+<p>Ruby方法分为类方法和实例方法。类方法只能被类调用，不能被实例调用。</p>
+
+<p>类方法不能访问实例变量。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Circle
+    
+    def initialize x
+        @r = x
+    end
+   
+    def self.info
+       &quot;This is a Circle class&quot; 
+    end
+    
+    def area
+        @r * @r * 3.141592
+    end
+
+end
+
+
+p Circle.info
+c = Circle.new 3
+p c.area
+</code></pre>
+
+<p>上面的例子展示了一个Circle类。除了构造函数之外，还有一个类方法和一个实例方法。</p>
+
+<pre><code>def self.info
+    &quot;This is a Circle class&quot; 
+end
+</code></pre>
+
+<p>以self关键字开头的是类方法。</p>
+
+<pre><code>def area
+    &quot;Circle, radius: #{@r}&quot;
+end
+</code></pre>
+
+<p>实例方法不以self关键字开头。</p>
+
+<pre><code>p Circle.info
+</code></pre>
+
+<p>调用类方法。注意我们是通过类来调用这个方法。</p>
+
+<pre><code>c = Circle.new 3
+p c.area
+</code></pre>
+
+<p>为了调用实例方法我们必须得先创建一个对象。实例方法总是被对象调用。这里c变量保存了该对象，我们利用点操作符调用area方法。</p>
+
+<pre><code>$ ./classmethods.rb
+&quot;This is a Circle class&quot;
+28.274328
+</code></pre>
+
+<p>例子的输出描述了Ruby的类方法。</p>
+
+<hr />
+
+<p>在Ruby中有三种方式创建类方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Wood
+     
+    def self.info
+       &quot;This is a Wood class&quot; 
+    end
+end
+
+class Brick
+     
+    class &lt;&lt; self
+        def info
+           &quot;This is a Brick class&quot; 
+        end
+    end
+end
+
+class Rock
+     
+end
+
+def Rock.info
+   &quot;This is a Rock class&quot; 
+end
+
+
+p Wood.info
+p Brick.info
+p Rock.info
+</code></pre>
+
+<p>这个例子创建了三个类，每个都有一个类方法。</p>
+
+<pre><code>def self.info
+    &quot;This is a Wood class&quot; 
+end
+</code></pre>
+
+<p>类方法可以以self关键字开头。</p>
+
+<pre><code>class &lt;&lt; self
+    def info
+        &quot;This is a Brick class&quot; 
+    end
+end
+</code></pre>
+
+<p>另一个方式是将方法定义放在class &lt;&lt; self结构之后。</p>
+
+<pre><code>def Rock.info
+   &quot;This is a Rock class&quot; 
+end
+</code></pre>
+
+<p>这是第三种定义类方法的方式。</p>
+
+<pre><code>$ ./classmethods2.rb
+&quot;This is a Wood class&quot;
+&quot;This is a Brick class&quot;
+&quot;This is a Rock class&quot;
+</code></pre>
+
+<p>调用Wood、Brick和Rock这三个类的类方法的输出结果。</p>
+
+<h2 id="创建实例方法的三种方式">创建实例方法的三种方式</h2>
+
+<p>Ruby有三种基本的方式创建实例方法。实例方法是属于实例对象的。它们是通过对象使用点操作符调用。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Wood
+     
+    def info
+       &quot;This is a wood object&quot;        
+    end
+end
+
+wood = Wood.new
+p wood.info
+
+class Brick
+     
+    attr_accessor :info
+end
+
+brick = Brick.new
+brick.info = &quot;This is a brick object&quot;
+p brick.info
+
+class Rock
+     
+end
+
+rock = Rock.new
+
+def rock.info
+    &quot;This is a rock object&quot;
+end
+
+p rock.info
+</code></pre>
+
+<p>这个例子我们创建了三个实例对象Wood、Brick和Rock。每个对象都有一个实例方法。</p>
+
+<pre><code>class Wood
+     
+    def info
+       &quot;This is a wood object&quot;        
+    end
+end
+
+wood = Wood.new
+p wood.info
+</code></pre>
+
+<p>这可能是最常用的一种方式。info方法定义在Wood类的内部。稍后创建一个对象并调用它的info方法。</p>
+
+<pre><code>class Brick
+     
+    attr_accessor :info
+end
+
+brick = Brick.new
+brick.info = &quot;This is a brick object&quot;
+p brick.info
+</code></pre>
+
+<p>另一种创建实例方法的方式是使用属性修饰符。这是一种方便的方式可以减少程序员的按键输入。attr_accessor创建两个方法getter和setter，同样也创建一个实例变量用于存储数据。创建一个brick对象，数据使用setter方法保存在@info变量中。最后使用getter方法读取消息。</p>
+
+<pre><code>class Rock
+     
+end
+
+rock = Rock.new
+
+def rock.info
+    &quot;This is a rock object&quot;
+end
+
+p rock.info
+</code></pre>
+
+<p>第三种方法我们创建了一个空的Rock类。稍后实例化一个对象，动态的为这个对外创建一个方法。</p>
+
+<pre><code>$ ./threeways.rb
+&quot;This is a wood object&quot;
+&quot;This is a brick object&quot;
+&quot;This is a rock object&quot;
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="多态性">多态性</h2>
+
+<p>多态是使用一个操作符或者函数对不同的数据进行不同的处理。实践中多态意味着如果类B继承自类A，它没有必要将类A的所有都继承；它可以做一些与类A不同的事情。</p>
+
+<p>注意静态语言如C++、Java、或者C#和动态语言如Python、Ruby的多态有些不同。在静态语言中编译器决定了方法的定义。在动态语言中我们专注了同名方法的不同操作。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Animal
+    
+    def make_noise 
+        &quot;Some noise&quot;
+    end
+
+    def sleep 
+        puts &quot;#{self.class.name} is sleeping.&quot; 
+    end
+  
+end
+
+class Dog &lt; Animal
+    
+    def make_noise 
+        'Woof!'         
+    end 
+    
+end
+
+class Cat &lt; Animal 
+    
+    def make_noise 
+        'Meow!' 
+    end 
+end
+
+[Animal.new, Dog.new, Cat.new].each do |animal|
+  puts animal.make_noise
+  animal.sleep
+end
+</code></pre>
+
+<p>我们创建了一个简单的继承结构。有一个Animal基类和两个后代Cat和Dog。这三个类都有它自己的make_noise方法实现。后代的实现方法会替换掉Animal类的。</p>
+
+<pre><code>class Dog &lt; Animal
+    
+    def make_noise 
+        'Woof!'         
+    end 
+    
+end
+</code></pre>
+
+<p>Dog类的make_noise实现替换掉了Animal类的实现。</p>
+
+<pre><code>[Animal.new, Dog.new, Cat.new].each do |animal|
+  puts animal.make_noise
+  animal.sleep
+end
+</code></pre>
+
+<p>为每个类的创建了一个实例对象，并对该对象调用了make_noise方法和sleep方法。</p>
+
+<pre><code>$ ./polymorhism.rb
+Some noise
+Animal is sleeping.
+Woof!
+Dog is sleeping.
+Meow!
+Cat is sleeping.
+</code></pre>
+
+<p>polymorhism.rb脚本的输出结果。</p>
+
+<h2 id="模块">模块</h2>
+
+<p>一个Ruby模块是方法、类和常量的集合。模块与类相似也有些不同。模块不能创建实例，没有子类。</p>
+
+<p>模块用于将相关的类、方法和常量聚集单独放在一个模块中。这样也避免了命名的冲突，因为模块将它包含的对象进行了封装。从这方面来看Ruby的模块与C#的命名空间和Java的包相似。</p>
+
+<p>在Ruby中模块也支持混合类（mixins）。混入类（mixin）是一个创建多继承的工厂。如果一个类继承自多个类，则称为多继承。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+puts Math::PI
+puts Math.sin 2
+</code></pre>
+
+<p>Ruby有一个内建的Math模块。它有许多方法和常量。我们使用::操作符访问PI常量。与类相同使用点操作符访问方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+include Math
+
+puts PI
+puts sin 2
+</code></pre>
+
+<p>如果包含了一个模块，我们就可以直接引用Math的对象了。模块导入使用include关键字。</p>
+
+<pre><code>$ ./modules.rb
+3.141592653589793
+0.9092974268256817
+</code></pre>
+
+<p>程序的输出结果。</p>
+
+<hr />
+
+<p>下面的例子我们展示了如何使用模块来组织代码。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+module Forest
+ 
+    class Rock ; end
+    class Tree ; end
+    class Animal ; end    
+    
+end
+
+module Town
+    
+   class Pool ; end
+   class Cinema ; end
+   class Square ; end
+   class Animal ; end
+        
+end
+
+
+p Forest::Tree.new
+p Forest::Rock.new
+p Town::Cinema.new
+
+p Forest::Animal.new
+p Town::Animal.new
+</code></pre>
+
+<p>Ruby代码可以主义分组。Rocks和Tree属于Forest。Pools、Cinema、Squares属于Town。使用模块让我们的代码更加有条理。Animals可以在Forest里也可以有Town里。对于一个脚本我们不能定义两个Animal类，它们会冲突。将它们放在不同的模块即可解决这个问题。</p>
+
+<pre><code>p Forest::Tree.new
+p Forest::Rock.new
+p Town::Cinema.new
+</code></pre>
+
+<p>创建属于Forest和Town的对象。我们使用::操作符访问模块里的对象。</p>
+
+<pre><code>p Forest::Animal.new
+p Town::Animal.new
+</code></pre>
+
+<p>创建两个Animal对象。Ruby解释器会将它们标识为它们的模块名。</p>
+
+<pre><code>$ ./modules3.rb
+#&lt;Forest::Tree:0x97f35ec&gt;
+#&lt;Forest::Rock:0x97f35b0&gt;
+#&lt;Town::Cinema:0x97f3588&gt;
+#&lt;Forest::Animal:0x97f3560&gt;
+#&lt;Town::Animal:0x97f3538&gt;
+</code></pre>
+
+<p>modules3.rb程序的输出。</p>
+
+<hr />
+
+<p>这节的最后一个例子我们将展示使用模块进行多继承。在这里的上下文中模块称为混合类（mixins）。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+module Device
+    def switch_on ; puts &quot;on&quot; end    
+    def switch_off ; puts &quot;off&quot; end
+end
+
+module Volume
+    def volume_up ; puts &quot;volume up&quot; end    
+    def vodule_down ; puts &quot;volume down&quot; end
+end
+
+module Pluggable
+    def plug_in ; puts &quot;plug in&quot; end    
+    def plug_out ; puts &quot;plug out&quot; end
+end
+
+class CellPhone
+    include Device, Volume, Pluggable
+   
+    def ring
+        puts &quot;ringing&quot;
+    end    
+end
+
+cph = CellPhone.new
+cph.switch_on
+cph.volume_up
+cph.ring
+</code></pre>
+
+<p>我们定义了三个模块和一个类。模块代表了一些功能。一个设备可以调节开头。许多对象都可以分享这个功能，包含电视、手机、电脑和冰箱。相对于为每个对象创建这个功能，我们是将它分隔在一个模块里，它可以被每个对象包含。这样代码将更加有条理更紧凑。</p>
+
+<pre><code>module Volume
+    def volume_up ; puts &quot;volume up&quot; end    
+    def vodule_down ; puts &quot;volume down&quot; end
+end
+</code></pre>
+
+<p>Volume模块组织了负责控制音量等级的方法。如果一个设备需要这些方法，它只需要简单的在自己的类中包含这个模块即可。</p>
+
+<pre><code>class CellPhone
+    include Device, Volume, Pluggable
+   
+    def ring
+        puts &quot;ringing&quot;
+    end    
+end
+</code></pre>
+
+<p>CellPhone添加了这三个模块。这些模块的方法混合在CellPhone类中。对于这个类的实例对象同样有效。CellPhone类也有一个自己的ring方法。</p>
+
+<pre><code>cph = CellPhone.new
+cph.switch_on
+cph.volume_up
+cph.ring
+</code></pre>
+
+<p>创建了一个CellPhone对象并调用了三个方法。</p>
+
+<pre><code>$ ./mixins.rb
+on
+volume up
+ringing
+</code></pre>
+
+<p>例子的运行结果。</p>
+
+<h2 id="异常">异常</h2>
+
+<p>异常是对象偏离了正常的程序执行流的信号。
+异常出现、抛出或者开始。</p>
+
+<p>在应用程序执行期间，许多事情可能引起错误。磁盘满了我们不能保存文件。网络断了但应用程序试图连接某个网站。所有的这些可能引起应用程序崩溃。为了避免这个的发生，我们应当在程序异常时预先处理错误。对于这个我们可以使用异常处理。</p>
+
+<p>异常是对象，它们是内建Exception类的后代。Exception对象携带了关于异常的信息。它的类型（异常的类名），可选的描述字符串，和一个可选的跟踪信息。为了获取关于程序运行异常的额外信息，程序可以子类化Exception或者更多是StandardError。</p>
+
+<pre><code>#!/usr/bin/ruby
+x = 35
+y = 0
+
+begin
+    z = x / y
+    puts z
+rescue =&gt; e
+    puts e
+    p e
+end
+</code></pre>
+
+<p>上面的程序我们故意的除以0,这个导致一个错误。</p>
+
+<pre><code>begin
+    z = x / y
+    puts z
+</code></pre>
+
+<p>出错的语句位置begin关键字之后。</p>
+
+<pre><code>rescue =&gt; e
+    puts e
+    p e
+end
+</code></pre>
+
+<p>rescue关键字之后的代码我们处理一个异常。这里我们在终端上打印错误信息。e是一个异常对象，在错误发生时创建的。</p>
+
+<pre><code>$ ./zerodivision.rb
+divided by 0
+#&lt;ZeroDivisionError: divided by 0&gt;
+</code></pre>
+
+<p>输出结果我们看到了异常信息。最后一行显示了异常对象名为ZeroDivisionError。</p>
+
+<hr />
+
+<p>程序员可以使用raise关键字发起自己的异常。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+age = 17
+
+begin
+    if age &lt; 18
+        raise &quot;Person is a minor&quot;
+    end
+    
+    puts &quot;Entry allowed&quot;
+rescue =&gt; e
+    puts e
+    p e
+    exit 1
+end
+</code></pre>
+
+<p>俱乐部不允许不满18岁的青年进入。我们使用Ruby脚本模拟这个情况。</p>
+
+<pre><code>begin
+    if age &lt; 18
+        raise &quot;Person is a minor&quot;
+    end
+    
+    puts &quot;Entry allowed&quot;
+</code></pre>
+
+<p>如果是未成年人，将出现一个异常。如果raise关键字没有指明异常参数，则RuntimeError异常将引发。这个代码不会到达puts &ldquo;Entry allowed&rdquo;这行。代码执行中断并继续rescue的代码块。</p>
+
+<pre><code>rescue =&gt; e
+    puts e
+    p e
+    exit 1
+end
+</code></pre>
+
+<p>在rescue代码块中我们打印错误信息，RuntimeError对象的一个字符串描述。我们也调用了exit方法通知环境该脚本错误退出。</p>
+
+<pre><code>$ ./raise_exception.rb 
+Person is a minor
+#&lt;RuntimeError: Person is a minor&gt;
+$ echo $?
+1
+</code></pre>
+
+<p>未成年人不允许进行俱乐部。bash的$?变量设置了这个脚本错误退出。</p>
+
+<hr />
+
+<p>Ruby的ensure从名创建的代码块总是会被执行，不管是否有异常。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+begin
+    f = File.open(&quot;stones&quot;, &quot;r&quot;)
+    
+    while line = f.gets do
+        puts line
+    end    
+    
+rescue =&gt; e
+    puts e
+    p e
+ensure
+    f.close if f
+end
+</code></pre>
+
+<p>这个例子我们尝试打开并读取stones文件。I/O操作容易出现错误。</p>
+
+<pre><code>ensure
+    f.close if f
+end
+</code></pre>
+
+<p>在ensure的代码块中我们关闭文件处理对象。我们查检处理对象是否存在，因为它可能没有被创建。分配的资源通常位于ensure代码块里。</p>
+
+<hr />
+
+<p>如果想到，我们可以创建自定义的异常。Ruby中自定义异常继承自StandardError类。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class BigValueError &lt; StandardError ; end
+
+LIMIT = 333
+x = 3_432_453
+    
+begin
+    
+    if x &gt; LIMIT
+        raise BigValueError, &quot;Exceeded the maximum value&quot;
+    end
+        
+    puts &quot;Script continues&quot;
+    
+rescue =&gt; e
+    puts e
+    p e
+    exit 1
+end
+</code></pre>
+
+<p>我们有一个情况不能处理大的数字。</p>
+
+<pre><code>class BigValueError &lt; StandardError ; end
+</code></pre>
+
+<p>我们定义一个BigValueError类。这个类继承自StandardError类。</p>
+
+<pre><code>LIMIT = 333
+</code></pre>
+
+<p>数字超过这个常量就被认为是大的。</p>
+
+<pre><code>if x &gt; LIMIT
+    raise BigValueError, &quot;Exceeded the maximum value&quot;
+end
+</code></pre>
+
+<p>如果值比LIMIT大，则抛出一个自定义异常。异常信息为&rdquo;Exceeded the maximum value&rdquo;。</p>
+
+<pre><code>$ ./custom_exception.rb
+Exceeded the maximum value
+#&lt;BigValueError: Exceeded the maximum value&gt;
+</code></pre>
+
+<p>执行程序。</p>
+
+<p>在这一章我们完成了Ruby语言的面向对象编程。<a href="http://zetcode.com/lang/rubytutorial/oop2/">zetcode原文地址</a></p>
+<ul class="pa0">
   
    <li class="list">
      <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>

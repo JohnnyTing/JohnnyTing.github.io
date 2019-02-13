@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>Ruby中的面向对象编程2</title>
+      <title>第十三章、ruby中的面向对象编程2</title>
       <link>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/</link>
       <pubDate>Wed, 13 Feb 2019 14:46:25 +0800</pubDate>
       
       <guid>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/</guid>
-      <description></description>
+      <description>Ruby的面向对象编程2 在这章的教程我们继续讨论Ruby的面向对象编程。 我们以属性修饰符开始。将会包涵类常量、类方法和操作符重载。我们将定义</description>
     </item>
     
     <item>
