@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Johnny Ting  | 第十二章、ruby中的面向对象编程</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.53" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://johnnyting.github.io/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+<link rel="shortcut icon" href="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/509a4c2df41d1c43e56234.jpg" type="image/x-icon" />
+
+
+    
+
+    
+
+    <meta property="og:title" content="第十二章、ruby中的面向对象编程" />
+<meta property="og:description" content="Ruby的面向对象编程 在这部分的Ruby教程我们将讨论面向对象编程。 编程语言有过程式编程、函数式编程和面向对象编程范式。Ruby中面向对象语" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" /><meta property="article:published_time" content="2019-02-13T11:48:42&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-13T11:48:42&#43;08:00"/>
+
+<meta itemprop="name" content="第十二章、ruby中的面向对象编程">
+<meta itemprop="description" content="Ruby的面向对象编程 在这部分的Ruby教程我们将讨论面向对象编程。 编程语言有过程式编程、函数式编程和面向对象编程范式。Ruby中面向对象语">
+
+
+<meta itemprop="datePublished" content="2019-02-13T11:48:42&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-13T11:48:42&#43;08:00" />
+<meta itemprop="wordCount" content="5212">
+
+
+
+<meta itemprop="keywords" content="ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="第十二章、ruby中的面向对象编程"/>
+<meta name="twitter:description" content="Ruby的面向对象编程 在这部分的Ruby教程我们将讨论面向对象编程。 编程语言有过程式编程、函数式编程和面向对象编程范式。Ruby中面向对象语"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-gray">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Johnny Ting
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第十二章、ruby中的面向对象编程</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-13T11:48:42&#43;08:00">February 13, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="ruby的面向对象编程">Ruby的面向对象编程</h1>
+
+<p>在这部分的Ruby教程我们将讨论面向对象编程。</p>
+
+<p>编程语言有过程式编程、函数式编程和面向对象编程范式。Ruby中面向对象语言并包含了一些函数式和过程式。</p>
+
+<p>面向对象编程(OOP)是一种使用对象及其接口来设计应用程序和计算机程序的编程范式。</p>
+
+<p>面向对象的基本概念如下：</p>
+
+<ul>
+<li>抽象（Abstraction）</li>
+<li>多态（Polymorphism）</li>
+<li>封装（Encapsulation）</li>
+<li>继承（Inheritance）</li>
+</ul>
+
+<p>抽象是对于现实中复杂的问题通过适当的建模将其简化。多态是使用相同的操作符或者函数对不同的输入数据进行不同处理。封装是将一个类的具体实现对其他对象进行隐藏。继承是一种使用已经定义的类来创建新的类的方式。</p>
+
+<h2 id="对象">对象</h2>
+
+<p>对象是Ruby面向对象程序的基本组成。一个对象包含了数据和方法。对象之间通过方法进行交流。每个对象可以接收消息、发送消息和处理数据。</p>
+
+<p>创建一个对象需要两步。首先定义一个类。类是对象的模板。它是一张蓝图，用来描述这个类的所有对象的状态和行为。一个类可以创建多个对象。运行时创建的对象称为这个类的实例。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Being
+  
+end
+
+b = Being.new
+puts b
+</code></pre>
+
+<p>第一个例子我们创建了一个简单的对象。</p>
+
+<pre><code>class Being
+  
+end
+</code></pre>
+
+<p>定义一个简单的类，内容为空。表示它没有任何数据和方法。</p>
+
+<pre><code>b = Being.new
+</code></pre>
+
+<p>创建一个Being类的新实例。这里我们使用new方法，新创建的对象保存在变量b中。</p>
+
+<pre><code>puts b
+</code></pre>
+
+<p>在终端上打印对象的基本描述。当我们打印一个对象时，实际上是调用的to_s方法。但是我们没有任何的定义，因为每个创建的对象都是继承自Object。它有一些基本的函数，to_s是其中一个。</p>
+
+<pre><code>$ ./simple.rb
+#&lt;Being:0x9f3c290&gt;
+</code></pre>
+
+<p>我们得到这个对象的类名。</p>
+
+<h2 id="构造函数">构造函数</h2>
+
+<p>构造函数是一个特殊的方法。它在对象创建时自动执行。它没有返回值。构造函数的目的是初始化对象的状态。在Ruby中构造函数名为initialize。</p>
+
+<p>构造函数不能被继承。父对象的构造函数是通过super方法来调用。它们的调用顺序与继承顺序一致。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Being
+
+    def initialize
+        puts &quot;Being is created&quot;
+    end
+
+end
+
+Being.new
+</code></pre>
+
+<p>定义一个Being类。</p>
+
+<pre><code>class Being
+
+    def initialize
+        puts &quot;Being is created&quot;
+    end
+
+end
+</code></pre>
+
+<p>类Being定义了一个构造函数名为initialize。它在终端上打印一条信息。Ruby中方法定义位置def和end关键字之间。</p>
+
+<pre><code>Being.new
+</code></pre>
+
+<p>创建一个Being类的实例对象。在对象初创时构造函数将被调用。</p>
+
+<pre><code>$ ./constructor.rb
+Being is created
+</code></pre>
+
+<p>程序的输出。</p>
+
+<hr />
+
+<p>对象的属性是绑定在对象里的数据项。这些数据项也称为实例变量（instance variables）或者成员字段（member fields）。实例变量在类中定义但是各个对象都有单独的副本。</p>
+
+<p>下面的例子我们初始化类的成员数据。变量初始化是构造函数的典型工作。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Person
+
+    def initialize name
+        @name = name
+    end
+
+    def get_name
+        @name
+    end
+
+end
+
+p1 = Person.new &quot;Jane&quot;
+p2 = Person.new &quot;Beky&quot;
+
+puts p1.get_name
+puts p2.get_name
+</code></pre>
+
+<p>上面的例子定义了一个Person类，并且有一个实例变量。</p>
+
+<pre><code>class Person
+
+    def initialize name
+        @name = name
+    end
+</code></pre>
+
+<p>Person的构造函数设置了一个实例变量name。构造函数的name参数是在创建时传递的。构造函数是在实例对象创建时调用。@name是一个实例变量。在Ruby中实例变量以@字符开头。</p>
+
+<pre><code>def get_name
+    @name
+end
+</code></pre>
+
+<p>get_name方法返回成员字段。<strong>在Ruby中成员字段只能通过方法来访问</strong>。</p>
+
+<pre><code>p1 = Person.new &quot;Jane&quot;
+p2 = Person.new &quot;Beky&quot;
+</code></pre>
+
+<p>我们创建了Person类的两个对象。每个对象的构造函数都传递了一个字符串参数。</p>
+
+<pre><code>puts p1.get_name
+puts p2.get_name
+</code></pre>
+
+<p>通过调用每个对象的get_name方法来打印成员字段。</p>
+
+<pre><code>$ ./person.rb
+Jane
+Beky
+</code></pre>
+
+<p>从程序的输出看到每个实例都有自己的name成员字段。</p>
+
+<hr />
+
+<p>我们可以创建一个对象而不调用构造函数。Ruby有一个特殊的allocate方法。allocate方法为新的对象分配空间而不调用initialize。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Being
+    
+   def initialize
+       puts &quot;Being created&quot;
+   end   
+end
+
+
+b1 = Being.new
+b2 = Being.allocate
+puts b2
+</code></pre>
+
+<p>这个例子我们创建了两个对象。第一个对象使用new方法，第二个对象使用allocate方法。</p>
+
+<pre><code>b1 = Being.new
+</code></pre>
+
+<p>这里我们通过new关键字创建一个实例对象。构造函数initialize将会调用，并且在终端上打印消息。</p>
+
+<pre><code>b2 = Being.allocate
+puts b2
+</code></pre>
+
+<p>这里使用allocate方法，没有调用构造函数。使用puts关键字调用对象的to_s方法将其显示。</p>
+
+<pre><code>$ ./allocate.rb
+Being created
+#&lt;Being:0x8ea0044&gt;
+</code></pre>
+
+<p>程序的输出。</p>
+
+<h2 id="构造函数重载">构造函数重载</h2>
+
+<p>重载构造函数可以使用类有多种类型的构造函数。这样我们可以使用不同数量或者不同类型的参数来创建对象。</p>
+
+<p>Ruby没有我们所知的其他语言那样的构造函数重载。在Ruby中这种行为可以通过一些有默认值的扩展参数来模拟。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+
+class Person
+
+    def initialize name=&quot;unknown&quot;, age=0
+        @name = name
+        @age = age        
+    end
+    
+    def to_s
+        &quot;Name: #{@name}, Age: #{@age}&quot;
+    end
+
+end
+
+p1 = Person.new
+p2 = Person.new &quot;unknown&quot;, 17
+p3 = Person.new &quot;Becky&quot;, 19
+p4 = Person.new &quot;Robert&quot;
+
+p p1, p2, p3, p4
+</code></pre>
+
+<p>这个例子展示了模拟构造函数的重载。当name参数没有指定时使用&rdquo;unknow&rdquo;代替，对于age使用0。</p>
+
+<pre><code>def initialize name=&quot;unknown&quot;, age=0
+    @name = name
+    @age = age        
+end
+</code></pre>
+
+<p>这个构造传入两个参数。它们都有默认值。当我们创建对象没有指定值时就使用默认值。注意参数顺序必须一致。第一个是name，第二个是age。</p>
+
+<pre><code>p1 = Person.new
+p2 = Person.new &quot;unknown&quot;, 17
+p3 = Person.new &quot;Becky&quot;, 19
+p4 = Person.new &quot;Robert&quot;
+
+p p1, p2, p3, p4
+</code></pre>
+
+<p>我们创建了四个对象。构造函数传入了不同个数的参数。</p>
+
+<pre><code>$ ./consover.rb
+Name: unknown, Age: 0
+Name: unknown, Age: 17
+Name: Becky, Age: 19
+Name: Robert, Age: 0
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="方法">方法</h2>
+
+<p>方法是定义在类里面的函数。它们用于对对象的属性执行一些操作。方法在面向对象范式的封装性中必不可少。例如我们AccessDatabase类中有一个connect方法，我们不需要关心这个方法到底是如何连接数据库的。我们仅需要知道使用这个方法连接数据库。这对程序功能的划分必不可少，尤其是大的应用程序。</p>
+
+<p>在Ruby中数据仅能够通过方法访问。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Person
+
+    def initialize name
+        @name = name
+    end
+
+    def get_name
+        @name
+    end
+
+end
+
+per = Person.new &quot;Jane&quot;
+
+puts per.get_name
+puts per.send :get_name
+</code></pre>
+
+<p>这个例子展示了调用方法的两个基本方式。</p>
+
+<pre><code>puts per.get_name
+</code></pre>
+
+<p>通常的方式是在对象后面使用点操作符。</p>
+
+<pre><code>puts per.send :get_name
+</code></pre>
+
+<p>另种方式是使用内建的send方法。它将方法名符号作为参数传入。</p>
+
+<hr />
+
+<p>方法通常对对象的数据进行一些操作。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Circle
+   
+    @@PI = 3.141592
+
+    def initialize
+        @radius = 0
+    end
+
+    def set_radius radius
+        @radius = radius
+    end
+
+    def area
+        @radius * @radius * @@PI
+    end
+
+end
+
+
+c = Circle.new
+c.set_radius 5
+puts c.area
+</code></pre>
+
+<p>这个例子的代码我们定义了一个Circle类两个方法。</p>
+
+<pre><code>@@PI = 3.141592
+</code></pre>
+
+<p>我们在Circle类中定义了一个@@PI变量。类变量以@@开头。类变量是属于类的，每个对象都可以访问它们的类变量。我们@@PI来计算圆的面积。</p>
+
+<pre><code>def initialize
+        @radius = 0
+    end
+</code></pre>
+
+<p>定义了一个成员字段。它是圆的半径。如果我们想在外部修改这个变量，我们必须使用公开的set_radius方法。这个数据是受保护的。</p>
+
+<pre><code>def set_radius radius
+    @radius = radius
+end
+</code></pre>
+
+<p>这是set_radius方法。它为@radius实例变量设置一个新的值。</p>
+
+<pre><code>def area
+    @radius * @radius * @@PI
+end
+</code></pre>
+
+<p>area方法返回圆的面积。</p>
+
+<pre><code>c = Circle.new
+c.set_radius 5
+puts c.area
+</code></pre>
+
+<p>我们创建一个Circle类的实例对象，并且通过set_radius方法设置它的半径。</p>
+
+<pre><code>$ ./circle.rb
+78.5398
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="访问修饰符">访问修饰符</h2>
+
+<p>访问修饰符设置成员和方法的可见性。Ruby有三种访问修饰符：public、protected和private。<strong>在Ruby中所有的数据都是私有的</strong>。访问修饰符可以仅对方法使用。<strong>Ruby中的方法是公开的</strong>，除非使用了其他修饰符。</p>
+
+<p>公开的方法在类的内部和外部都可以访问。保护和私有的方法略微不同。都不能在类外部访问，仅能在这个类和它的子类或者父类内部访问。</p>
+
+<p>注意与其他面向对象编程语言不同，继承不会充当访问修饰符。仅有两件事很重要。第一，我们是否可以在类的内部或者外部访问方法。第二，是否我们要使用或者不使用self关键字。</p>
+
+<p>访问修饰符保护数据避免受到意外的修改。使用程序更健壮。实现一些主要用于修改数据的方法。这些方法最好是私有的。只有真正需要修改才将接口公开给用户。多年来用户习惯使用特殊方法并对打破向后兼容普遍不满。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Some
+        
+     def method1
+         puts &quot;public method1 called&quot;
+     end
+
+    public
+    
+     def method2
+         puts &quot;public method2 called&quot;  
+     end
+     
+     def method3
+         puts &quot;public method3 called&quot;
+         method1
+         self.method1
+     end          
+end
+
+s = Some.new
+s.method1
+s.method2
+s.method3
+</code></pre>
+
+<p>这个例子解释了Ruby公有方法的用法。</p>
+
+<pre><code>def method1
+    puts &quot;public method1 called&quot;
+end
+</code></pre>
+
+<p>method1是公有的，尽管我们没有使用public修饰符。因为方法默认都是公有的，除非指明为其他。</p>
+
+<pre><code>public
+
+  def method2
+      puts &quot;public method2 called&quot;  
+  end
+
+  ...
+</code></pre>
+
+<p>public关键字之后的方法是公有的。</p>
+
+<pre><code>def method3
+    puts &quot;public method3 called&quot;
+    method1
+    self.method1
+end    
+</code></pre>
+
+<p>在公有方法method3中我们通过使用和没有使用self关键字调用了另一个公有方法。</p>
+
+<pre><code>s = Some.new
+s.method1
+s.method2
+s.method3
+</code></pre>
+
+<p>公有方法是仅能够在类外部调用的方法。</p>
+
+<pre><code>$ ./public_methods.rb
+public method1 called
+public method2 called
+public method3 called
+public method1 called
+public method1 called
+</code></pre>
+
+<p>例子运行结果。</p>
+
+<hr />
+
+<p>下一个例子看私有方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+
+class Some
+    
+    def initialize
+        method1
+        # self.method1
+    end
+
+    private
+    
+     def method1
+         puts &quot;private method1 called&quot;  
+     end
+           
+end
+
+
+s = Some.new
+# s.method1
+</code></pre>
+
+<p>私有方法是Ruby中严厉的方法。它们只能够在类内部调用并且不能使用self关键字。</p>
+
+<pre><code>def initialize
+    method1
+    # self.method1
+end
+</code></pre>
+
+<p>在构造函数方法中我们调用了私有方法method1。使用self调用的被注释了。私有方法不能指定接收者。</p>
+
+<pre><code>private
+
+  def method1
+      puts &quot;private method1 called&quot;  
+  end
+</code></pre>
+
+<p>private关键字之后的是私有方法。</p>
+
+<pre><code>s = Some.new
+# s.method1
+</code></pre>
+
+<p>创建了一个Some类的实例对象。在外部调用这个方法是禁止的，如果将这行取消注释Ruby解释器会报错。</p>
+
+<pre><code>$ ./private_methods.rb
+private method called
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>最后我们使用保护方法。保护方法和私有方法的区别很小。保护方法与私有方法相似，不过它们可以通过self关键字调用。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Some
+    
+    def initialize
+        method1
+        self.method1
+    end
+
+    protected
+    
+     def method1
+         puts &quot;protected method1 called&quot;  
+     end
+           
+end
+
+
+s = Some.new
+# s.method1
+</code></pre>
+
+<p>上面的例子展示了保护方法的用法。</p>
+
+<pre><code>def initialize
+    method1
+    self.method1
+end
+</code></pre>
+
+<p>保护方法可以使用和不使用self关键字。</p>
+
+<pre><code>protected
+
+  def method1
+      puts &quot;protected method1 called&quot;  
+  end
+</code></pre>
+
+<p>保护方法以protected关键字开头。</p>
+
+<pre><code>s = Some.new
+# s.method1
+</code></pre>
+
+<p>保护方法不能在类外部调用。取消注释会报错。</p>
+
+<h2 id="继承">继承</h2>
+
+<p>继承是使用已经定义的类来构造新的类的方式。新构建的类称为派生类。派生自的类称为基类。继承的好处是代码利用，减少程序的复杂性。派生类（后代）覆盖或者扩展基类（祖先）的函数。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Being
+
+    def initialize
+        puts &quot;Being class created&quot;
+    end
+end
+
+class Human &lt; Being
+
+   def initialize
+       super
+       puts &quot;Human class created&quot;
+   end
+end
+
+Being.new
+Human.new
+</code></pre>
+
+<p>这个程序我们定义了两个类：一个基类Being和一个派生类Human。</p>
+
+<pre><code>class Human &lt; Being
+</code></pre>
+
+<p>Ruby中使用&lt;操作符创建继承关系。Human类继承自Being类。</p>
+
+<pre><code>def initialize
+    super
+    puts &quot;Human class created&quot;
+end
+</code></pre>
+
+<p>super方法调用父类的构造函数。</p>
+
+<pre><code>Being.new
+Human.new
+</code></pre>
+
+<p>实例化了Being类和Human类。</p>
+
+<pre><code>$ ./inheritance.rb
+Being class created
+Being class created
+Human class created
+</code></pre>
+
+<p>首先创建Being类。基类Human同样也调用了父类的构造函数。</p>
+
+<hr />
+
+<p>一个对象的关系可能很复杂。一个对象可以有多个祖先。Ruby有ancestors方法获取一个类的祖先列表。</p>
+
+<p>每个Ruby对象都是Object、BaseObject和Kernel的后代。它们内建于Ruby语言的内核中。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+
+class Being 
+end
+
+class Living &lt; Being 
+end
+
+class Mammal &lt; Living 
+end
+
+class Human &lt; Mammal 
+end
+    
+    
+p Human.ancestors
+</code></pre>
+
+<p>这个例子中定义了四个类。Human、Mammal、Living和Being。</p>
+
+<pre><code>p Human.ancestors
+</code></pre>
+
+<p>打印Human类的祖先。</p>
+
+<pre><code>$ ./ancestors.rb
+[Human, Mammal, Living, Being, Object, Kernel, BasicObject]
+</code></pre>
+
+<p>Human类有三个自定义的和三个内建的祖先。</p>
+
+<hr />
+
+<p>一个更复杂的例子。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Being
+    
+    @@count = 0
+
+    def initialize
+        @@count += 1
+        puts &quot;Being class created&quot;
+    end
+    
+    def show_count
+        &quot;There are #{@@count} beings&quot;
+    end
+    
+end
+
+class Human &lt; Being
+
+   def initialize
+       super
+       puts &quot;Human is created&quot;
+   end
+end
+
+class Animal &lt; Being
+
+   def initialize
+       super
+       puts &quot;Animal is created&quot;
+   end
+end
+
+class Dog &lt; Animal
+
+   def initialize
+       super
+       puts &quot;Dog is created&quot;
+   end
+end
+
+Human.new
+d = Dog.new
+puts d.show_count
+</code></pre>
+
+<p>我们定义了四个类。继承的层级有点复杂。Human和Animal继承自Being。Dog继承自Animal。我们还使用了类变量来统计beings的创建个数。</p>
+
+<pre><code>@@count = 0
+</code></pre>
+
+<p>我们定义一个类变量。它用于统计beings的创建个数。</p>
+
+<pre><code>def initialize
+    @@count += 1
+    puts &quot;Being class created&quot;
+end
+</code></pre>
+
+<p>每次Being类实例化时我们将@@count变量加1。这使用我们可以跟踪实例创建的个数。</p>
+
+<pre><code>class Animal &lt; Being
+...
+
+class Dog &lt; Animal
+...
+</code></pre>
+
+<p>Animal继承自Being，Dog继承自Animal。进一步的Dog也继承自Being。</p>
+
+<pre><code>Human.new
+d = Dog.new
+puts d.show_count
+</code></pre>
+
+<p>我们通过Human和Dog创建实例。然后调用Dog对象的show_count方法。Dog类没有该方法，将调用Being类的。</p>
+
+<pre><code>$ ./inheritance2.rb 
+Being class created
+Human is created
+Being class created
+Animal is created
+Dog is created
+There are 2 beings
+</code></pre>
+
+<p>Human对象调用了两个构造函数。Dog对象调用了三个构造函数。创建了两个Being实例。</p>
+
+<hr />
+
+<p>方法和数据成员可见性在继承中不起作用。这与其他通常的面向对象编程语言是显著的不同。</p>
+
+<p>在C#或者Java中公有的和保护的数据成员和方法可以被继承，私有的不能。与这相比，<strong>在Ruby中私有的数据成员和方法也可以被继承</strong>。数据成员和方法的可见性不会受继承的影响。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Base
+    
+    def initialize
+        @name = &quot;Base&quot;
+    end
+    
+    private
+     
+     def private_method
+         puts &quot;private method called&quot;
+     end
+     
+    protected
+    
+     def protected_method
+         puts &quot;protected_method called&quot;
+     end
+
+    public
+         
+     def get_name
+         return @name
+     end
+end
+
+
+class Derived &lt; Base
+
+    def public_method
+        private_method
+        protected_method
+    end
+end
+
+d = Derived.new
+d.public_method
+puts d.get_name
+</code></pre>
+
+<p>这个例子中有两个类。Derived继承自Base。它继承了三个方法和一个数据字段。</p>
+
+<pre><code>def public_method
+    private_method
+    protected_method
+end
+</code></pre>
+
+<p>Derived类的public_method调用了一个私有方法和一个保护方法。它们定义在父类中。</p>
+
+<pre><code>d = Derived.new
+d.public_method
+puts d.get_name
+</code></pre>
+
+<p>创建一个Derived类的实例。调用public_method方法和get_name方法，它返回私有的实例变量@name。<strong>记住Ruby中所有的实例变量都是私有的</strong>。get_name方法返回这个变量不管@name是私有的还是在父类中定义的。</p>
+
+<pre><code>$ ./inheritance3.rb
+private method called
+protected_method called
+Base
+</code></pre>
+
+<p><strong>输出结果证实了在Ruby中公有的、保护的、私有的方法和私有的成员字段都能被继承</strong>。</p>
+
+<h2 id="super方法">super方法</h2>
+
+<p><strong>super方法调用父类的同名方法</strong>。如果没有传递参数它将自动的把当前的所有参数传入。如果写为super()则没有参数传入。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+class Base
+   
+    def show x=0, y=0
+        p &quot;Base class, x: #{x}, y: #{y}&quot;
+    end
+end
+
+class Derived &lt; Base
+
+    def show x, y
+        super
+        super x
+        super x, y
+        super()
+    end
+end
+
+
+d = Derived.new
+d.show 3, 3
+</code></pre>
+
+<p>这个例子有两个类一个继承。它们都定义了show方法。这个方法在Derived类中使用super调用了父类的方法。</p>
+
+<pre><code>def show x, y
+    super
+    super x
+    super x, y
+    super()
+end
+</code></pre>
+
+<p>super不带参数则会传递将当前传入的参数，这里是x=3、y=3。super()方法不传递参数。</p>
+
+<pre><code>$ ./super.rb
+&quot;Base class, x: 3, y: 3&quot;
+&quot;Base class, x: 3, y: 0&quot;
+&quot;Base class, x: 3, y: 3&quot;
+&quot;Base class, x: 0, y: 0&quot;
+</code></pre>
+
+<p>输出结果。</p>
+
+<p>这是Ruby的面向对象的第一部分。<a href="http://zetcode.com/lang/rubytutorial/oop/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/">第十一章、ruby中的哈希</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/">第十章、ruby中的数组</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">第九章、ruby中的流程控制</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第八章、ruby中的表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">第七章、ruby中的字符串</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">第六章、ruby的数据类型</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">第五章、ruby中的对象</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://johnnyting.github.io/" >
+    &copy; 2019 Johnny Ting
+  </a>
+    <div>
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://johnnyting.github.io/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
