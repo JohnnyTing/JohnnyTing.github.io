@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 14 Feb 2019 10:28:13 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Feb 2019 17:48:20 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://johnnyting.github.io/tags/javascript/</link>
+      <pubDate>Thu, 14 Feb 2019 17:48:20 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Ruby</title>

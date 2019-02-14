@@ -6,10 +6,19 @@
     <description>Recent content in 技术 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 14 Feb 2019 10:28:13 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Feb 2019 17:48:20 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript中的变量提升</title>
+      <link>https://johnnyting.github.io/posts/javascript%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/</link>
+      <pubDate>Thu, 14 Feb 2019 17:48:20 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/javascript%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/</guid>
+      <description>&amp;emsp;&amp;emsp;JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，</description>
+    </item>
     
     <item>
       <title>第十五章、ruby中的输入输出</title>
