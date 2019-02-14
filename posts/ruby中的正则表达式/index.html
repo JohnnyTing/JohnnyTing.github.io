@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Johnny Ting  | 第十四章、ruby中的正则表达式</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.53" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://johnnyting.github.io/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+<link rel="shortcut icon" href="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/509a4c2df41d1c43e56234.jpg" type="image/x-icon" />
+
+
+    
+
+    
+
+    <meta property="og:title" content="第十四章、ruby中的正则表达式" />
+<meta property="og:description" content="Ruby的正则表达式 在这部分和教程中我们将讨论正则表达式。 正则表达式用于文本搜索和更高级的文本操作。内建正则表达式的工具如grep、sed；" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" /><meta property="article:published_time" content="2019-02-14T09:17:55&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-14T09:17:55&#43;08:00"/>
+
+<meta itemprop="name" content="第十四章、ruby中的正则表达式">
+<meta itemprop="description" content="Ruby的正则表达式 在这部分和教程中我们将讨论正则表达式。 正则表达式用于文本搜索和更高级的文本操作。内建正则表达式的工具如grep、sed；">
+
+
+<meta itemprop="datePublished" content="2019-02-14T09:17:55&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-14T09:17:55&#43;08:00" />
+<meta itemprop="wordCount" content="5858">
+
+
+
+<meta itemprop="keywords" content="ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="第十四章、ruby中的正则表达式"/>
+<meta name="twitter:description" content="Ruby的正则表达式 在这部分和教程中我们将讨论正则表达式。 正则表达式用于文本搜索和更高级的文本操作。内建正则表达式的工具如grep、sed；"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-gray">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Johnny Ting
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://johnnyting.github.io/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第十四章、ruby中的正则表达式</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-14T09:17:55&#43;08:00">February 14, 2019</time>      
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="ruby的正则表达式">Ruby的正则表达式</h1>
+
+<p>在这部分和教程中我们将讨论正则表达式。</p>
+
+<p>正则表达式用于文本搜索和更高级的文本操作。内建正则表达式的工具如grep、sed；文本编辑器如vi、emacs；编程语言如Tcl、Perl、Python。Ruby也内建支持正则表达式。</p>
+
+<p>从另一方面来看正则表达式语法构成了一个文本匹配的领域专用语言。</p>
+
+<p>pattern（模式）是一个正则表达式，它定义了我们要搜索或者操作的文本。它由文本字面和元字符构成。模式位于两个分隔符内。在Ruby中是//字符。它们通知正则表达式函数的开始和结束。</p>
+
+<p>这里是元字符的部分列表。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">.</th>
+<th align="left">匹配任意一个字符</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">*</td>
+<td align="left">匹配前一个元素0次或多次</td>
+</tr>
+
+<tr>
+<td align="left">[]</td>
+<td align="left">括号表达式。匹配括号内的一个字符</td>
+</tr>
+
+<tr>
+<td align="left">[^]</td>
+<td align="left">匹配不在括号内的一个字符</td>
+</tr>
+
+<tr>
+<td align="left">^</td>
+<td align="left">匹配字符串的开始位置</td>
+</tr>
+
+<tr>
+<td align="left">$</td>
+<td align="left">匹配字符串的结束位置</td>
+</tr>
+
+<tr>
+<td align="left">|</td>
+<td align="left">交替操作</td>
+</tr>
+</tbody>
+</table>
+
+<p>=~操作符对字符串匹配正则表达式，如果匹配则返回匹配字符串的偏移量否则为nil。 Regexp类是用来开发正则表达式。还有两个速记的方式来创建正则表达式。下面的例子将显示它们。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+re = Regexp.new 'Jane'
+p &quot;Jane is hot&quot;.match re
+
+p &quot;Jane is hot&quot; =~ /Jane/
+p &quot;Jane is hot&quot;.match %r{Jane}
+</code></pre>
+
+<p>第一个例子我们显示了对字符串应用正则表达式的三种方式。</p>
+
+<pre><code>re = Regexp.new 'Jane'
+p &quot;Jane is hot&quot;.match re
+</code></pre>
+
+<p>上面两行我们创建了一个简单的包含正则表达式文本的Regexp对象。使用match方法我们对&rdquo;Jane is hot&rdquo;句子应用这个正则表达式。检查&rsquo;Jance&rsquo;是否在这个句子中。</p>
+
+<pre><code>p &quot;Jane is hot&quot; =~ /Jane/
+p &quot;Jane is hot&quot;.match %r{Jane}
+</code></pre>
+
+<p>这两行完成相同的工作。两个斜杠//和%r{}字符是第一种方式的简写。在这个教程中，我们将使用斜杠。这是在许多语言中是事实上的标准。</p>
+
+<pre><code>$ ./regex.rb
+#&lt;MatchData &quot;Jane&quot;&gt;
+0
+#&lt;MatchData &quot;Jane&quot;&gt;
+</code></pre>
+
+<p>这三种情况都匹配的。match方法返回匹配的数据，如果没有则返回nil。=~操作符返回第一个匹配的字符的位置，或者nil。</p>
+
+<h2 id="点字符">点字符</h2>
+
+<p><strong>点字符是一个可以匹配任意单字符的正则表达式字符</strong>。注意必须要有些字符，它不能被忽略。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;Seven&quot;.match /.even/
+p &quot;even&quot;.match /.even/
+p &quot;eleven&quot;.match /.even/
+p &quot;proven&quot;.match /.even/
+</code></pre>
+
+<p>第一个例子，我们对字符串使用match方法应用正则表达式。match方法成功则返回匹配到的数据，否则返回nil。</p>
+
+<pre><code>p &quot;Seven&quot;.match /.even/
+</code></pre>
+
+<p>&ldquo;Seven&rdquo;是一个字符串，可以调用match方法。这个方法的参数是一个模式。/.even/正则表达式模式是查找以任意字符开头接着是&rsquo;even&rsquo;的字符串。</p>
+
+<pre><code>$ ./dot.rb
+#&lt;MatchData &quot;Seven&quot;&gt;
+nil
+#&lt;MatchData &quot;leven&quot;&gt;
+nil
+</code></pre>
+
+<p>从输出结果中我们看到哪些是匹配的哪些是没有匹配的。</p>
+
+<hr />
+
+<p>正如前面所说的，如果有点字符，那么就必须要有一个任意的字符。它不能被忽略。如果我们想到查找一个文本，其中有字符能被忽略的。换言之，我们想要一个模式可以同时匹配&rsquo;seven&rsquo;和&rsquo;even&rsquo;。对于这个我们可以使用一个?重复字符。<strong>?重复字符表示前一个字符可能出现0或者1次</strong>。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;seven&quot;.match /.even/
+p &quot;even&quot;.match /.even/
+p &quot;even&quot;.match /.?even/
+</code></pre>
+
+<p>这个脚本使用?重复字符。</p>
+
+<pre><code>p &quot;even&quot;.match /.even/
+</code></pre>
+
+<p>这行打印nil，因为正则表达式在&rsquo;even&rsquo;之前要接受一个字符。</p>
+
+<pre><code>p &quot;even&quot;.match /.?even/
+</code></pre>
+
+<p>我们稍微修改一下正则表达式。&rsquo;.?&lsquo;代表没有字符或者有一个字符。这次匹配成功。</p>
+
+<pre><code>$ ./dot2.rb
+#&lt;MatchData &quot;seven&quot;&gt;
+nil
+#&lt;MatchData &quot;even&quot;&gt;
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="正则表达式方法">正则表达式方法</h2>
+
+<p>前面的两个例子我们对正则表达式使用了match方法。除了match之外还有其他的方法也接受正则表达式参数。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+puts &quot;motherboard&quot; =~ /board/
+puts &quot;12, 911, 12, 111&quot;[/\d{3}/]
+
+puts &quot;motherboard&quot;.gsub /board/, &quot;land&quot;
+
+p &quot;meet big deep nil need&quot;.scan /.[e][e]./
+p &quot;This is Sparta!&quot;.split(/\s/)
+</code></pre>
+
+<p>这个例子显示了正则表达式的一些方法。</p>
+
+<pre><code>puts &quot;motherboard&quot; =~ /board/
+</code></pre>
+
+<p>=~操作符将正则表达式放在右边，字符串放在左边。</p>
+
+<pre><code>puts &quot;12, 911, 12, 111&quot;[/\d{3}/]
+</code></pre>
+
+<p>正则表达式可以位于字符串后面的中括号内。这行打印第一个3个数字。</p>
+
+<pre><code>puts &quot;motherboard&quot;.gsub /board/, &quot;land&quot;
+</code></pre>
+
+<p>使用gsub方法我们将&rsquo;board&rsquo;字符串替换成&rsquo;land&rsquo;。</p>
+
+<pre><code>p &quot;meet big deep nil need&quot;.scan /.[e][e]./
+</code></pre>
+
+<p>scan方法查找字符串匹配。它会查找所有出现的匹配，而不仅是第一个。这行打印所有与模式匹配的字符串。</p>
+
+<pre><code>p &quot;This is Sparta!&quot;.split(/\s/)
+</code></pre>
+
+<p>split方法使用给定的正则式来分隔字符串。\s字符代表了任何空白字符。</p>
+
+<pre><code>$ ./apply.rb
+6
+911
+motherland
+[&quot;meet&quot;, &quot;deep&quot;, &quot;need&quot;]
+[&quot;This&quot;, &quot;is&quot;, &quot;Sparta!&quot;]
+</code></pre>
+
+<p>apply.rb脚本的输出结果。</p>
+
+<h2 id="特殊变量">特殊变量</h2>
+
+<p>一些使用正则式的方法会激活一些特殊的变量。包括上次匹配的字符串、上次匹配结果的前面部分和上次匹配结果的后面部分。这些变量方便了程序员。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+puts &quot;Her name is Jane&quot; =~ /name/
+
+p $`
+p $&amp;
+p $'
+</code></pre>
+
+<p>这个例子显示了三个特殊的变量。</p>
+
+<pre><code>puts &quot;Her name is Jane&quot; =~ /name/
+</code></pre>
+
+<p>这行代码是一个简单的正则式匹配。我们在&rsquo;Her name is Jane&rsquo;句子中查找&rsquo;name&rsquo;。我们使用=~操作符。这个操作符也会设置三个特殊的变量。这行返回数字4。</p>
+
+<pre><code>p $`
+</code></pre>
+
+<p>$`特殊变量包含了上次匹配结果之前的文本。</p>
+
+<pre><code>p $&amp;
+</code></pre>
+
+<p>$&amp;为匹配的文本。</p>
+
+<pre><code>p $'
+</code></pre>
+
+<p>$&lsquo;变量包含上次匹配结果之后的文本。</p>
+
+<pre><code>$ ./svars.rb
+4
+&quot;Her &quot;
+&quot;name&quot;
+&quot; is Jane&quot;
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="锚点">锚点</h2>
+
+<p>锚点是在文本中匹配位置的字符。我们展示三个锚点字符。^字符匹配了行的开头；$字符匹配了行的结尾；\b字符匹配词的边界。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+sen1 = &quot;Everywhere I look I see Jane&quot;
+sen2 = &quot;Jane is the best thing that happened to me&quot;
+
+p sen1.match /^Jane/ 
+p sen2.match /^Jane/ 
+
+p sen1.match /Jane$/ 
+p sen2.match /Jane$/ 
+</code></pre>
+
+<p>第一个例子我们使用了^和$。</p>
+
+<pre><code>sen1 = &quot;Everywhere I look I see Jane&quot;
+sen2 = &quot;Jane is the best thing that happened to me&quot;
+</code></pre>
+
+<p>有两个句子。&rsquo;Jane&rsquo;位于第一个的结尾第二个的开头。</p>
+
+<pre><code>p sen1.match /^Jane/ 
+p sen2.match /^Jane/ 
+</code></pre>
+
+<p>这里我们查找这两个句子是否以&rsquo;Jane&rsquo;开头。</p>
+
+<pre><code>p sen1.match /Jane$/ 
+p sen2.match /Jane$/ 
+</code></pre>
+
+<p>这里我们在句子结尾查找匹配。</p>
+
+<pre><code>$ ./anchors.rb
+nil
+#&lt;MatchData &quot;Jane&quot;&gt;
+#&lt;MatchData &quot;Jane&quot;&gt;
+nil
+</code></pre>
+
+<p>运行结果。</p>
+
+<hr />
+
+<p>通常一个请求仅包含一个匹配全部的词。我们会默认计算所有匹配，包括更大的或者复合词。让我们通过一个例子来阐述。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+text = &quot;The cat also known as the domestic cat is a small, 
+usually furry, domesticated, carnivorous mammal.&quot;
+
+p text.scan /cat/
+
+p $`
+p $&amp;
+p $'
+</code></pre>
+
+<p>有一个句子。我们使用scan在这个句子中查找所有的&rsquo;cat&rsquo;字符串。</p>
+
+<pre><code>text = &quot;The cat also known as the domestic cat is a small, 
+usually furry, domesticated, carnivorous mammal.&quot;
+</code></pre>
+
+<p>问题是这个文本中有三个&rsquo;cat&rsquo;字符串。要匹配的&rsquo;cat&rsquo;表示一个哺乳动物,/cat/却匹配了&rsquo;domesticated&rsquo;词的8-10的字母。这不是我们想要的。</p>
+
+<pre><code>$ ./boudaries.rb
+[&quot;cat&quot;, &quot;cat&quot;, &quot;cat&quot;]
+&quot;The cat also known as the domestic cat is a small, \nusually furry, domesti&quot;
+&quot;cat&quot;
+&quot;ed, carnivorous mammal.&quot;
+</code></pre>
+
+<p>最后一次匹配的&rsquo;domesticated&rsquo;在下一个例子中将被使用\b锚点字符排除。</p>
+
+<hr />
+
+<p>\b字符用于设置要查找的词的边界。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+text = &quot;The cat also known as the domestic cat is a small, 
+usually furry, domesticated, carnivorous mammal.&quot;
+
+p text.scan /\bcat\b/
+
+p $`
+p $&amp;
+p $'
+</code></pre>
+
+<p>这个例子使用\b元字符进行了改善。</p>
+
+<pre><code>p text.scan /\bcat\b/
+</code></pre>
+
+<p>使用上面的正则式我们将查找&rsquo;cat&rsquo;整个词，不计算子词。</p>
+
+<h2 id="字符类">字符类</h2>
+
+<p>我们可以结合方括号将字符转换成字符类。字符类可以匹配在方括号内的任意字符。<strong>/[ab]/模式意味a或者b，相反的/ab/意味着a接着b</strong>。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+words = %w/ sit MIT fit fat lot pad /
+
+pattern = /[fs]it/
+
+words.each do |word|
+   if word.match pattern
+       puts &quot;#{word} matches the pattern&quot; 
+   else
+       puts &quot;#{word} does not match the pattern&quot; 
+   end
+end
+</code></pre>
+
+<p>有一系列的6个3字母的单词。我们对数组的每个字符串采用特定字符集的正则式。</p>
+
+<pre><code>pattern = /[fs]it/
+</code></pre>
+
+<p>这个式模式在这个数组中查找到了&rsquo;fit&rsquo;、&rsquo;sit&rsquo;。我们从字符集使用&rsquo;f&rsquo;或者&rsquo;s&rsquo;。</p>
+
+<pre><code>$ ./classes.rb
+sit matches the pattern
+MIT does not match the pattern
+fit matches the pattern
+fat does not match the pattern
+lot does not match the pattern
+pad does not match the pattern
+</code></pre>
+
+<p>有两个匹配的。</p>
+
+<hr />
+
+<p>一个例子我们将进一步探讨字符类。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;car&quot;.match %r{[abc][a][rs]}
+p &quot;car&quot;.match /[a-r]+/
+p &quot;23af 433a 4ga&quot;.scan /\b[a-f0-9]+\b/
+</code></pre>
+
+<p>例子中有三个字符类正则式。</p>
+
+<pre><code>p &quot;car&quot;.match %r{[abc][a][rs]}
+</code></pre>
+
+<p>这行的正则式由三个字符类构成。每个都对应一个字符。[abc]是a、b或者c。[a]就是a。第三个[rs]是r或者s。这里匹配&rsquo;car&rsquo;字符串。</p>
+
+<pre><code>p &quot;car&quot;.match /[a-r]+/
+</code></pre>
+
+<p>我们在字符类中使用了一个连接符-。连接符是一个元字符表示一个范围：这里是a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, 或r。由于字符类仅对应一个字符。我们也可以使用+重复字符。这表示前一个字符集的字符可以重复一次或者多次。&rsquo;car&rsquo;字符串被匹配了。</p>
+
+<pre><code>p &quot;23af 433a 4ga&quot;.scan /\b[a-f0-9]+\b/
+</code></pre>
+
+<p>这行有一个由三个子字符串构成的字符串。使用scan方法检查十六进制整数。我们有两个范围。第一个[a-f]代表a到f的字符。第二个[0-9]代表字数0到9。+表示这些字符可以重复多次。最后\b创建一个边界，表示仅接受由这些字符构成的字符串。</p>
+
+<pre><code>$ ./classes2.rb
+#&lt;MatchData &quot;car&quot;&gt;
+#&lt;MatchData &quot;car&quot;&gt;
+[&quot;23af&quot;, &quot;433a&quot;]
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>如果字符类的第一个字符是脱字符（^），则对该类反转。它会匹配除了这些之外的任何字符。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;ABC&quot;.match /[^a-z]{3}/
+p &quot;abc&quot;.match /[^a-z]{3}/
+</code></pre>
+
+<p>这个例子我们在字符类中使用脱字符。</p>
+
+<pre><code>p &quot;ABC&quot;.match /[^a-z]{3}/
+</code></pre>
+
+<p>我们查找一个有3个字母的字符串。这些字母不能在a到z之间。&rdquo;ABC&rdquo;字符串匹配这个正则式，因为所有的三个字符都是大写字母。</p>
+
+<pre><code>p &quot;abc&quot;.match /[^a-z]{3}/
+</code></pre>
+
+<p>&ldquo;abc&rdquo;字符串没有匹配。</p>
+
+<pre><code>$ ./caret.rb
+#&lt;MatchData &quot;ABC&quot;&gt;
+nil
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="量词">量词</h2>
+
+<p>标记或者组后面的量词表示前面的元素允许出现多少次。</p>
+
+<pre><code> ?     - 0 or 1 match
+ *     - 0 or more
+ +     - 1 or more
+ {n}   - exactly n
+ {n,}  - n or more
+ {,n}  - n or less (??)
+ {n,m} - range n to m
+</code></pre>
+
+<p>上面是通常的量词列表。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;seven dig moon car lot fire&quot;.scan /\w{3}/
+p &quot;seven dig moon car lot fire&quot;.scan /\b\w{3}\b/
+</code></pre>
+
+<p>例子中我们想要选择这些有3个字符的单词。\w字符是一个词字符。\w{3}意味着前面的词字符出现3次。</p>
+
+<pre><code>p &quot;seven dig moon car lot fire&quot;.scan /\w{3}/
+</code></pre>
+
+<p>第一只是对每个字符串截取前三个字符。这不是我们想要的。</p>
+
+<pre><code>p &quot;seven dig moon car lot fire&quot;.scan /\b\w{3}\b/
+</code></pre>
+
+<p>这是改进的搜索。我们将之前的模式放在边界符\b之间。现在仅查找有三个字符的单词。</p>
+
+<pre><code>$ ./nchars.rb
+[&quot;sev&quot;, &quot;dig&quot;, &quot;moo&quot;, &quot;car&quot;, &quot;lot&quot;, &quot;fir&quot;]
+[&quot;dig&quot;, &quot;car&quot;, &quot;lot&quot;]
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>{n,m}是一个重复结构对于有n到m个字符的字符串。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;I dig moon lottery it fire&quot;.scan /\b\w{2,4}\b/
+</code></pre>
+
+<p>上面的例子我们选择有2、3、4个字符的单词。我们再次使用了边界符\b。</p>
+
+<pre><code>$ ./rchars.rb
+[&quot;dig&quot;, &quot;moon&quot;, &quot;it&quot;, &quot;fire&quot;]
+</code></pre>
+
+<p>这个例子打印了一个有2-4个字符的单词数组。</p>
+
+<hr />
+
+<p>下一个例子我们展示?元字符。接着?的字符是可选的。?之前的字符可以出现一次或者0次。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;color colour colors colours&quot;.scan /colou?rs/
+p &quot;color colour colors colours&quot;.scan /colou?rs?/
+
+p &quot;color colour colors colours&quot;.scan /\bcolor\b|\bcolors\b|\bcolour\b|\bcolours\b/
+</code></pre>
+
+<p>我们想要在一个文本中查找colour单词。这个单词有两种拼写方式，美式的&rsquo;colour&rsquo;和英式的&rsquo;color&rsquo;。我们想要两种都查找，此外我们还想查找复数形式。</p>
+
+<pre><code>p &quot;color colour colors colours&quot;.scan /colou?rs/
+</code></pre>
+
+<p>colou?rs模式查找&rsquo;colours&rsquo;和&rsquo;colors&rsquo;。u字符在?字符之前表示是可选的。</p>
+
+<pre><code>p &quot;color colour colors colours&quot;.scan /colou?rs?/
+</code></pre>
+
+<p>colou?rs?模式使u和s字符是可选的。因此我们会查找到这四个组合。</p>
+
+<pre><code>p &quot;color colour colors colours&quot;.scan /\bcolor\b|\bcolors\b|\bcolour\b|\bcolours\b/
+</code></pre>
+
+<p>相同的请求可以间隔的写。</p>
+
+<pre><code>$ ./qmark.rb
+[&quot;colors&quot;, &quot;colours&quot;]
+[&quot;color&quot;, &quot;colour&quot;, &quot;colors&quot;, &quot;colours&quot;]
+[&quot;color&quot;, &quot;colour&quot;, &quot;colors&quot;, &quot;colours&quot;]
+</code></pre>
+
+<p>输出结果。</p>
+
+<hr />
+
+<p>这节的最后一个例子我们展示+字符。它允许前面的字符重复1次或多次。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+nums = %w/ 234 1 23 53434 234532453464 23455636
+    324f 34532452343452 343 2324 24221 34$34232/
+
+nums.each do |num|
+    m = num.match /[0-9]+/
+    
+    if m.to_s.eql? num
+        puts num
+    end              
+end
+</code></pre>
+
+<p>这个例子我们有一个数字数组。数字可以有一个或者多个数字字符。</p>
+
+<pre><code>nums = %w/ 234 1 23 53434 234532453464 23455636
+    324f 34532452343452 343 2324 24221 34$34232/
+</code></pre>
+
+<p>这是一个字符串数组。其中有两个不是数字，因为它们包含了非数字字符。</p>
+
+<pre><code>nums.each do |num|
+    m = num.match /[0-9]+/
+    
+    if m.to_s.eql? num
+        puts num
+    end              
+end
+</code></pre>
+
+<p>我们遍历数组并对每个字符串应用正则式。表达式[0-9]+代表了0到9的任意字符重复0次或者多次。默认的这个表达式也会查找子字符串。 在34$34232中引擎认为34是一个数字。\b边界符在这里是无效的，因为我们没有具体的字符，引擎不知道该在哪里停止查找。这就是为什么我们在代码块中包含一个if条件式。仅当匹配结果等于原字符串才认为它是一个数字。</p>
+
+<pre><code>$ ./numbers.rb
+234
+1
+23
+53434
+234532453464
+23455636
+34532452343452
+343
+2324
+24221
+</code></pre>
+
+<p>这些的值是数字。</p>
+
+<h2 id="忽略大小写搜索">忽略大小写搜索</h2>
+
+<p>我们可以执行忽略大小写的搜索。正则表达式可以接一个选项。它是一个单一的字符，以某种方式修改模式。这里不区分大小写的搜索我们使用i选项。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;Jane&quot;.match /Jane/
+p &quot;Jane&quot;.match /jane/
+p &quot;Jane&quot;.match /JANE/
+
+p &quot;Jane&quot;.match /jane/i
+p &quot;Jane&quot;.match /Jane/i
+p &quot;Jane&quot;.match /JANE/i
+</code></pre>
+
+<p>这个例子显示了区分大小写和不区分大小写的搜索。</p>
+
+<pre><code>p &quot;Jane&quot;.match /Jane/
+p &quot;Jane&quot;.match /jane/
+p &quot;Jane&quot;.match /JANE/
+</code></pre>
+
+<p>这三行的字符必须完全匹配模式。仅有第一行是匹配的。</p>
+
+<pre><code>p &quot;Jane&quot;.match /jane/i
+p &quot;Jane&quot;.match /Jane/i
+p &quot;Jane&quot;.match /JANE/i
+</code></pre>
+
+<p>这里我们使用i选项，接在第二个/字符后面。我们进行不区分大小写的搜索。这三行者匹配了。</p>
+
+<pre><code>$ ./icase.rb
+#&lt;MatchData &quot;Jane&quot;&gt;
+nil
+nil
+#&lt;MatchData &quot;Jane&quot;&gt;
+#&lt;MatchData &quot;Jane&quot;&gt;
+#&lt;MatchData &quot;Jane&quot;&gt;
+</code></pre>
+
+<p>例子的输出结果。</p>
+
+<h2 id="交替">交替</h2>
+
+<p>一个例子解释交替操作符（|）。这个操作符可以创建一个有多个选择的正则式。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+names = %w/Jane Thomas Robert Lucy Beky
+    John Peter Andy/
+    
+pattern = /Jane|Beky|Robert/ 
+    
+names.each do |name|    
+    
+    if name =~ pattern
+        puts &quot;#{name} is my friend&quot;
+    else
+        puts &quot;#{name} is not my friend&quot;
+    end
+end
+</code></pre>
+
+<p>names数组中有8个名字。我们将在数组中查找多虑字符串的组合。</p>
+
+<pre><code>pattern = /Jane|Beky|Robert/ 
+</code></pre>
+
+<p>这是搜索模式。它表示Jane, Beky和Robert是我的朋友。如果你查找他们就会找到我的朋友。</p>
+
+<pre><code>$ ./alternation.rb
+Jane is my friend
+Thomas is not my friend
+Robert is my friend
+Lucy is not my friend
+Beky is my friend
+John is not my friend
+Peter is not my friend
+Andy is not my friend
+</code></pre>
+
+<p>这是脚本的输出结果。</p>
+
+<h2 id="子模式">子模式</h2>
+
+<p>我们可以使用括号()创建子模式。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;bookworm&quot; =~ /book(worm)?$/
+p &quot;book&quot; =~ /book(worm)?$/
+p &quot;worm&quot; =~ /book(worm)?$/
+p &quot;bookstore&quot; =~ /book(worm)?$/
+</code></pre>
+
+<p>我们有如下正则式模式：book(worm)?$。(worm)是一个子模式。仅有两个字符串可以匹配：&rsquo;book&rsquo;或者&rsquo;bookworm&rsquo;。接在子模式后面的?字符意味着这个子模式出现0或者1次。这里​$字符确切的匹配字符串的结尾。没有它单词bookstore和bookmania也会被匹配。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;book&quot; =~ /book(shelf|worm)?$/
+p &quot;bookshelf&quot; =~ /book(shelf|worm)?$/
+p &quot;bookworm&quot; =~ /book(shelf|worm)?$/
+p &quot;bookstore&quot; =~ /book(shelf|worm)?$/
+</code></pre>
+
+<p>子模式经常是多个单词组合交替结合的。例如，book(shelf|worm)匹配&rsquo;bookshelf&rsquo;和&rsquo;bookworm&rsquo;，book(shelf|worm)?匹配&rsquo;bookshelf&rsquo;，&rsquo;bookworm&rsquo;和&rsquo;book&rsquo;。</p>
+
+<pre><code>$ ./subpatterns2.rb
+0
+0
+0
+nil
+</code></pre>
+
+<p>最后一个子模式没有匹配。记住0不意味着没有匹配。对于=~操作符，它是第一个匹配到的字符的索引。</p>
+
+<h2 id="邮箱例子">邮箱例子</h2>
+
+<p>最后一个例子，我们创建一个正则式模式检查邮箱地址。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+emails = %w/ luke@gmail.com andy@yahoo.com 23214sdj^as
+    f3444@gmail.com /
+    
+pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/
+
+emails.each do |email| 
+
+    if email.match pattern
+        puts &quot;#{email} matches&quot;
+    else
+        puts &quot;#{email} does not match&quot;
+    end
+    
+end
+</code></pre>
+
+<p>注意这个例子提供了仅一种解决方案。它不需要是最好的。</p>
+
+<pre><code>emails = %w/ luke@gmail.com andy@yahoocom 23214sdj^as
+    f3444@gmail.com /
+</code></pre>
+
+<p>这是一个邮箱数组，仅有两个是有效的。</p>
+
+<pre><code>pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/
+</code></pre>
+
+<p>这是一个模式，第一个^和最后一个$是获取完整匹配。在模式之前和之后都不允许有字符。邮箱分为5部分。第一部分是本地部分，它通常是公司、个体或者昵称的名字。[a-zA-Z0-9._-]+列出了所有可能用于本地部分的字符，它们可以使用一次或者多次。第二部分是字面符@，第三部分是域名部分。它通常是邮箱的提供商，如 yahoo或者gmail。字符集[a-zA-Z0-9-]+指明了所有的可以用于域名的字符。+量词将这些字符使用一次或者多次。第四部分是点字符。它的前面接一个转义符。(.)因为点字符是一个元字符具有特殊意义。转义之后得到一个字面上的点。最后一部分是顶级域名。这个模式是[a-zA-Z.]{2,5}。顶级域名有2到5个字符，如sk, net, info, travel。这同样也有点字符，这是因此一些顶级域名有两部分如co.uk。</p>
+
+<pre><code>$ ./email.rb
+[luke@gmail.com](mailto:luke@gmail.com) matches
+andy@yahoocom does not match
+23214sdj^as does not match
+[f3444@gmail.com](mailto:f3444@gmail.com) matches
+</code></pre>
+
+<p>这个正则式标记了两个有效的邮箱地址。</p>
+
+<p>在这章，我们学习了Ruby的正则表达式。<a href="http://zetcode.com/lang/rubytutorial/regex/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/">第十三章、ruby中的面向对象编程2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">第十二章、ruby中的面向对象编程</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/">第十一章、ruby中的哈希</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/">第十章、ruby中的数组</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">第九章、ruby中的流程控制</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第八章、ruby中的表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">第七章、ruby中的字符串</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">第六章、ruby的数据类型</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">第五章、ruby中的对象</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/">梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://johnnyting.github.io/" >
+    &copy; 2019 Johnny Ting
+  </a>
+    <div>
+
+
+<a href="https://www.facebook.com/xu.ding.9235" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.instagram.com/" target="_blank" class="link-transition instagram link dib z-999 pt3 pt0-l mr1" title="Instagram link" rel="noopener" aria-label="follow on Instagram——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.271,26.578v-0.006c0.502,0,1.005,0.01,1.508-0.002  c0.646-0.017,1.172-0.57,1.172-1.217c0-0.963,0-1.927,0-2.89c0-0.691-0.547-1.24-1.236-1.241c-0.961,0-1.922-0.001-2.883,0  c-0.688,0.001-1.236,0.552-1.236,1.243c-0.001,0.955-0.004,1.91,0.003,2.865c0.001,0.143,0.028,0.291,0.073,0.426  c0.173,0.508,0.639,0.82,1.209,0.823C41.344,26.579,41.808,26.578,42.271,26.578z M33,27.817c-3.384-0.002-6.135,2.721-6.182,6.089  c-0.049,3.46,2.72,6.201,6.04,6.272c3.454,0.074,6.248-2.686,6.321-6.043C39.254,30.675,36.462,27.815,33,27.817z M21.046,31.116  v0.082c0,4.515-0.001,9.03,0,13.545c0,0.649,0.562,1.208,1.212,1.208c7.16,0.001,14.319,0.001,21.479,0  c0.656,0,1.215-0.557,1.215-1.212c0.001-4.509,0-9.02,0-13.528v-0.094h-2.912c0.411,1.313,0.537,2.651,0.376,4.014  c-0.161,1.363-0.601,2.631-1.316,3.803s-1.644,2.145-2.779,2.918c-2.944,2.006-6.821,2.182-9.946,0.428  c-1.579-0.885-2.819-2.12-3.685-3.713c-1.289-2.373-1.495-4.865-0.739-7.451C22.983,31.116,22.021,31.116,21.046,31.116z   M45.205,49.255c0.159-0.026,0.318-0.049,0.475-0.083c1.246-0.265,2.264-1.304,2.508-2.557c0.025-0.137,0.045-0.273,0.067-0.409  V21.794c-0.021-0.133-0.04-0.268-0.065-0.401c-0.268-1.367-1.396-2.428-2.78-2.618c-0.058-0.007-0.113-0.02-0.17-0.03H20.761  c-0.147,0.027-0.296,0.047-0.441,0.08c-1.352,0.308-2.352,1.396-2.545,2.766c-0.008,0.057-0.02,0.114-0.029,0.171V46.24  c0.028,0.154,0.05,0.311,0.085,0.465c0.299,1.322,1.427,2.347,2.77,2.52c0.064,0.008,0.13,0.021,0.195,0.03H45.205z M33,64  C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.youtube.com" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://github.com/JohnnyTing" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://johnnyting.github.io/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

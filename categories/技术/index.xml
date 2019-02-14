@@ -6,10 +6,19 @@
     <description>Recent content in 技术 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 13 Feb 2019 14:46:25 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Feb 2019 09:17:55 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第十四章、ruby中的正则表达式</title>
+      <link>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Thu, 14 Feb 2019 09:17:55 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>Ruby的正则表达式 在这部分和教程中我们将讨论正则表达式。 正则表达式用于文本搜索和更高级的文本操作。内建正则表达式的工具如grep、sed；</description>
+    </item>
     
     <item>
       <title>第十三章、ruby中的面向对象编程2</title>
