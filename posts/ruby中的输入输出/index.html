@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | 第十五章、ruby中的输入输出</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,33 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/posts/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/posts/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Posts" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/posts/" />
-<meta property="og:updated_time" content="2019-02-14T10:28:13&#43;08:00"/>
+    <meta property="og:title" content="第十五章、ruby中的输入输出" />
+<meta property="og:description" content="Ruby的输入&amp;输出 这部分的教程我们讨论Ruby的输入和输出操作。输入是程序从键盘、文件或者其他程序读取数据。输出是程序产生数据。可" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" /><meta property="article:published_time" content="2019-02-14T10:28:13&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-14T10:28:13&#43;08:00"/>
 
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="第十五章、ruby中的输入输出">
+<meta itemprop="description" content="Ruby的输入&amp;输出 这部分的教程我们讨论Ruby的输入和输出操作。输入是程序从键盘、文件或者其他程序读取数据。输出是程序产生数据。可">
 
+
+<meta itemprop="datePublished" content="2019-02-14T10:28:13&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-14T10:28:13&#43;08:00" />
+<meta itemprop="wordCount" content="4014">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="第十五章、ruby中的输入输出"/>
+<meta name="twitter:description" content="Ruby的输入&amp;输出 这部分的教程我们讨论Ruby的输入和输出操作。输入是程序从键盘、文件或者其他程序读取数据。输出是程序产生数据。可"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -144,217 +149,832 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Posts
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
-    <section class="flex-ns flex-wrap justify-around mt5">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">第十五章、ruby中的输入输出</h1>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="link black dim">
-        第十五章、ruby中的输入输出
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的输入&amp;输出 这部分的教程我们讨论Ruby的输入和输出操作。输入是程序从键盘、文件或者其他程序读取数据。输出是程序产生数据。可
-    </div>
-  </div>
-</div>
-</div>
+      <time class="f6 mv4 dib tracked" datetime="2019-02-14T10:28:13&#43;08:00">February 14, 2019</time>      
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="link black dim">
-        第十四章、ruby中的正则表达式
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的正则表达式 在这部分和教程中我们将讨论正则表达式。 正则表达式用于文本搜索和更高级的文本操作。内建正则表达式的工具如grep、sed；
-    </div>
-  </div>
-</div>
-</div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/" class="link black dim">
-        第十三章、ruby中的面向对象编程2
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的面向对象编程2 在这章的教程我们继续讨论Ruby的面向对象编程。 我们以属性修饰符开始。将会包涵类常量、类方法和操作符重载。我们将定义
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="link black dim">
-        第十二章、ruby中的面向对象编程
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的面向对象编程 在这部分的Ruby教程我们将讨论面向对象编程。 编程语言有过程式编程、函数式编程和面向对象编程范式。Ruby中面向对象语
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/" class="link black dim">
-        第十一章、ruby中的哈希
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      哈希表 这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/" class="link black dim">
-        第十章、ruby中的数组
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      数组 这一部分的教程将介绍数组。数组是有序对象的集合。 一个这是在某个时刻只能保存一项数值。不过数组可以保存多项。这些数据项被称为数组的元素。数
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="link black dim">
-        第九章、ruby中的流程控制
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      流程控制 这章的教程我们将讨论流程控制。 条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="link black dim">
-        第八章、ruby中的表达式
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      表达式 在这章的教程将介绍Ruby的表达式。 表达式是由操作数和操作符构成的。表达式的操作符表明了对操作数应用什么操作。表达式中操作符的求值顺序
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="link black dim">
-        第七章、ruby中的字符串
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      字符串 在这部分的教程将详细的介绍字符串。 字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。 字符串是序列化
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="link black dim">
-        第六章、ruby的数据类型
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      数据类型 在这一章的教程中我们开始讨论数据类型。 所有类别的计算机程序，包括电子表格、文本编辑器、计算器和聊天软件都使用数据。现代计算机语言中各
-    </div>
-  </div>
-</div>
-</div>
-      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="ruby的输入-输出">Ruby的输入&amp;输出</h1>
+
+<p>这部分的教程我们讨论Ruby的输入和输出操作。输入是程序从键盘、文件或者其他程序读取数据。输出是程序产生数据。可以输出到屏幕、文件或者其他程序。</p>
+
+<p>输入&amp;输出是一个大的话题。稍后我们通过一些例子来大概介绍一下这个主题。Ruby中的一些类有些方法会执行输入&amp;输出操作。例如Kernel、IO、Dir或者File。</p>
+
+<h2 id="输出到终端">输出到终端</h2>
+
+<p>Ruby有一些在终端上打印输出的方法。这些方法是Kernel模块的一部分。Kernel模块的方法对于所有的Ruby对象都是有效的。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+print &quot;Apple &quot;
+print &quot;Apple\n&quot;
+
+puts &quot;Orange&quot;
+puts &quot;Orange&quot;
+</code></pre>
+
+<p>print和puts方法会将文本输出到终端。它们的不同是puts会在最后加上一个换行符。</p>
+
+<pre><code>print &quot;Apple &quot;
+print &quot;Apple\n&quot;
+</code></pre>
+
+<p>print在终端上打印两个连续的&rdquo;Apple&rdquo;字符串。如果我们想换一行，我们就必须显示的包含一个换行符。换行符是&rsquo;\n&rsquo;。print方法实际上是调用了对象的to_s方法。</p>
+
+<pre><code>puts &quot;Orange&quot;
+puts &quot;Orange&quot;
+</code></pre>
+
+<p>puts方法在终端上打印两个字符串。每一个都各在一行。这个方法会自己添加换行符。</p>
+
+<pre><code>$ ./printing.rb Apple Apple
+Orange
+Orange
+</code></pre>
+
+<p>printing.rb脚本的输出结果。</p>
+
+<p>根据Ruby的文档，print方法与$stdout.print是等效的。​$stdout是全局变量，保存的标准输出流。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+$stdout.print &quot;Ruby language\n&quot;
+$stdout.puts &quot;Python language&quot;
+</code></pre>
+
+<p>我们使用$stdout变量打印两行内容。</p>
+
+<p>Ruby有另外三种输出方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+p &quot;Lemon&quot;
+p &quot;Lemon&quot;
+
+printf &quot;There are %d apples\n&quot;, 3
+
+putc 'K'
+putc 0xA
+</code></pre>
+
+<p>这个例子中，我们展示了p、printf和putc方法。</p>
+
+<pre><code>p &quot;Lemon&quot;
+</code></pre>
+
+<p>p会调用对象的inspect方法。这个方法对于调试很有用。</p>
+
+<pre><code>printf &quot;There are %d apples\n&quot;, 3
+</code></pre>
+
+<p>printf方法因C语言而出名。它能够将字符串格式化。</p>
+
+<pre><code>putc 'K'
+putc 0xA
+</code></pre>
+
+<p>putc方法在终端上打印一个字符。第二行是打印一个换行符。0xA是换行符的十六进制代码。</p>
+
+<pre><code>$ ./printing3.rb
+&quot;Lemon&quot;
+&quot;Lemon&quot;
+There are 3 apples
+K
+</code></pre>
+
+<p>printing3.rb的输出。</p>
+
+<p>使用Kernel的方法在终端上打印数据是简短方便的方式。接下来的例子展示了更多在终端上打印数据的正式方法。</p>
+
+<pre><code>ios = IO.new STDOUT.fileno
+ios.write &quot;ZetCode\n&quot;
+ios.close
+</code></pre>
+
+<p>这个例子我们打开标准输出流并往其中写入字符串。</p>
+
+<pre><code>ios = IO.new STDOUT.fileno
+</code></pre>
+
+<p>new方法返回一个可写的数据流。这个方法传入一个文件描述符数字。STDOUT.fileno返回了标准输出流的文件描述符。我们也可以直接写2。</p>
+
+<pre><code>ios.write &quot;ZetCode\n&quot;
+</code></pre>
+
+<p>我们往打开的数据流写入字符串。</p>
+
+<pre><code>ios.close
+</code></pre>
+
+<p>关闭输出流。</p>
+
+<p>在Unix系统中标准的终端输出是连接到一个特殊的文件/dev/tty。将其打开并写入数据，即是写到终端上。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+fd = IO.sysopen &quot;/dev/tty&quot;, &quot;w&quot;
+ios = IO.new(fd, &quot;w&quot;)
+ios.puts &quot;ZetCode&quot;
+ios.close
+</code></pre>
+
+<p>写入到/dev/tty文件的一个例子。这仅能够在Unix上运行。</p>
+
+<pre><code>fd = IO.sysopen &quot;/dev/tty&quot;, &quot;w&quot;
+</code></pre>
+
+<p>sysopen方法打开指定目录的文件，返回最后的文件描述符。</p>
+
+<pre><code>ios = IO.new(fd, &quot;w&quot;)
+</code></pre>
+
+<p>文件描述符数字用于打开一个数据流。</p>
+
+<pre><code>ios.puts &quot;ZetCode&quot;
+ios.close
+</code></pre>
+
+<p>往数据流中写入字符串然后关闭它。</p>
+
+<h2 id="从终端输入">从终端输入</h2>
+
+<p>这一节我们将创建一些处理输入的代码例子。</p>
+
+<p>$stdin是一个全局变量保存了标准输入流。它可以用于从终端输入数据。</p>
+
+<pre><code>#!/usr/bin/ruby
+ 
+inp = $stdin.read
+puts inp
+</code></pre>
+
+<p>上面的代码，我们使用read方法从终端读取输入。</p>
+
+<pre><code>inp = $stdin.read
+</code></pre>
+
+<p>read方法从标准输入读取数据直到文件结尾。EOF在Unix中是使用Ctrl + D产生，在Windows中是Ctrl + Z。</p>
+
+<pre><code>$ ./reading.rb
+Ruby language
+Ruby language
+</code></pre>
+
+<p>我们启动了程序，这个脚本会读取数据直到我们按下Ctrl + D 或者 Ctrl + Z。</p>
+
+<pre><code>$ echo &quot;ZetCode&quot; | ./reading.rb
+ZetCode
+
+$ ./input.rb &lt; stones
+Garnet
+Topaz
+Opal
+Amethyst
+Ruby
+Jasper
+Pyrite
+Malachite
+Quartz
+</code></pre>
+
+<p>如果我们使用重定向，脚本可以从其他程序或者文件中读取数据。</p>
+
+<p>通常从终端读取数据是使用gets方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+print &quot;Enter your name: &quot;
+name = gets
+puts &quot;Hello #{name}&quot;
+</code></pre>
+
+<p><strong>使用gets方法读取用户输入的一行数据</strong>。</p>
+
+<pre><code>name = gets
+</code></pre>
+
+<p>gets方法从标准输入读取数据并分配给name变量。</p>
+
+<pre><code>puts &quot;Hello #{name}&quot;
+</code></pre>
+
+<p>打印输入的数据。</p>
+
+<pre><code>$ ./readline.rb
+Enter your name: Jan
+Hello Jan
+</code></pre>
+
+<p>输出结果。</p>
+
+<p>接下来的两个脚本我们讨论chomp方法。它是字符串方法，用于移除字符串结尾的空白。当我们执行输入操作时它很有用。这个方法名和用法来自Perl语言。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+print &quot;Enter a string: &quot;
+inp = gets
+
+puts &quot;The string has #{inp.size} characters&quot;
+</code></pre>
+
+<p>读取一个用户输入的字符串，并计算它的长度。</p>
+
+<pre><code>$ ./nochomp.rb
+Enter a string: Ruby
+The string has 5 characters
+</code></pre>
+
+<p>这个提示表示了这个字符串有5个字符，因为它统计的换行符。</p>
+
+<p>为了得到正确的结果，我们需要移除换行符。这正是chomp方法的作用。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+print &quot;Enter a string: &quot;
+inp = gets.chomp
+
+puts &quot;The string has #{inp.size} characters&quot;
+</code></pre>
+
+<p>这次我们使用chomp方法截掉了换行符。</p>
+
+<pre><code>$ ./chomp.rb
+Enter a string: Ruby
+The string has 4 characters
+</code></pre>
+
+<p>Ruby字符串有4个字符。</p>
+
+<h2 id="文件">文件</h2>
+
+<p>从Ruby官方文档我们知道IO类是所有输入输出的基类。File类只是IO类的一个子类。这两个类是紧密相关的。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+f = File.open('output.txt', 'w')
+f.puts &quot;The Ruby tutorial&quot;
+f.close
+</code></pre>
+
+<p>第一个例子我们打开一个文件并往里面写入一些数据。</p>
+
+<pre><code>f = File.open('output.txt', 'w')
+</code></pre>
+
+<p>以写模式打开&rsquo;output.txt&rsquo;文件。open方法返回数据流。</p>
+
+<pre><code>f.puts &quot;The Ruby tutorial&quot;
+</code></pre>
+
+<p>往上面打开的数据流写入数据。puts方法也可用于往文件写入数据。</p>
+
+<pre><code>f.close
+</code></pre>
+
+<p>最后关闭数据流。</p>
+
+<pre><code>$ ./simplewrite.rb
+$ cat output.txt
+The Ruby tutorial
+</code></pre>
+
+<p>执行脚本并显示output.txt文件的内容。</p>
+
+<p>以下是一个类似的例子显示了额外的方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+File.open('langs', 'w') do |f|
+   
+    f.puts &quot;Ruby&quot;
+    f.write &quot;Java\n&quot;
+    f &lt;&lt; &quot;Python\n&quot;
+    
+end
+</code></pre>
+
+<p>如果open方法之后是一个代码块，Ruby会将打开的数据流传递给这个代码块。最后这个文件会自动关闭。</p>
+
+<pre><code>f.puts &quot;Ruby&quot;
+f.write &quot;Java\n&quot;
+f &lt;&lt; &quot;Python\n&quot;
+</code></pre>
+
+<p>我们使用了三个方法写文件。</p>
+
+<pre><code>$ ./simplewrite2.rb
+$ cat langs
+Ruby
+Java
+Python
+</code></pre>
+
+<p>执行这个脚本并查看里面的内容。</p>
+
+<p>第二个例子我们显示一些File类的方法。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+puts File.exists? 'tempfile'
+
+f = File.new 'tempfile', 'w'
+puts File.mtime 'tempfile'
+puts f.size
+
+File.rename 'tempfile', 'tempfile2'
+
+f.close
+</code></pre>
+
+<p>这个例子创建了一个新文件&rsquo;tempfile&rsquo;并调用了一些方法。</p>
+
+<pre><code>puts File.exists? 'tempfile'
+</code></pre>
+
+<p>exists?方法检查给定的文件是否存在。这行返回false，因为我们还没有创建这个文件。</p>
+
+<pre><code>f = File.new 'tempfile', 'w'
+</code></pre>
+
+<p>创建文件。</p>
+
+<pre><code>puts File.mtime 'tempfile'
+</code></pre>
+
+<p>mtime方法返回这个文件的最后修改时间。</p>
+
+<pre><code>puts f.size
+</code></pre>
+
+<p>查看文件的大小。这里返回0,因为我们还没有往文件写入数据。</p>
+
+<pre><code>File.rename 'tempfile', 'tempfile2'
+</code></pre>
+
+<p>最后我们使用rename将文件重命名。</p>
+
+<pre><code>$ ./testfile.rb
+false
+2011-11-05 16:19:36 +0100
+0
+</code></pre>
+
+<p>输出结果。</p>
+
+<p>接下来我们从磁盘文件读取内容。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+f = File.open(&quot;stones&quot;)
+
+while line = f.gets do
+    puts line
+end
+
+f.close
+</code></pre>
+
+<p>这是一个简单的脚本，打开stones文件并在终端上打印它的内容。</p>
+
+<pre><code>f = File.open(&quot;stones&quot;)
+</code></pre>
+
+<p>打开&rsquo;stones&rsquo;文件，默认是只读模式。</p>
+
+<pre><code>while line = f.gets do
+    puts line
+end
+</code></pre>
+
+<p>gets方法从I/O数据流读取一行数据。当读到文件结尾时while代码块退出。</p>
+
+<pre><code>$ ./readlines2.rb
+Garnet
+Topaz
+Opal
+Amethyst
+Ruby
+Jasper
+Pyrite
+Malachite
+Quartz
+</code></pre>
+
+<p>例子输出结果。</p>
+
+<p>下一个例子将从文件读取数据。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+fname = 'alllines.rb'
+
+File.readlines(fname).each do |line|
+    puts line
+end
+</code></pre>
+
+<p>这个脚本显示了另一个读取文件内容的方式。这个例子将它自己的代码打印在终端上。</p>
+
+<pre><code>File.readlines(fname).each do |line|
+    puts line
+end  
+</code></pre>
+
+<p>readlines读取指定文件的每一行内容，并作为数据返回。我们使用each方法遍历数组，并将其在终端上打印。</p>
+
+<pre><code>$ ./alllines.rb
+#!/usr/bin/ruby
+
+fname = 'alllines.rb'
+
+File.readlines(fname).each do |line|
+    puts line
+end
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="目录">目录</h2>
+
+<p>在这一节我们使用目录。Ruby中有一个Dir类可以操作目录。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+Dir.mkdir &quot;tmp&quot;
+puts Dir.exists? &quot;tmp&quot;
+
+puts Dir.pwd
+Dir.chdir &quot;tmp&quot;
+puts Dir.pwd
+
+Dir.chdir '..'
+puts Dir.pwd
+Dir.rmdir &quot;tmp&quot;
+puts Dir.exists? &quot;tmp&quot;
+</code></pre>
+
+<p>这个脚本我们使用了Dir类的四个方法。</p>
+
+<pre><code>Dir.mkdir &quot;tmp&quot;
+</code></pre>
+
+<p>mkdir方法创建一个新目录&rsquo;tmp&rsquo;。</p>
+
+<pre><code>puts Dir.exists? &quot;tmp&quot;
+</code></pre>
+
+<p>使用exists?方法检查一个目录是否存在。</p>
+
+<pre><code>puts Dir.pwd
+</code></pre>
+
+<p>pwd方法打印当前的工作目录。这是我们启动脚本的目录。</p>
+
+<pre><code>Dir.chdir '..'
+</code></pre>
+
+<p>chdir方法切换目录。&rsquo;..&lsquo;目录是当前工作目录的父目录。</p>
+
+<pre><code>Dir.rmdir &quot;tmp&quot;
+puts Dir.exists? &quot;tmp&quot;
+</code></pre>
+
+<p>最后我们使用rmdir方法移除目录。这时exists?方法返回false。</p>
+
+<pre><code>$ ./dirs.rb
+true
+/home/vronskij/programming/ruby/io
+/home/vronskij/programming/ruby/io/tmp
+/home/vronskij/programming/ruby/io
+false
+</code></pre>
+
+<p>例子的输出结果。 第二个例子我们检索目录所有的条目，包括文件和子目录。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+fls = Dir.entries '.'
+puts fls.inspect
+</code></pre>
+
+<p>entries 方法返回指定目录的所有条目。</p>
+
+<pre><code>fls = Dir.entries '.'
+puts fls.inspect
+</code></pre>
+
+<p>我们得到了当前目录下的文件和目录数组。&rsquo;.&lsquo;代表当前工作目录。inspect方法使得数组更加可读。</p>
+
+<pre><code>$ ./allfiles.rb
+[&quot;putc.rb&quot;, &quot;simplewrite.rb&quot;, &quot;readlines2.rb&quot;, &quot;fileexists.rb~&quot; ...
+</code></pre>
+
+<p>输出结果。</p>
+
+<p>第三个例子使用了home目录。每个计算机用户都有一个分配给他的唯一的目录，称为home目录。它是用于存放用户自己的文件。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+puts Dir.home
+puts Dir.home 'root'
+</code></pre>
+
+<p>这个脚本打印两个home目录。</p>
+
+<pre><code>puts Dir.home
+</code></pre>
+
+<p>如果没有指定用户名则返回当前用户的home目录。当前用户是指定启动这个脚本文件的用户。</p>
+
+<pre><code>puts Dir.home 'root'
+</code></pre>
+
+<p>这里我们指定了一个用户。</p>
+
+<pre><code>$ ./homedir.rb
+/home/vronskij
+/root
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="执行外部程序">执行外部程序</h2>
+
+<p>Ruby有一些方式可以执行外部程序。我们的例子中我们使用了Linux中有名的命令。Windows或者Mac读取可以使用他们自己系统的命令。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+data = system 'ls'
+puts data
+</code></pre>
+
+<p>调用ls命令列出目录内容。</p>
+
+<pre><code>data = system 'ls'
+</code></pre>
+
+<p>system命令在一个子shell中执行外部程序。这个方法是属于Kernel Ruby 模块的。</p>
+
+<pre><code>$ ./system.rb
+allfiles.rb characters.rb fileexists.rb homedir.rb~ ...
+</code></pre>
+
+<p>输出结果。</p>
+
+<p>我们展示另外两个执行外部程序的方式。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+out = `pwd`
+puts out
+
+out = %x[uptime]
+puts out
+
+out = %x[ls | grep 'readline']
+puts out
+</code></pre>
+
+<p>执行外部程序我们可以使用反引号``和%x[]字符。</p>
+
+<pre><code>out = `pwd`
+</code></pre>
+
+<p>这里我们使用反引号执行pwd命令。这个命令返回当前的工作目录。</p>
+
+<pre><code>out = %x[uptime]
+</code></pre>
+
+<p>这里我得到uptime命令的输出，它显示系统运行了多久。</p>
+
+<pre><code>out = %x[ls | grep 'readline']
+</code></pre>
+
+<p>我们也可以使用复合命令。</p>
+
+<pre><code>$ ./system2.rb
+/home/vronskij/programming/ruby/io
+22:50:50 up 5:32, 1 user, load average: 0.46, 0.44, 0.45
+readline.rb
+readline.rb~
+readlines2.rb
+readlines2.rb~
+</code></pre>
+
+<p>输出结果。</p>
+
+<p>我们可以使用open方法执行命令。这个方法是属于Kernel模块的。它创建一个IO对象连接到指定的数据流、文件或者子进程。如果我们想要连接到子进程，我们将打开路径以管道符(|)开头。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+f = open(&quot;|ls -l |head -3&quot;)
+out = f.read
+puts out
+f.close
+
+puts $?.success?
+</code></pre>
+
+<p>这个例子我们打印了ls -l | head -3命令的结果。我们也还检查了子进程的状态。</p>
+
+<pre><code>f = open(&quot;|ls -l |head -3&quot;)
+</code></pre>
+
+<p>连接到子进程。</p>
+
+<pre><code>out = f.read
+puts out
+</code></pre>
+
+<p>读取并打印子进程的数据。</p>
+
+<pre><code>f.close
+</code></pre>
+
+<p>关闭文件句柄。</p>
+
+<pre><code>puts $?.success?
+</code></pre>
+
+<p>$?是一个特殊的变量，设置为上次执行过的子进程。如果子进程成功退出success?方法返回true。</p>
+
+<pre><code>$ ./system3.rb
+total 148
+-rwxr-xr-x 1 vronskij vronskij 57 2011-10-30 23:33 allfiles.rb
+-rwxr-xr-x 1 vronskij vronskij 58 2011-10-30 23:33 allfiles.rb~
+true
+</code></pre>
+
+<p>输出结果。</p>
+
+<h2 id="重定向标准输出">重定向标准输出</h2>
+
+<p>Ruby对标准输入、标准输出和标准错误输出都有预定义的全局变量。$stdout 是标准输出的变量名。</p>
+
+<pre><code>#!/usr/bin/ruby
+
+$stdout = File.open &quot;output.log&quot;, &quot;a&quot;
+
+puts &quot;Ruby&quot;
+puts &quot;Java&quot;
+
+$stdout.close
+$stdout = STDOUT
+
+puts &quot;Python&quot;
+</code></pre>
+
+<p>上面的例子我们将输出重定向到output.log文件。</p>
+
+<pre><code>$stdout = File.open &quot;output.log&quot;, &quot;a&quot;
+</code></pre>
+
+<p>这行创建一个新的标准输出。现在标准输出流向ouput.log文件。这个文件以追加方式打开，如果文件不存在则创建，否则打开并将数据追加到文件尾部。</p>
+
+<pre><code>puts &quot;Ruby&quot;
+puts &quot;Java&quot;
+</code></pre>
+
+<p>打印两个字符串。这些字符串不会像平常一样在终端上显示了。而是追加到output.log文件中。</p>
+
+<pre><code>$stdout.close
+</code></pre>
+
+<p>关闭文件句柄。</p>
+
+<pre><code>$stdout = STDOUT
+
+puts &quot;Python&quot;
+</code></pre>
+
+<p>使用预定义的常量STDOUT重新创建正常的标准输出。&rdquo;Python&rdquo;字符串在终端上打印。</p>
+
+<p>这部分的教程我们使用了输入和输出操作。<a href="http://zetcode.com/lang/rubytutorial/io/">zetcode原文地址</a></p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </section>
 
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://johnnyting.github.io/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item disabled">
-    <a href="" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://johnnyting.github.io/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://johnnyting.github.io/posts/page/2/">2</a></li>
-    
-    
-    <li class="page-item">
-    <a href="https://johnnyting.github.io/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://johnnyting.github.io/posts/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
-</article>
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第十四章、ruby中的正则表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/">第十三章、ruby中的面向对象编程2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">第十二章、ruby中的面向对象编程</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/">第十一章、ruby中的哈希</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/">第十章、ruby中的数组</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">第九章、ruby中的流程控制</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第八章、ruby中的表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">第七章、ruby中的字符串</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">第六章、ruby的数据类型</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/">第五章、ruby中的对象</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/">第四章、ruby变量</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/">第三章、ruby基础及变量插值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/">第二章、ruby词法结构</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/">第一章、ruby命令行交互irb的helloworld</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/">安装ruby及rails入门</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">

@@ -6,10 +6,19 @@
     <description>Recent content on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 14 Feb 2019 09:17:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Feb 2019 10:28:13 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第十五章、ruby中的输入输出</title>
+      <link>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Thu, 14 Feb 2019 10:28:13 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <description>Ruby的输入&amp;amp;输出 这部分的教程我们讨论Ruby的输入和输出操作。输入是程序从键盘、文件或者其他程序读取数据。输出是程序产生数据。可</description>
+    </item>
     
     <item>
       <title>第十四章、ruby中的正则表达式</title>
