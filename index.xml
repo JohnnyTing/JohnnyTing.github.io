@@ -6,10 +6,19 @@
     <description>Recent content on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 14 Feb 2019 17:48:20 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Feb 2019 15:08:36 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript中函数的作用域</title>
+      <link>https://johnnyting.github.io/posts/javascript%E4%B8%AD%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
+      <pubDate>Sun, 17 Feb 2019 15:08:36 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/javascript%E4%B8%AD%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
+      <description>函数作用域 定义 作用域（scope）指的是变量存在的范围。在 ES5 的规范中，JavaScript 只有两种作用域：一种是全局作用域，变量在整个程序中</description>
+    </item>
     
     <item>
       <title>JavaScript中的变量提升</title>
