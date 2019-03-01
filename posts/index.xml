@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 17 Feb 2019 15:08:36 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Mar 2019 17:05:53 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rails集成axlsx实现导出excel功能</title>
+      <link>https://johnnyting.github.io/posts/rails%E9%9B%86%E6%88%90axlsx%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%87%BAexcel%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Fri, 01 Mar 2019 17:05:53 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/rails%E9%9B%86%E6%88%90axlsx%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%87%BAexcel%E5%8A%9F%E8%83%BD/</guid>
+      <description>axlsx-rails的github地址 首先在Gemfile文件中添加依赖: gem &#39;rubyzip&#39;, &#39;&amp;gt;= 1.2.1&#39; gem &#39;axlsx&#39;, git: &#39;https://github.com/randym/axlsx.git&#39;, ref: &#39;c8ac844&#39; gem &#39;axlsx_rails&#39; 然后下载依赖，执行命令： bundle install 在contr</description>
+    </item>
     
     <item>
       <title>JavaScript中函数的作用域</title>

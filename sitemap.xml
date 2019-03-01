@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://johnnyting.github.io/posts/rails%E9%9B%86%E6%88%90axlsx%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%87%BAexcel%E5%8A%9F%E8%83%BD/</loc>
+    <lastmod>2019-03-01T17:05:53+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/posts/javascript%E4%B8%AD%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
     <lastmod>2019-02-17T15:08:36+08:00</lastmod>
   </url>
@@ -125,19 +130,19 @@
   
   <url>
     <loc>https://johnnyting.github.io/</loc>
-    <lastmod>2019-02-17T15:08:36+08:00</lastmod>
+    <lastmod>2019-03-01T17:05:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/posts/</loc>
-    <lastmod>2019-02-17T15:08:36+08:00</lastmod>
+    <lastmod>2019-03-01T17:05:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/tags/ruby/</loc>
-    <lastmod>2019-02-14T10:28:13+08:00</lastmod>
+    <lastmod>2019-03-01T17:05:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -161,7 +166,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2019-02-17T15:08:36+08:00</lastmod>
+    <lastmod>2019-03-01T17:05:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
