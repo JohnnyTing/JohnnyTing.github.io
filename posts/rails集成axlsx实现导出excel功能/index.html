@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-03-01T17:05:53&#43;08:00" />
 <meta itemprop="dateModified" content="2019-03-01T17:05:53&#43;08:00" />
-<meta itemprop="wordCount" content="506">
+<meta itemprop="wordCount" content="505">
 
 
 
@@ -198,9 +198,7 @@ gem 'axlsx_rails'
   def export
     barTypeId = params[:barTypeId]
     year = params[:year]
-    if !year
-      year = 2018
-    end
+    year = 2018 unless year
     @lists = RegionIndexSummary.where(navigation_bar_type_id:barTypeId,year: year).order('pci_index desc')
     respond_to do |format|
       format.xlsx {
