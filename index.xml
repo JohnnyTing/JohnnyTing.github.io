@@ -17,7 +17,7 @@
       <pubDate>Sat, 11 May 2019 18:33:21 +0800</pubDate>
       
       <guid>https://johnnyting.github.io/posts/rails%E4%B8%ADtry%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
-      <description>我们看一下经常会遇到的情景： @person &amp;amp;&amp;amp; @persion.name 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) #如果@person为nil则返回nil</description>
+      <description>我们经常会遇到的下面的场景： @person &amp;amp;&amp;amp; @persion.name # 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) # 如果@person为nil则返回ni</description>
     </item>
     
     <item>

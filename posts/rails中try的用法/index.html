@@ -32,25 +32,25 @@
     
 
     <meta property="og:title" content="Rails中try的用法" />
-<meta property="og:description" content="我们看一下经常会遇到的情景： @person &amp;&amp; @persion.name 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) #如果@person为nil则返回nil" />
+<meta property="og:description" content="我们经常会遇到的下面的场景： @person &amp;&amp; @persion.name # 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) # 如果@person为nil则返回ni" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://johnnyting.github.io/posts/rails%E4%B8%ADtry%E7%9A%84%E7%94%A8%E6%B3%95/" /><meta property="article:published_time" content="2019-05-11T18:33:21&#43;08:00"/>
 <meta property="article:modified_time" content="2019-05-11T18:33:21&#43;08:00"/>
 
 <meta itemprop="name" content="Rails中try的用法">
-<meta itemprop="description" content="我们看一下经常会遇到的情景： @person &amp;&amp; @persion.name 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) #如果@person为nil则返回nil">
+<meta itemprop="description" content="我们经常会遇到的下面的场景： @person &amp;&amp; @persion.name # 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) # 如果@person为nil则返回ni">
 
 
 <meta itemprop="datePublished" content="2019-05-11T18:33:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-11T18:33:21&#43;08:00" />
-<meta itemprop="wordCount" content="299">
+<meta itemprop="wordCount" content="305">
 
 
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rails中try的用法"/>
-<meta name="twitter:description" content="我们看一下经常会遇到的情景： @person &amp;&amp; @persion.name 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) #如果@person为nil则返回nil"/>
+<meta name="twitter:description" content="我们经常会遇到的下面的场景： @person &amp;&amp; @persion.name # 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name&#39; for nil:NilClass 用 try 改写： @person.try(:name) # 如果@person为nil则返回ni"/>
 
   </head>
 
@@ -171,17 +171,16 @@
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>我们看一下经常会遇到的情景：</p>
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>我们经常会遇到的下面的场景：</p>
 
-<pre><code class="language-ruby">@person &amp;&amp; @persion.name
-需确保@person不是nil,否则会报错
+<pre><code class="language-ruby">@person &amp;&amp; @persion.name 	# 需确保@person不是nil,否则会报错
 NoMethodError: undefined method `name' for nil:NilClass
 
 </code></pre>
 
 <p>用 try 改写：</p>
 
-<pre><code class="language-ruby">@person.try(:name)     #如果@person为nil则返回nil而不是报错
+<pre><code class="language-ruby">@person.try(:name)     # 如果@person为nil则返回nil而不是报错
 等同于 @person ? @person.name : nil
 
 @person.try { |p| &quot;#{p.first_name} #{p.last_name}&quot; }
@@ -205,10 +204,10 @@ NoMethodError (undefined method `name' for #&lt;User:0x00007f8606a0d1b8&gt;)
 
 </code></pre>
 
-<p>常见的用法如下：</p>
+<p>我们经常会写的代码如下：</p>
 
 <pre><code class="language-ruby">if user &amp;&amp; user.email
-	# do something
+ # do something
 end
 </code></pre>
 
@@ -221,7 +220,7 @@ end
 
 <p>值得注意的是，try这个method并不存在Ruby中，而是仅能在Rails中使用。</p>
 
-<p>但是ruby2.3中的&amp;，与try能实现相同的效果：</p>
+<p>但是ruby2.3中的&amp;.，与try能实现相同的效果：</p>
 
 <pre><code class="language-ruby"># Ruby &lt;= 2.2.x
 if user &amp;&amp; user.admin?
