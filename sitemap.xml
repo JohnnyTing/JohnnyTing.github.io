@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E5%86%92%E5%8F%B7%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%84%8F%E6%80%9D/</loc>
+    <lastmod>2019-05-11T13:32:54+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/posts/rails%E4%B8%AD%E5%BB%BA%E7%AB%8Bar%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB/</loc>
     <lastmod>2019-04-28T13:51:55+08:00</lastmod>
   </url>
@@ -140,7 +145,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/</loc>
-    <lastmod>2019-04-28T13:51:55+08:00</lastmod>
+    <lastmod>2019-05-11T13:32:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -152,13 +157,13 @@
   
   <url>
     <loc>https://johnnyting.github.io/posts/</loc>
-    <lastmod>2019-04-28T13:51:55+08:00</lastmod>
+    <lastmod>2019-05-11T13:32:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://johnnyting.github.io/tags/ruby/</loc>
-    <lastmod>2019-04-28T13:51:55+08:00</lastmod>
+    <lastmod>2019-05-11T13:32:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -182,7 +187,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2019-04-28T13:51:55+08:00</lastmod>
+    <lastmod>2019-05-11T13:32:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
