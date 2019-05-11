@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-05-11T14:36:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-11T14:36:35&#43;08:00" />
-<meta itemprop="wordCount" content="194">
+<meta itemprop="wordCount" content="273">
 
 
 
@@ -198,6 +198,16 @@ desuger 完其实就是
 
 <pre><code class="language-ruby">%w(ouyang jichao).map &amp;:capitalize.to_proc
 =&gt;[&quot;Ouyang&quot;, &quot;Jichao&quot;]
+
+</code></pre>
+
+<p>在rails中，经常需要model查询到ActiveRecord集合对象，但前端需要的是json类型：</p>
+
+<pre><code class="language-ruby">1. 返回json数据：
+render json:list
+
+2. 直接在erb模板页面取值
+@data = list.map(&amp;:attributes)
 
 </code></pre>
 <ul class="pa0">
