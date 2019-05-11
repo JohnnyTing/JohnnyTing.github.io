@@ -6,10 +6,19 @@
     <description>Recent content in 技术 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 11 May 2019 13:32:54 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 11 May 2019 13:57:35 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ruby中||=符号理解</title>
+      <link>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Sat, 11 May 2019 13:57:35 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/</guid>
+      <description>原文链接 我们经常看到这样的代码： def current_user @current_user ||= session[:user_id] &amp;amp;&amp;amp; User.find(session[:user_id]) end 短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。 这句代码相当于: def current_user if @current_user return @current_user else if session[:user_id]</description>
+    </item>
     
     <item>
       <title>Ruby中冒号代表的意思</title>
