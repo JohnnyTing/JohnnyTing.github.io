@@ -6,10 +6,19 @@
     <description>Recent content in 技术 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 11 May 2019 18:33:21 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2019 15:55:12 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rails从对象或者hash中获取、去除某些属性</title>
+      <link>https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/</link>
+      <pubDate>Mon, 13 May 2019 15:55:12 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/</guid>
+      <description>1.在ActiveRecord中获取指定属性值，slice会获取指定属性后再转换成hash 通常的做法 class Permission &amp;lt; ApplicationRecord has_and_belongs_to_many :role_tpls def to_json { resource: self.resource, status: self.status, name: self.name, allow: self.allow } end end</description>
+    </item>
     
     <item>
       <title>Rails中try的用法</title>

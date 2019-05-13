@@ -38,7 +38,7 @@
 <meta property="og:description" content="程序员的日常。。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://johnnyting.github.io/" />
-<meta property="og:updated_time" content="2019-05-11T18:33:21&#43;08:00"/>
+<meta property="og:updated_time" content="2019-05-13T15:55:12&#43;08:00"/>
 
 <meta itemprop="name" content="Johnny Ting">
 <meta itemprop="description" content="程序员的日常。。">
@@ -190,6 +190,30 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/" class="color-inherit dim link">
+            Rails从对象或者hash中获取、去除某些属性
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          1.在ActiveRecord中获取指定属性值，slice会获取指定属性后再转换成hash 通常的做法 class Permission &lt; ApplicationRecord has_and_belongs_to_many :role_tpls def to_json { resource: self.resource, status: self.status, name: self.name, allow: self.allow } end end
+        </div>
+          <a href="https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://johnnyting.github.io/posts/rails%E4%B8%ADtry%E7%9A%84%E7%94%A8%E6%B3%95/" class="color-inherit dim link">
             Rails中try的用法
             </a>
@@ -230,36 +254,18 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/" class="color-inherit dim link">
-            Ruby中||=符号理解
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          原文链接 我们经常看到这样的代码： def current_user @current_user ||= session[:user_id] &amp;&amp; User.find(session[:user_id]) end 短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。 这句代码相当于: def current_user if @current_user return @current_user else if session[:user_id]
-        </div>
-          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/" class="link black dim">
+              Ruby中||=符号理解
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E5%86%92%E5%8F%B7%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%84%8F%E6%80%9D/" class="link black dim">
@@ -276,12 +282,6 @@
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://johnnyting.github.io/posts/nginx&#43;fancyindex%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E7%9B%AE%E5%BD%95%E5%8A%9F%E8%83%BD/" class="link black dim">
               nginx&#43;fancyindex模块实现浏览目录功能
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://johnnyting.github.io/posts/rails%E9%9B%86%E6%88%90axlsx%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%87%BAexcel%E5%8A%9F%E8%83%BD/" class="link black dim">
-              Rails集成axlsx实现导出excel功能
             </a>
           </h2>
         
