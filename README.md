@@ -8,7 +8,7 @@
 
 > 记录点滴
 
-### 🏠 [Homepage](https://github.com/JohnnyTing/JohnnyTing.github.io)
+### 🏠 [网站首页](https://JohnnyTing.github.io)
 
 ## Install
 
