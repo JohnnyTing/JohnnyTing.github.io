@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8jenkinsdocker%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2rails%E5%BA%94%E7%94%A8/</loc>
+    <lastmod>2019-07-09T14:30:13+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90readmegitignore%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2019-06-21T10:29:01+08:00</lastmod>
   </url>
@@ -168,6 +173,12 @@
   </url>
   
   <url>
+    <loc>https://johnnyting.github.io/tags/docker/</loc>
+    <lastmod>2019-07-09T14:30:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/tags/git/</loc>
     <lastmod>2019-06-21T10:29:01+08:00</lastmod>
     <priority>0</priority>
@@ -180,8 +191,14 @@
   </url>
   
   <url>
+    <loc>https://johnnyting.github.io/tags/jenkins/</loc>
+    <lastmod>2019-07-09T14:30:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://johnnyting.github.io/</loc>
-    <lastmod>2019-06-21T10:29:01+08:00</lastmod>
+    <lastmod>2019-07-09T14:30:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -199,7 +216,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/posts/</loc>
-    <lastmod>2019-06-21T10:29:01+08:00</lastmod>
+    <lastmod>2019-07-09T14:30:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -211,7 +228,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/tags/</loc>
-    <lastmod>2019-06-21T10:29:01+08:00</lastmod>
+    <lastmod>2019-07-09T14:30:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -229,7 +246,7 @@
   
   <url>
     <loc>https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2019-06-21T10:29:01+08:00</lastmod>
+    <lastmod>2019-07-09T14:30:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
