@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-07-09T14:30:13&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-09T14:30:13&#43;08:00" />
-<meta itemprop="wordCount" content="1859">
+<meta itemprop="wordCount" content="1874">
 
 
 
@@ -433,17 +433,31 @@ exec &quot;$@&quot;
 # 注意：上面脚本需要根据自己项目的具体情况来写
 </code></pre>
 
-<p>19.然后创建jenkins项目，打开blue ocean</p>
+<p>19.docker-compose.yml</p>
+
+<pre><code class="language-SHELL">version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/myapp
+    ports:
+      - &quot;3000:3000&quot;
+    restart: always
+
+</code></pre>
+
+<p>20.然后创建jenkins项目，打开blue ocean</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/82D89327-DC02-429D-90B4-ED72BA76EB79.png" alt="" /></p>
 
-<p>20.选择git代码仓库，填入git地址</p>
+<p>21.选择git代码仓库，填入git地址</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/233C82E0-06C0-49A8-92ED-28537474B845.png" alt="" /></p>
 
 <p>填入地址后根据提示需要将你的ssh公钥key配置到git服务器上，然后创建流水线。创建后多分支项目根目录有Jenkinsfile的自动构建。</p>
 
-<p>21.在项目配置中，选择扫描项目的时间间隔，分支有改动自动触发构建</p>
+<p>22.在项目配置中，选择扫描项目的时间间隔，分支有改动自动触发构建</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/6105F645-2ED3-4B02-9788-18D1213ED392.png" alt="" /></p>
 
