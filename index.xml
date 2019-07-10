@@ -6,10 +6,19 @@
     <description>Recent content on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jul 2019 14:30:13 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2019 22:20:47 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rails自定义日志文件存储位置</title>
+      <link>https://johnnyting.github.io/posts/rails%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 10 Jul 2019 22:20:47 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/rails%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/</guid>
+      <description>参考链接 1.日志级别 level: :debug, :info, :warn, :error, :fatal 和 :unknown,分别对应数字 0-5。 使用 Rails.logger.level 可以查看当前环境的日志级别 pry(main)&amp;gt; Rails.logger.level =&amp;gt; 0 Rails 所有环境的默认日志等级是 d</description>
+    </item>
     
     <item>
       <title>使用jenkins、docker自动化部署rails应用</title>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | Rails自定义日志文件存储位置</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,33 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/tags/ruby/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/tags/ruby/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Ruby" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/tags/ruby/" />
-<meta property="og:updated_time" content="2019-07-10T22:20:47&#43;08:00"/>
+    <meta property="og:title" content="Rails自定义日志文件存储位置" />
+<meta property="og:description" content="参考链接 1.日志级别 level: :debug, :info, :warn, :error, :fatal 和 :unknown,分别对应数字 0-5。 使用 Rails.logger.level 可以查看当前环境的日志级别 pry(main)&gt; Rails.logger.level =&gt; 0 Rails 所有环境的默认日志等级是 d" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/rails%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/" /><meta property="article:published_time" content="2019-07-10T22:20:47&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-10T22:20:47&#43;08:00"/>
 
-<meta itemprop="name" content="Ruby">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="Rails自定义日志文件存储位置">
+<meta itemprop="description" content="参考链接 1.日志级别 level: :debug, :info, :warn, :error, :fatal 和 :unknown,分别对应数字 0-5。 使用 Rails.logger.level 可以查看当前环境的日志级别 pry(main)&gt; Rails.logger.level =&gt; 0 Rails 所有环境的默认日志等级是 d">
 
+
+<meta itemprop="datePublished" content="2019-07-10T22:20:47&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-10T22:20:47&#43;08:00" />
+<meta itemprop="wordCount" content="464">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ruby"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="Rails自定义日志文件存储位置"/>
+<meta name="twitter:description" content="参考链接 1.日志级别 level: :debug, :info, :warn, :error, :fatal 和 :unknown,分别对应数字 0-5。 使用 Rails.logger.level 可以查看当前环境的日志级别 pry(main)&gt; Rails.logger.level =&gt; 0 Rails 所有环境的默认日志等级是 d"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -144,453 +149,175 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Ruby
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
-  <article class="cf pa3 pa4-m pa4-l">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      <p>Below you will find pages that utilize the taxonomy term “Ruby”</p>
-    </div>
-  </article>
-  <div class="mw8 center">    
-    <section class="flex-ns flex-wrap justify-around mt5">
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/" class="link black dim">
-        Rails自定义日志文件存储位置
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考链接 1.日志级别 level: :debug, :info, :warn, :error, :fatal 和 :unknown,分别对应数字 0-5。 使用 Rails.logger.level 可以查看当前环境的日志级别 pry(main)&gt; Rails.logger.level =&gt; 0 Rails 所有环境的默认日志等级是 d
-    </div>
-  </div>
-</div>
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
 
-        </div>
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Rails自定义日志文件存储位置</h1>
       
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/" class="link black dim">
-        Rails从对象或者hash中获取、去除某些属性
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      1.在ActiveRecord中获取指定属性值，slice会获取指定属性后再转换成hash 通常的做法 class Permission &lt; ApplicationRecord has_and_belongs_to_many :role_tpls def to_json { resource: self.resource, status: self.status, name: self.name, allow: self.allow } end end
-    </div>
-  </div>
-</div>
+      <time class="f6 mv4 dib tracked" datetime="2019-07-10T22:20:47&#43;08:00">July 10, 2019</time>      
+      
+      
+    </header>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E4%B8%ADtry%E7%9A%84%E7%94%A8%E6%B3%95/" class="link black dim">
-        Rails中try的用法
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      我们经常会遇到的下面的场景： @person &amp;&amp; @persion.name # 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name' for nil:NilClass 用 try 改写： @person.try(:name) # 如果@person为nil则返回ni
-    </div>
-  </div>
-</div>
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><a href="https://www.jianshu.com/p/abc8d1ed1683">参考链接</a></p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%A5%9E%E5%A5%87%E7%9A%84%E7%AC%A6%E5%8F%B7/" class="link black dim">
-        Ruby中神奇的&amp;符号
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      这里的 magic 是 &amp; 把 plus1 变成 Block 发给数组了，Block 也就是我们常见的 {} [1,2,3,4].map {|x| x + 1} =&gt;[2, 3, 4, 5] 等价于： [1,2,3,4].map &amp;Proc.new{|x| x + 1 } =&gt;[2, 3, 4, 5] 注意如果没有 &amp; ，解释器在调用 map 时
-    </div>
-  </div>
-</div>
+<p>1.日志级别 level:</p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/" class="link black dim">
-        Ruby中||=符号理解
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      原文链接 我们经常看到这样的代码： def current_user @current_user ||= session[:user_id] &amp;&amp; User.find(session[:user_id]) end 短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。 这句代码相当于: def current_user if @current_user return @current_user else if session[:user_id]
-    </div>
-  </div>
-</div>
+<pre><code class="language-text">:debug, :info, :warn, :error, :fatal 和 :unknown,分别对应数字 0-5。
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E5%86%92%E5%8F%B7%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%84%8F%E6%80%9D/" class="link black dim">
-        Ruby中冒号代表的意思
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Stack Overflow原文 问题： 1) abc: 2) :xyz 3) abc::xyz 4) abc: :xyz 5) abc: xyz 6) :abc =&gt; xyz 答案： 1) abc: #不能单独存在 2) :xyz # xyz是符号 :xyz.class =&gt; Symbol 3) abc::xyz #命名空间(模块) 例子: module ABC
-    </div>
-  </div>
-</div>
+使用 Rails.logger.level 可以查看当前环境的日志级别
+pry(main)&gt; Rails.logger.level
+=&gt; 0
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E4%B8%AD%E5%BB%BA%E7%AB%8Bar%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB/" class="link black dim">
-        Rails中建立AR模型的关联关系
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考链接 Rails AR模型中支持的六种关联： belongs_to (一对一，属于xx，在此模型添加xx外键) has_one (一对一，拥有xx，在xx模型添加自身外键) has_many (一对多，在
-    </div>
-  </div>
-</div>
+Rails 所有环境的默认日志等级是 debug，所以会打印很多sql查询和前端渲染日志，但对于在开发代码调试时看日志很不方便。
+</code></pre>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E9%9B%86%E6%88%90axlsx%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%87%BAexcel%E5%8A%9F%E8%83%BD/" class="link black dim">
-        Rails集成axlsx实现导出excel功能
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      axlsx-rails的github地址 首先在Gemfile文件中添加依赖: gem 'rubyzip', '&gt;= 1.2.1' gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844' gem 'axlsx_rails' 然后下载依赖，执行命令： bundle install 在contr
-    </div>
-  </div>
-</div>
+<p>像下面这样的日志，在开发时我们都没法看，我们只需要关注代码调试的日志。</p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="link black dim">
-        第十五章、ruby中的输入输出
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的输入&amp;输出 这部分的教程我们讨论Ruby的输入和输出操作。输入是程序从键盘、文件或者其他程序读取数据。输出是程序产生数据。可
-    </div>
-  </div>
-</div>
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/20190710222745.png" alt="" /></p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="link black dim">
-        第十四章、ruby中的正则表达式
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的正则表达式 在这部分和教程中我们将讨论正则表达式。 正则表达式用于文本搜索和更高级的文本操作。内建正则表达式的工具如grep、sed；
-    </div>
-  </div>
-</div>
+<p>2.rails可以修改日志默认等级，在config/environments目录下的环境配置文件中进行修改：</p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/" class="link black dim">
-        第十三章、ruby中的面向对象编程2
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的面向对象编程2 在这章的教程我们继续讨论Ruby的面向对象编程。 我们以属性修饰符开始。将会包涵类常量、类方法和操作符重载。我们将定义
-    </div>
-  </div>
-</div>
+<pre><code class="language-ruby">config.log_level = :warn 
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="link black dim">
-        第十二章、ruby中的面向对象编程
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Ruby的面向对象编程 在这部分的Ruby教程我们将讨论面向对象编程。 编程语言有过程式编程、函数式编程和面向对象编程范式。Ruby中面向对象语
-    </div>
-  </div>
-</div>
+</code></pre>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/" class="link black dim">
-        第十一章、ruby中的哈希
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      哈希表 这部分的教程我们将提到哈希表。哈希表是一个键-值对的集合。与数组相似，不同于数组的是哈希表的索引是确定的，数组的只能是整数。哈希表有时
-    </div>
-  </div>
-</div>
+<p>3.自定义日志文件存放位置。首先在config/initializers目录下创建一个logger.rb文件，定义一个全局变量，用这个变量记录具体api的日志信息。</p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/" class="link black dim">
-        第十章、ruby中的数组
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      数组 这一部分的教程将介绍数组。数组是有序对象的集合。 一个这是在某个时刻只能保存一项数值。不过数组可以保存多项。这些数据项被称为数组的元素。数
-    </div>
-  </div>
-</div>
+<pre><code class="language-ruby">$api_logger = Logger.new('log/api.log')
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="link black dim">
-        第九章、ruby中的流程控制
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      流程控制 这章的教程我们将讨论流程控制。 条件和循环改变了Ruby程序的流程。条件式是执行条件语句下面的特定语句。循环是执行多次的代码块。程序开
-    </div>
-  </div>
-</div>
+</code></pre>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="link black dim">
-        第八章、ruby中的表达式
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      表达式 在这章的教程将介绍Ruby的表达式。 表达式是由操作数和操作符构成的。表达式的操作符表明了对操作数应用什么操作。表达式中操作符的求值顺序
-    </div>
-  </div>
-</div>
+<p>4.然后在需要打印日志的地方使用该变量，可以在model或者controller层</p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="link black dim">
-        第七章、ruby中的字符串
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      字符串 在这部分的教程将详细的介绍字符串。 字符串是计算机语言中最重要的数据类型之一，这就是为什么我们决定要用一整章来介绍字符串。 字符串是序列化
-    </div>
-  </div>
-</div>
+<pre><code class="language-ruby">$api_logger.info(&quot;打印info日志&quot;)
+$api_logger.error(&quot;出错啦。。。。&quot;)
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="link black dim">
-        第六章、ruby的数据类型
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      数据类型 在这一章的教程中我们开始讨论数据类型。 所有类别的计算机程序，包括电子表格、文本编辑器、计算器和聊天软件都使用数据。现代计算机语言中各
-    </div>
-  </div>
-</div>
+</code></pre>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" class="link black dim">
-        第五章、ruby中的对象
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      ruby中的对象 &emsp;&emsp;在这章的教程中我们将简要的介绍下Ruby语言对象的概念。更多的内容将会在面向对象的章节中学习。由于R
-    </div>
-  </div>
-</div>
+<p>查看api.log日志:</p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%8F%98%E9%87%8F/" class="link black dim">
-        第四章、ruby变量
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      变量 &emsp;&emsp;变量是保存数据的地址。每个变量都有唯一的一个名字，变量命名存在着一些约定。变量保存着数据对象，更确切的说变量是对
-    </div>
-  </div>
-</div>
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/20190710225620.png" alt="" /></p>
 
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%8F%98%E9%87%8F%E6%8F%92%E5%80%BC/" class="link black dim">
-        第三章、ruby基础及变量插值
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      基础内容 &emsp;&emsp;在这一章我们将覆盖Ruby语言的基本程序概念。我们展示一些非常基础的程序，使用到了变量、常量和基本的数据类型
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E8%AF%8D%E6%B3%95%E7%BB%93%E6%9E%84/" class="link black dim">
-        第二章、ruby词法结构
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      ruby词法结构 ​ 在Ruby语言中我们有多种词法结构，如：注释、变量、字面量、空白符号、操作符、分隔符和关键字。 1.注释 在Ruby中有两种注
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92irb%E7%9A%84helloworld/" class="link black dim">
-        第一章、ruby命令行交互irb的helloworld
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;在之前已经介绍过了ruby的安装 传送门，接下来就该正式学习ruby的语法，这篇文章将介绍ruby的命令行交互解释器i
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E5%AE%89%E8%A3%85ruby%E5%8F%8Arails%E5%85%A5%E9%97%A8/" class="link black dim">
-        安装ruby及rails入门
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考文档：RVM官网，rails入门中文官网 一、安装ruby 这里我推荐用RVM（ruby版本管理）安装ruby，环境Linux、Mac。 安装
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E6%95%B4%E7%90%86%E4%B8%8Eruby%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%84%E7%A7%8D%E6%A6%82%E5%BF%B5/" class="link black dim">
-        梳理与ruby相关的rvm、gem、gemfile、bundle、rails等各种概念
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      &emsp;&emsp;因为公司项目用到ruby的mvc框架rails，开始看项目也是一头雾水，不知道项目中的各个文件是干嘛的，经过查阅资料
-    </div>
-  </div>
-</div>
-
-        </div>
-      
+<p>开发者只需要在自己关注的代码上打印日志，在指定的文件中查看日志信息，然后定位到调试信息。</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </section>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/">Rails从对象或者hash中获取、去除某些属性</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E4%B8%ADtry%E7%9A%84%E7%94%A8%E6%B3%95/">Rails中try的用法</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%A5%9E%E5%A5%87%E7%9A%84%E7%AC%A6%E5%8F%B7/">Ruby中神奇的&amp;符号</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/">Ruby中||=符号理解</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E5%86%92%E5%8F%B7%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%84%8F%E6%80%9D/">Ruby中冒号代表的意思</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E4%B8%AD%E5%BB%BA%E7%AB%8Bar%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB/">Rails中建立AR模型的关联关系</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E9%9B%86%E6%88%90axlsx%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%87%BAexcel%E5%8A%9F%E8%83%BD/">Rails集成axlsx实现导出excel功能</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">第十五章、ruby中的输入输出</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第十四章、ruby中的正则表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/">第十三章、ruby中的面向对象编程2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">第十二章、ruby中的面向对象编程</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/">第十一章、ruby中的哈希</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84/">第十章、ruby中的数组</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/">第九章、ruby中的流程控制</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第八章、ruby中的表达式</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">
