@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-07-09T14:30:13&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-09T14:30:13&#43;08:00" />
-<meta itemprop="wordCount" content="1874">
+<meta itemprop="wordCount" content="2028">
 
 
 
@@ -447,17 +447,25 @@ services:
 
 </code></pre>
 
-<p>20.然后创建jenkins项目，打开blue ocean</p>
+<p>20.添加 .dockerignore文件。</p>
+
+<p>​       用于排除构建镜像时不需要的文件或目录。因为Dockerfile构建环境只用到entrypoint.sh，所以就忽略了其他文件除了entrypoint.sh，同时也能加速镜像的构建，因为在构建时将上下文目录传递给docker引擎的数据更少了，所以花的时间也更短了</p>
+
+<pre><code class="language-shell">*
+!entrypoint.sh
+</code></pre>
+
+<p>21.然后创建jenkins项目，打开blue ocean</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/82D89327-DC02-429D-90B4-ED72BA76EB79.png" alt="" /></p>
 
-<p>21.选择git代码仓库，填入git地址</p>
+<p>22.选择git代码仓库，填入git地址</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/233C82E0-06C0-49A8-92ED-28537474B845.png" alt="" /></p>
 
 <p>填入地址后根据提示需要将你的ssh公钥key配置到git服务器上，然后创建流水线。创建后多分支项目根目录有Jenkinsfile的自动构建。</p>
 
-<p>22.在项目配置中，选择扫描项目的时间间隔，分支有改动自动触发构建</p>
+<p>23.在项目配置中，选择扫描项目的时间间隔，分支有改动自动触发构建</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/6105F645-2ED3-4B02-9788-18D1213ED392.png" alt="" /></p>
 
