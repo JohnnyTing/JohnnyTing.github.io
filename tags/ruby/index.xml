@@ -6,10 +6,19 @@
     <description>Recent content in Ruby on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Jul 2019 22:20:47 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2019 21:20:46 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用vscode如何来debug Rails应用</title>
+      <link>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8vscode%E5%A6%82%E4%BD%95%E6%9D%A5debug-rails%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Thu, 05 Sep 2019 21:20:46 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8vscode%E5%A6%82%E4%BD%95%E6%9D%A5debug-rails%E5%BA%94%E7%94%A8/</guid>
+      <description>debugging-Ruby-on-Rails参考链接 前提条件 需要安装 vscode-ruby插件 ruby v2.x版本，安装 ruby-debug-ide 和 debase Gemfile中添</description>
+    </item>
     
     <item>
       <title>Rails自定义日志文件存储位置</title>
