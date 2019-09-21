@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-09-21T10:58:37&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-21T10:58:37&#43;08:00" />
-<meta itemprop="wordCount" content="440">
+<meta itemprop="wordCount" content="578">
 
 
 
@@ -171,7 +171,9 @@
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>今天遇到一个奇葩问题，就是当我后端排序后的json数据，此json数据的key为数字，前端始终不是我想要的排序数据。</p>
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>今天遇到一个奇葩问题，就是当我后端排序后的json数据，此json数据的key为数字，前端始终不是我想要的排序数据。</p>
 
 <p>后端返回实际数据结构：</p>
 
@@ -216,10 +218,18 @@
 <pre><code class="language-json">{&quot;60_sort&quot;: &quot;漷县镇&quot;}
 </code></pre>
 
-<p>然后在js将key替换回来：</p>
+<p>然后js在遍历数据时将key替换回来：</p>
 
 <pre><code>key.replace(&quot;_sort&quot;,&quot;&quot;)
 </code></pre>
+
+<p><a href="https://segmentfault.com/q/1010000008439346">参考segmentfault一篇文章结论</a></p>
+
+<h3 id="浏览器使用-for-in-语句遍历对象属性时会遵循一个规律">浏览器使用 for-in 语句遍历对象属性时会遵循一个规律:</h3>
+
+<p><code>它们会先提取所有 key 的 parseFloat 值为非负整数的属性，然后根据数字顺序对属性排序首先遍历出来，然后按照对象定义的顺序遍历余下的所有属性。</code></p>
+
+<p><code>注意，这些都是规律，当然真正的js对象属性是没有顺序的。</code></p>
 <ul class="pa0">
   
    <li class="list">
