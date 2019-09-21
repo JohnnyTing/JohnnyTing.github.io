@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Sep 2019 21:20:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Sep 2019 10:58:37 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>当前端接受json数据key为数字时自动排序的问题</title>
+      <link>https://johnnyting.github.io/posts/%E5%BD%93%E5%89%8D%E7%AB%AF%E6%8E%A5%E5%8F%97json%E6%95%B0%E6%8D%AEkey%E4%B8%BA%E6%95%B0%E5%AD%97%E6%97%B6%E8%87%AA%E5%8A%A8%E6%8E%92%E5%BA%8F%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 21 Sep 2019 10:58:37 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/%E5%BD%93%E5%89%8D%E7%AB%AF%E6%8E%A5%E5%8F%97json%E6%95%B0%E6%8D%AEkey%E4%B8%BA%E6%95%B0%E5%AD%97%E6%97%B6%E8%87%AA%E5%8A%A8%E6%8E%92%E5%BA%8F%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>今天遇到一个奇葩问题，就是当我后端排序后的json数据，此json数据的key为数字，前端始终不是我想要的排序数据。 后端返回实际数据结构： {</description>
+    </item>
     
     <item>
       <title>使用vscode如何来debug Rails应用</title>
