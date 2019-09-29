@@ -38,7 +38,7 @@
 <meta property="og:description" content="程序员的日常。。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://johnnyting.github.io/posts/" />
-<meta property="og:updated_time" content="2019-09-21T10:58:37&#43;08:00"/>
+<meta property="og:updated_time" content="2019-09-29T14:20:07&#43;08:00"/>
 
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="程序员的日常。。">
@@ -159,6 +159,21 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://johnnyting.github.io/posts/%E4%BF%AE%E6%94%B9puma%E6%BA%90%E7%A0%81%E4%B8%ADget%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80%E9%95%BF%E5%BA%A6%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" class="link black dim">
+        修改puma源码中GET请求地址长度的最大值
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      说一下我遇到的问题，在一个GET请求的接口中，由于请求字符串太长而导致的错误，因为是之前的旧项目，如果将接口改成POST请求的话，很多地方都
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -290,21 +305,6 @@
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       这里的 magic 是 &amp; 把 plus1 变成 Block 发给数组了，Block 也就是我们常见的 {} [1,2,3,4].map {|x| x + 1} =&gt;[2, 3, 4, 5] 等价于： [1,2,3,4].map &amp;Proc.new{|x| x + 1 } =&gt;[2, 3, 4, 5] 注意如果没有 &amp; ，解释器在调用 map 时
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/" class="link black dim">
-        Ruby中||=符号理解
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      原文链接 我们经常看到这样的代码： def current_user @current_user ||= session[:user_id] &amp;&amp; User.find(session[:user_id]) end 短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。 这句代码相当于: def current_user if @current_user return @current_user else if session[:user_id]
     </div>
   </div>
 </div>
