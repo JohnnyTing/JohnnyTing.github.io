@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Johnny Ting </title>
+    <title>Johnny Ting  | Sidekiq后台任务的简单配置</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -30,33 +30,38 @@
     
 
     
-      <link href="https://johnnyting.github.io/posts/index.xml" rel="alternate" type="application/rss+xml" title="Johnny Ting" />
-      <link href="https://johnnyting.github.io/posts/index.xml" rel="feed" type="application/rss+xml" title="Johnny Ting" />
-    
 
-    <meta property="og:title" content="Posts" />
-<meta property="og:description" content="程序员的日常。。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://johnnyting.github.io/posts/" />
-<meta property="og:updated_time" content="2019-11-06T14:18:24&#43;08:00"/>
+    <meta property="og:title" content="Sidekiq后台任务的简单配置" />
+<meta property="og:description" content="reference: sidekiq官方文档 ruby-china sidekiq-cron 1.本地安装redis，macos这里使用homebrew安装 =&gt; brew install redis To have launchd start redis now and restart at login: brew services start redis Or, if you don&#39;t want/need a background" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://johnnyting.github.io/posts/sidekiq%E5%90%8E%E5%8F%B0%E4%BB%BB%E5%8A%A1%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/" /><meta property="article:published_time" content="2019-11-06T14:18:24&#43;08:00"/>
+<meta property="article:modified_time" content="2019-11-06T14:18:24&#43;08:00"/>
 
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="程序员的日常。。">
+<meta itemprop="name" content="Sidekiq后台任务的简单配置">
+<meta itemprop="description" content="reference: sidekiq官方文档 ruby-china sidekiq-cron 1.本地安装redis，macos这里使用homebrew安装 =&gt; brew install redis To have launchd start redis now and restart at login: brew services start redis Or, if you don&#39;t want/need a background">
 
+
+<meta itemprop="datePublished" content="2019-11-06T14:18:24&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-06T14:18:24&#43;08:00" />
+<meta itemprop="wordCount" content="700">
+
+
+
+<meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="程序员的日常。。"/>
+<meta name="twitter:title" content="Sidekiq后台任务的简单配置"/>
+<meta name="twitter:description" content="reference: sidekiq官方文档 ruby-china sidekiq-cron 1.本地安装redis，macos这里使用homebrew安装 =&gt; brew install redis To have launchd start redis now and restart at login: brew services start redis Or, if you don&#39;t want/need a background"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
-  
-  
-  <header class="cover bg-top" style="background-image: url('https://johnnyting.github.io/images/bg.jpg');">
-    <div class="bg-black-60">
+  <header>
+    <div class="bg-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://johnnyting.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -144,239 +149,293 @@
   </div>
 </nav>
 
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          Posts
-        </h1>
-        
-      </div>
     </div>
   </header>
 
 
+
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
-    <section class="flex-ns flex-wrap justify-around mt5">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Sidekiq后台任务的简单配置</h1>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/sidekiq%E5%90%8E%E5%8F%B0%E4%BB%BB%E5%8A%A1%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/" class="link black dim">
-        Sidekiq后台任务的简单配置
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      reference: sidekiq官方文档 ruby-china sidekiq-cron 1.本地安装redis，macos这里使用homebrew安装 =&gt; brew install redis To have launchd start redis now and restart at login: brew services start redis Or, if you don't want/need a background
-    </div>
-  </div>
-</div>
-</div>
+      <time class="f6 mv4 dib tracked" datetime="2019-11-06T14:18:24&#43;08:00">November 6, 2019</time>      
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BF%AE%E6%94%B9puma%E6%BA%90%E7%A0%81%E4%B8%ADget%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80%E9%95%BF%E5%BA%A6%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" class="link black dim">
-        修改puma源码中GET请求地址长度的最大值
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      说一下我遇到的问题，在一个GET请求的接口中，由于请求字符串太长而导致的错误，因为是之前的旧项目，如果将接口改成POST请求的话，很多地方都
-    </div>
-  </div>
-</div>
-</div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E5%BD%93%E5%89%8D%E7%AB%AF%E6%8E%A5%E5%8F%97json%E6%95%B0%E6%8D%AEkey%E4%B8%BA%E6%95%B0%E5%AD%97%E6%97%B6%E8%87%AA%E5%8A%A8%E6%8E%92%E5%BA%8F%E7%9A%84%E9%97%AE%E9%A2%98/" class="link black dim">
-        当前端接受json数据key为数字时自动排序的问题
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      今天遇到一个奇葩问题，就是当后端排序后的json数据（此json数据的key为数字字符串），前端展示的始终不是我想要的排序数据。 后端返回实际
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8vscode%E5%A6%82%E4%BD%95%E6%9D%A5debug-rails%E5%BA%94%E7%94%A8/" class="link black dim">
-        使用vscode如何来debug Rails应用
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      debugging-Ruby-on-Rails参考链接 前提条件 需要安装 vscode-ruby插件 ruby v2.x版本，安装 ruby-debug-ide 和 debase Gemfile中添
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/" class="link black dim">
-        Rails自定义日志文件存储位置
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      参考链接 1.日志级别 level: :debug, :info, :warn, :error, :fatal 和 :unknown,分别对应数字 0-5。 使用 Rails.logger.level 可以查看当前环境的日志级别 pry(main)&gt; Rails.logger.level =&gt; 0 Rails 所有环境的默认日志等级是 d
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8jenkinsdocker%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2rails%E5%BA%94%E7%94%A8/" class="link black dim">
-        使用jenkins、docker自动化部署rails应用
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      docker安装参考链接 docker官网 jenkins中文官网 服务器环境为Ubuntu 16.04.2 LTS 1.卸载旧版本docker sudo apt-get remove docker \ docker-engine \ docker.io 2.安装
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90readmegitignore%E6%96%87%E4%BB%B6/" class="link black dim">
-        使用命令快速生成readme、gitignore文件
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      readme-md-generator参考文档 一、使用readme-md-generator来生成漂亮的readme文件 1.安装 With npm: npm i -g readme-md-generator
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/linuxmac%E7%B3%BB%E7%BB%9F%E4%B8%8Btmux%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E8%BD%AF%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" class="link black dim">
-        Linux、mac系统下tmux终端复用软件的使用
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      原文链接 Tmux相关概念： tmux采用C/S模型构建，输入tmux命令就相当于开启了一个服务器，此时默认将新建一个会话，然后会话中默认新建一
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/" class="link black dim">
-        Rails从对象或者hash中获取、去除某些属性
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      1.在ActiveRecord中获取指定属性值，slice会获取指定属性后再转换成hash 通常的做法 class Permission &lt; ApplicationRecord has_and_belongs_to_many :role_tpls def to_json { resource: self.resource, status: self.status, name: self.name, allow: self.allow } end end
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://johnnyting.github.io/posts/rails%E4%B8%ADtry%E7%9A%84%E7%94%A8%E6%B3%95/" class="link black dim">
-        Rails中try的用法
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      我们经常会遇到的下面的场景： @person &amp;&amp; @persion.name # 需确保@person不是nil,否则会报错 NoMethodError: undefined method `name' for nil:NilClass 用 try 改写： @person.try(:name) # 如果@person为nil则返回ni
-    </div>
-  </div>
-</div>
-</div>
-      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>reference: </p>
+
+<p><a href="https://github.com/mperham/sidekiq/wiki">sidekiq官方文档</a></p>
+
+<p><a href="https://ruby-china.org/topics/19891">ruby-china</a></p>
+
+<p><a href="https://github.com/ondrejbartas/sidekiq-cron">sidekiq-cron</a></p>
+
+<p>1.本地安装redis，macos这里使用homebrew安装</p>
+
+<pre><code class="language-shell">=&gt; brew install redis
+
+To have launchd start redis now and restart at login:
+  brew services start redis
+Or, if you don't want/need a background service you can just run:
+  redis-server /usr/local/etc/redis.conf
+  
+安装后的redis命令在/usr/local/bin目录下
+</code></pre>
+
+<p>2.启动redis server</p>
+
+<pre><code class="language-shell"># 后台启动
+brew services start redis
+
+# 非后台启动
+redis-server /usr/local/etc/redis.conf
+
+# 停止
+brew services stop redis
+</code></pre>
+
+<p>3.启动redis cli</p>
+
+<pre><code class="language-shell">$ redis-cli
+
+&gt; keys *
+&gt; flushall
+</code></pre>
+
+<p>4.在Gemfile中添加sidekiq gem</p>
+
+<pre><code class="language-ruby"># 当需要给redis添加namespace时，需要这个gem
+gem 'redis-namespace'
+gem 'sidekiq'
+</code></pre>
+
+<p>5.在app/workers添加hard_worker.rb</p>
+
+<pre><code class="language-ruby">class HardWorker
+  include Sidekiq::Worker
+  def perform(name, count)
+    sleep(count)
+    pp &quot;hello #{name}&quot;
+  end
+end
+
+# 调用方式
+# 阻塞
+HardWorker.new.perform(&quot;redis&quot;,10)
+# 非阻塞
+HardWorker.perform_async('redis', 10)
+</code></pre>
+
+<p>6.定义redis配置信息: config/redis.yml</p>
+
+<pre><code class="language-yml">redis: &amp;redis
+  redis_server: 'localhost'
+  redis_port: 6378
+  redis_db_num: 1
+  redis_namespace: 'redis_sidekiq'
+# redis_password: sidekiq
+development:
+  &lt;&lt;: *redis
+production:
+  &lt;&lt;: *redis
+</code></pre>
+
+<p>7.添加sidekiq初始化配置: config/initializers/sidekiq.rb</p>
+
+<pre><code class="language-ruby"># frozen_string_literal: true
+
+redis = YAML.load_file('config/redis.yml')[Rails.env]
+redis_server = redis['redis_server']
+redis_port = redis['redis_port']
+redis_db_num = redis['redis_db_num']
+redis_namespace = redis['redis_namespace']
+# password = redis['redis_password']
+
+redis_url = &quot;redis://#{redis_server}:#{redis_port}/#{redis_db_num}&quot;
+
+Sidekiq.configure_server do |config|
+  config.redis = { url: redis_url, namespace: redis_namespace }
+  # config.redis = { url: redis_url, namespace: redis_namespace, password: password }
+end
+
+Sidekiq.configure_client do |config|
+  config.redis = { url: redis_url, namespace: redis_namespace }
+  # config.redis = { url: redis_url, namespace: redis_namespace, password: password }
+end
+
+</code></pre>
+
+<p>8.定义sidekiq默认启动配置config/sidekiq.yml</p>
+
+<pre><code class="language-yml">:concurrency: 5
+:queues:
+  - default
+  - [hard_worker, 2]
+development:
+  :concurrency: 5
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 20
+</code></pre>
+
+<p>9.配置在routes.rb 配置sidekiq web-ui</p>
+
+<pre><code class="language-ruby">require 'sidekiq/web'
+mount Sidekiq::Web =&gt; '/sidekiq'
+</code></pre>
+
+<p>10.启动sidekiq</p>
+
+<pre><code class="language-shell">bundle exec sidekiq -C config/sidekiq.yml
+</code></pre>
+
+<p>11.添加cron定时任务，Gemfile:</p>
+
+<pre><code class="language-ruby">gem &quot;sidekiq-cron&quot;, &quot;~&gt; 1.1&quot;
+</code></pre>
+
+<p>12.定时任务配置config/schedule.yml，每一分钟调用HardWorker的perform方法，args传递多个参数（array or hash）</p>
+
+<pre><code class="language-yml">first_job:
+  cron: &quot;*/1 * * * *&quot;
+  class: &quot;HardWorker&quot;
+  queue: &quot;hard_worker&quot;
+  args:
+    - &quot;cron&quot;
+    - 10
+</code></pre>
+
+<p>13.在初始化sidekiq时添加如下内容initializers/sidekiq.rb</p>
+
+<pre><code class="language-ruby">schedule_file = &quot;config/schedule.yml&quot;
+
+if File.exist?(schedule_file) &amp;&amp; Sidekiq.server?
+  Sidekiq::Cron::Job.load_from_hash YAML.load_file(schedule_file)
+end
+</code></pre>
+
+<p>14.将cron添加到sidekiq-web-ui中</p>
+
+<pre><code class="language-ruby">require 'sidekiq/web'
+require 'sidekiq/cron/web'
+mount Sidekiq::Web =&gt; '/sidekiq'
+</code></pre>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://johnnyting.github.io/tags/ruby" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ruby</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "JohnnyTing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </section>
 
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://johnnyting.github.io/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item disabled">
-    <a href="" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://johnnyting.github.io/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://johnnyting.github.io/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://johnnyting.github.io/posts/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://johnnyting.github.io/posts/page/4/">4</a></li>
-    
-    
-    <li class="page-item">
-    <a href="https://johnnyting.github.io/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://johnnyting.github.io/posts/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
-</article>
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E4%BF%AE%E6%94%B9puma%E6%BA%90%E7%A0%81%E4%B8%ADget%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80%E9%95%BF%E5%BA%A6%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/">修改puma源码中GET请求地址长度的最大值</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/%E4%BD%BF%E7%94%A8vscode%E5%A6%82%E4%BD%95%E6%9D%A5debug-rails%E5%BA%94%E7%94%A8/">使用vscode如何来debug Rails应用</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE/">Rails自定义日志文件存储位置</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85hash%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8E%BB%E9%99%A4%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7/">Rails从对象或者hash中获取、去除某些属性</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E4%B8%ADtry%E7%9A%84%E7%94%A8%E6%B3%95/">Rails中try的用法</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%A5%9E%E5%A5%87%E7%9A%84%E7%AC%A6%E5%8F%B7/">Ruby中神奇的&amp;符号</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%AC%A6%E5%8F%B7%E7%90%86%E8%A7%A3/">Ruby中||=符号理解</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E5%86%92%E5%8F%B7%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%84%8F%E6%80%9D/">Ruby中冒号代表的意思</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E4%B8%AD%E5%BB%BA%E7%AB%8Bar%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB/">Rails中建立AR模型的关联关系</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/rails%E9%9B%86%E6%88%90axlsx%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%87%BAexcel%E5%8A%9F%E8%83%BD/">Rails集成axlsx实现导出excel功能</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">第十五章、ruby中的输入输出</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">第十四章、ruby中的正则表达式</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B2/">第十三章、ruby中的面向对象编程2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">第十二章、ruby中的面向对象编程</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://johnnyting.github.io/posts/ruby%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C/">第十一章、ruby中的哈希</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-gray bottom-0 w-100 pa3" role="contentinfo">

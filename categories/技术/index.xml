@@ -6,10 +6,19 @@
     <description>Recent content in 技术 on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 29 Sep 2019 14:20:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2019 14:18:24 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sidekiq后台任务的简单配置</title>
+      <link>https://johnnyting.github.io/posts/sidekiq%E5%90%8E%E5%8F%B0%E4%BB%BB%E5%8A%A1%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 06 Nov 2019 14:18:24 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/sidekiq%E5%90%8E%E5%8F%B0%E4%BB%BB%E5%8A%A1%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/</guid>
+      <description>reference: sidekiq官方文档 ruby-china sidekiq-cron 1.本地安装redis，macos这里使用homebrew安装 =&amp;gt; brew install redis To have launchd start redis now and restart at login: brew services start redis Or, if you don&#39;t want/need a background</description>
+    </item>
     
     <item>
       <title>修改puma源码中GET请求地址长度的最大值</title>
