@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-11-27T16:59:43&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T16:59:43&#43;08:00" />
-<meta itemprop="wordCount" content="1987">
+<meta itemprop="wordCount" content="2005">
 
 
 
@@ -267,7 +267,7 @@ Swap:      0B         0B          0B
 <pre><code class="language-textile">but the issue is fixed in Netty 4.1.6.Final.
 </code></pre>
 
-<p>在Netty 4.1.6.Final版本修复了这个bug，我们就更新grpc版本来解决它。grpc版本应该小幅度提升并保证能解决此bug，以免项目中使用的一些方法的被废弃不能使用。我们就提升grpc到1.0.3，此版本netty为4.1.6.Final</p>
+<p>在Netty 4.1.6.Final版本修复了这个bug，我们就更新grpc版本来解决它。grpc版本应该小幅度提升并保证能解决此bug，以免项目中使用grpc的一些方法被新版本废弃，从而影响业务系统不能正常使用。我们就提升grpc到1.0.3，此版本netty为4.1.6.Final</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019112717:32:21.png" alt="" /></p>
 
@@ -286,7 +286,7 @@ Swap:      0B         0B          0B
 * 避免n+1查询
 </code></pre>
 
-<p>其实我们Rails项目中确实用到了一些全局对象并且是大对象，会不会是这个问题？但这些都是必须的，很多接口都要用到这些大对象，如果不用全局变量，那么每次请求都要新创建一个对象，内存占用一样的大，了解了下ruby的gc机制，这些大对象用了之后可能还不会完全释放，内存占用也许会更大。</p>
+<p>其实我们Rails项目中确实用到了一些全局对象并且是大对象，会不会是这个问题？但这些都是必须的，很多接口都要用到这些大对象，如果不用全局变量，那么每次请求都要新创建一个大对象，内存占用一样的大，了解了下ruby的gc机制，这些大对象用了之后可能还不会完全释放，内存占用也许会更大。</p>
 
 <p>这就僵住了呀，那该怎么解决呢？</p>
 
@@ -340,7 +340,7 @@ preload_app!
 plugin :tmp_restart
 </code></pre>
 
-<p>8.经过上面步骤之后的内存记录</p>
+<p>8.经过上面更改之后的内存记录</p>
 
 <pre><code>第一天：
 </code></pre>
