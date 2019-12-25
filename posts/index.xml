@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Johnny Ting</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Nov 2019 16:59:43 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Dec 2019 16:31:34 +0800</lastBuildDate>
     
 	<atom:link href="https://johnnyting.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建Jira 已破解</title>
+      <link>https://johnnyting.github.io/posts/%E6%90%AD%E5%BB%BAjira-%E5%B7%B2%E7%A0%B4%E8%A7%A3/</link>
+      <pubDate>Wed, 25 Dec 2019 16:31:34 +0800</pubDate>
+      
+      <guid>https://johnnyting.github.io/posts/%E6%90%AD%E5%BB%BAjira-%E5%B7%B2%E7%A0%B4%E8%A7%A3/</guid>
+      <description>参考链接 1.下载Jira wget https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-8.0.2.tar.gz 2.解压 tar -zxvf atlassian-jira-software-8.0.2.tar.gz 3.下载数据库对应的jdbc驱动，对应目录/home/uugm/workspace/atlassi</description>
+    </item>
     
     <item>
       <title>生产环境内存泄露分析</title>
