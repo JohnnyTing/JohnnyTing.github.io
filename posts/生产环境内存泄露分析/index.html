@@ -43,7 +43,7 @@
 
 <meta itemprop="datePublished" content="2019-11-27T16:59:43&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T16:59:43&#43;08:00" />
-<meta itemprop="wordCount" content="2005">
+<meta itemprop="wordCount" content="3659">
 
 
 
@@ -256,7 +256,7 @@ Swap:      0B         0B          0B
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019112717:28:06.png" alt="" /></p>
 
-<p>正如我们的猜想一样，确实和grpc有关，并且是grpc中依赖的netty库有关。由上图可知netty中的worker创建的WeakHashMap对象没有被回收，持续累加从而导致内存一直增加。</p>
+<p>正如我们的猜想一样，确实和grpc有关，并且是grpc中依赖的netty库有关。由上图可知netty中的worker的WeakHashMap数组中存在大量对象没有被回收，从而导致内存一直增加。</p>
 
 <p>5.经过一番google，然后找到了是netty版本的问题，我们项目中grpc版本是1.0.0，其中它依赖的netty版本是4.1.3.Final，此版本存在内存泄露。具体可以看<a href="https://github.com/grpc/grpc-java/issues/2358">https://github.com/grpc/grpc-java/issues/2358</a>。</p>
 
@@ -267,7 +267,7 @@ Swap:      0B         0B          0B
 <pre><code class="language-textile">but the issue is fixed in Netty 4.1.6.Final.
 </code></pre>
 
-<p>在Netty 4.1.6.Final版本修复了这个bug，我们就更新grpc版本来解决它。grpc版本应该小幅度提升并保证能解决此bug，以免项目中使用grpc的一些方法被新版本废弃，从而影响业务系统不能正常使用。我们就提升grpc到1.0.3，此版本netty为4.1.6.Final</p>
+<p>在Netty 4.1.6.Final版本修复了这个bug，我们就更新grpc版本来解决它。grpc版本应该小幅度提升并保证能解决此bug，以免项目中使用的一些方法被新版本废弃不能使用。我们就提升grpc到1.0.3，此版本netty为4.1.6.Final</p>
 
 <p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019112717:32:21.png" alt="" /></p>
 
@@ -342,7 +342,142 @@ plugin :tmp_restart
 
 <p>8.经过上面更改之后的内存记录</p>
 
-<pre><code>第一天：
+<p>第一天:</p>
+
+<pre><code>➜  ~ free -h
+      total        used        free      shared  buff/cache   available
+Mem:   7.8G        5.2G        806M         14M        1.8G        2.3G
+Swap:   0B          0B          0B
+
+➜  ~ top
+PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+3577 uugm     20   0 5750012 1.217g  19884 S   0.0 15.6   5:07.58 java (rpc)
+7354 root     20   0 2716908 984140  11928 S   0.0 12.0   3:36.96 ruby (puma: worker 0)
+2672 uugm     20   0 5064376 857924   9216 S   0.0 10.5   4:59.27 java (ext-jcb)
+2532 uugm     20   0 5778256 691360  22564 S   0.0  8.5   2:23.33 java (play-rpc)
+8558 root     20   0 2318568 591512  11860 S   0.0  7.2   0:57.80 ruby (puma: worker 1)
+4015 uugm     20   0 4452948 379472  19300 S   0.0  4.6   0:49.91 java
+2628 uugm     20   0 1181244 329372  13344 S   0.0  4.0   1:28.98 node
+3705 root     20   0 1109064 131188   4808 S   0.0  1.6   0:08.20 ruby 
+
+</code></pre>
+
+<p>第二天:</p>
+
+<pre><code>➜  ~ free -h
+      total        used        free      shared  buff/cache   available
+Mem:   7.8G        5.0G        1.0G         14M        1.8G        2.5G
+Swap:   0B          0B          0B
+
+➜  ~ top
+PID USER     PR  NI    VIRT    RES   SHR S %CPU   %MEM     TIME+ COMMAND
+3577 uugm    20   0 5755144 1.269g  19884 S   0.0 16.3   7:27.48 java (rpc)
+2672 uugm    20   0 5064376 857924   9216 S   0.3 10.5   5:14.08 java (ext-jcb)
+8558 root    20   0 2453736 733712  11896 S   0.0  9.0   3:17.42 ruby (puma: worker 1)
+2532 uugm    20   0 5780304 672312  22564 S   0.0  8.2   3:25.27 java (play-rpc)
+12938 root   20   0 2321756 576872  11844 S   0.3  7.1   0:34.98 ruby (puma: worker 0)
+4015 uugm    20   0 4452948 358768  19300 S   0.3  4.4   1:06.05 java
+2628 uugm    20   0 1183744 333516  13344 S   0.0  4.1   1:31.31 node
+3705 root    20   0 1109064 131216   4808 S   0.0  1.6   0:12.56 ruby
+ 
+这里可以发现puma worker-0 进程的pid由7354变为12938，是因为当此worker内存占用过高时，puma_worker_killer将其重启了，从worker kill日志信息也可以看到。（之后worker pid发生变化都是这个原因，不在赘述了）
+</code></pre>
+
+<pre><code>第三天：
+
+➜  ~ free -h
+      total        used        free      shared  buff/cache   available
+Mem:   7.8G        5.6G        763M         14M        1.4G        1.9G
+Swap:   0B          0B          0B
+
+第四天:
+
+➜  ~ free -h
+      total        used        free      shared  buff/cache   available
+Mem:   7.8G        5.4G       965M         14M        1.5G        2.1G
+Swap:   0B          0B          0B
+
+第五天：
+➜  ~ free -h
+      total        used        free      shared  buff/cache   available
+Mem:   7.8G        5.1G        1.0G         14M        1.6G        2.4G
+Swap:   0B          0B          0B
+
+第六天：
+➜  ~ free -h
+      total        used        free      shared  buff/cache   available
+Mem:   7.8G        5.5G        1.0G         14M        1.2G        1.9G
+Swap:   0B          0B          0B
+
+第七天：
+➜  ~ free -h
+      total        used        free      shared  buff/cache   available
+Mem:   7.8G        6.1G        134M         14M        1.5G        1.3G
+Swap:   0B          0B          0B
+</code></pre>
+
+<p>经过一周的观察，并没有发现服务器宕机，是好事。但是我们看到rpc进程内存还是在递增，ruby的内存占用经过puma_worker_killer算是得到了缓解。那我们重新看下java进程的内存占用问题。</p>
+
+<p>9.重新dump一份堆二进制文件，打开MAT软件。</p>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019122616:24:46.png" alt="" /></p>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019122616:24:52.png" alt="" /></p>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019122616:24:57.png" alt="" /></p>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019122616:25:00.png" alt="" /></p>
+
+<p>可以看到跟之前的可疑问题不一样了，java.lang.ref.Finalizer和org.postgresql.jdbc.PgConnection这两个类的对象占用率比较高。结合上面的可疑点3、可疑点4，很有可能是数据库连接未关闭的问题。</p>
+
+<p>打开数据库连接对象的具体信息：</p>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019122616:27:54.png" alt="" /></p>
+
+<p><img src="https://dingxu66.oss-cn-beijing.aliyuncs.com/img/Yinxiang_2019122616:27:59.png" alt="" /></p>
+
+<p>上图可以看到我们项目com.ut.uugm.core.assessment.AssessmentBusiness类可能存在问题。我们就具体看下代码：</p>
+
+<pre><code class="language-java">private static final SqlSessionFactory SESSION = MybatisConfigure.sqlSessionFactory();
+    public Optional&lt;InternalBusiness&gt; getInternalBusinessScore(long assessmentId, String packageName) {
+        try (SqlSession sqlSession = SESSION.openSession(true)) {
+           do something
+        }
+    }
+</code></pre>
+
+<p>在AssessmentBusiness类中可以看到很多用try-with-resources方式来自动关闭资源，首先我们需要了解为啥这种方式能自动关闭资源，是因为资源类实现了java.lang.AutoCloseable接口，那么mybatis的org.apache.ibatis.session.SqlSession接口是否继承了此接口呢</p>
+
+<pre><code class="language-java">public interface SqlSession extends Closeable {
+    &lt;T&gt; T selectOne(String var1);
+    &lt;T&gt; T selectOne(String var1, Object var2);
+    something...
+}
+
+public interface Closeable extends AutoCloseable {
+    public void close() throws IOException;
+}
+</code></pre>
+
+<p>可见SqlSession继承了此接口。通过测试，在try语句块后不能再次调用sqlSession，资源应该是被关闭了的。</p>
+
+<p>既然问题定位到这里了，还是要看看代码的其他地方，我们看到这里定义了个静态常量：</p>
+
+<pre><code class="language-java">private static final SqlSessionFactory SESSION = MybatisConfigure.sqlSessionFactory()
+</code></pre>
+
+<p>我们知道静态常量存在方法区（在Hotspot中，jdk1.8以下被称为永久代，jdk1.8以上被称为元空间），此区域存放类的基本信息，GC频率很低。如果常量没有被引用则可以被回收，因为很多业务类都使用此方式创建SqlSessionFactory，并且MybatisConfigure.sqlSessionFactory()也创建的是一个单例对象，所以多个类的SESSION应该指向是同一个SqlSessionFactory，通过MAT看SESSION哈希地址相同也可以验证。那么多个类都持有此SESSION，此常量不被回收。你可能会问：Mybatis的SqlSessionFactory不是一个应用程序就该产生一个吗，然后由它创建SqlSession，此SESSION符合要求。但是需要注意的是，这里不是SqlSessionFactory产生一个实例的问题，而是常量没被回收导致其引用的数据库连接类也没被释放的问题。</p>
+
+<p>这里我们稍微改下代码，去掉静态常量，使用下面方式获取session：</p>
+
+<pre><code class="language-java">try (SqlSession sqlSession = MybatisConfigure.sqlSessionFactory().openSession(true)) {
+    do something...
+}
+</code></pre>
+
+<p>修改获取session代码后的内存记录：</p>
+
+<pre><code>
 </code></pre>
 <ul class="pa0">
   
